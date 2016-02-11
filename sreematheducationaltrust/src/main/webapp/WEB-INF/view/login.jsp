@@ -19,11 +19,12 @@
 		</div>	
 		<div class="col-lg-4">
 			<div class="loginpanel">
-				 <c:url value="/j_spring_security_check" var="loginurl"/>
-				<form:form action="${loginUrl}" id="login" commandName="adminuser" method="post" accept-charset="UTF-8" role="form">
+				
+				 
+				<form:form action="j_spring_security_check" id="login" commandName="adminuser" method="post" accept-charset="UTF-8" role="form">
 					  <div class="form-group">
 					    <label for="username">User Name</label>
-					    <input type="text" class="form-control" id="userName" name="email" placeholder="User Name">
+					    <input type="text" class="form-control" id="userName" name="userName" placeholder="User Name">
 					  </div>
 					  <div class="form-group">
 					    <label for="password">Password</label>

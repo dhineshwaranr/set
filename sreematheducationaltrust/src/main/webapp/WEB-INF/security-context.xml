@@ -8,7 +8,9 @@
    <http pattern="/resources/**" security="none"/>
    <http pattern="/login*" security="none"/>
    <http pattern="/forgotpassword" security="none"/>
-    
+   <http pattern="/dashboard" security="none"/> 
+   
+   
    <http auto-config="true" use-expressions="true" >  
    <access-denied-handler error-page="/403page" />  
        
@@ -16,22 +18,20 @@
    
      <form-login login-page='/login' authentication-failure-url="/login?error=1" 
      username-parameter="userName"  password-parameter="password" 
-     login-processing-url="/j_spring_security_check" default-target-url="/asdasd"  always-use-default-target="true" />  
+     default-target-url="/dashboard"  always-use-default-target="true" />  
  
   <logout logout-success-url="/login?logout" delete-cookies="JSESSIONID" invalidate-session="true" />  
    
    <remember-me data-source-ref="dataSource" token-validity-seconds="86400"/>
    <headers/>
    </http> 
- 
-  
   
    <authentication-manager erase-credentials="false" >  
    <authentication-provider>  
    <password-encoder ref="encoder" />    
     <jdbc-user-service data-source-ref="dataSource"   
-    users-by-username-query="select userName,password from adminUsers where userName=?"  
-    authorities-by-username-query="select userName,role from adminUsers where userName =? " />  
+    users-by-username-query="select user_name,password from adminUsers where user_name=?"  
+    authorities-by-username-query="select u.user_name,role from roles where u.user_name=?" />  
    </authentication-provider>  
    </authentication-manager>  
  

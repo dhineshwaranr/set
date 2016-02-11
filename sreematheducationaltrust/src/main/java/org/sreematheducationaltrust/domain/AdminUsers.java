@@ -11,13 +11,9 @@ public class AdminUsers {
 	@Id
 	@GeneratedValue
 	private int id;
-	
 	@Column(name="user_name")
 	private String userName;
 	private String password;
-	private Boolean isAdmin;
-	@Column(name="role")
-	private String role;
 	
 	public int getId() {
 		return id;
@@ -37,18 +33,5 @@ public class AdminUsers {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Boolean getIsAdmin() {
-		return isAdmin;
-	}
-	public void setIsAdmin(Boolean isAdmin) {
-		this.isAdmin = isAdmin;
-	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
-	
 	
 }
