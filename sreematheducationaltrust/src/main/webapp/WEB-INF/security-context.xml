@@ -31,7 +31,7 @@
    <password-encoder ref="encoder" />    
     <jdbc-user-service data-source-ref="dataSource"   
     users-by-username-query="select user_name,password from adminUsers where user_name=?"  
-    authorities-by-username-query="select u.user_name,role from roles where u.user_name=?" />  
+    authorities-by-username-query="select user_name,role from adminUsers where user_name=?" />  
    </authentication-provider>  
    </authentication-manager>  
  

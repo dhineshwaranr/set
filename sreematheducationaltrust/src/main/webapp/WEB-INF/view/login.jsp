@@ -11,13 +11,24 @@
 <meta http-equiv="Expires" content="0" />
 <title></title>
 <%@ include file="css.jsp"%>
+<style>
+	@media screen and (min-width: 300px) and (max-width:1200px) {
+    body {
+        background-color: white;
+    }
+    #box{
+    	border:none !important;
+    }
+}
+</style>
 </head>
 <body>
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8">
-		</div>	
-		<div class="col-lg-4">
+		</div>
+			
+		<div class="col-lg-4 welcome-image">
 			<div class="loginpanel">
 				
 				 

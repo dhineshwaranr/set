@@ -4,9 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Dashboard - Sreemath Educational Trust</title>
+<title>Dashboard</title>
+
 </head>
 <body>
-HELLO USER!!!
+<div class="container">
+	<div class="row">
+		
+	</div>
+</div>
+
 </body>
 </html>

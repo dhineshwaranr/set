@@ -2,3 +2,10 @@
 	border:1px solid gray;	
 	height:auto;
 }
+.welcome-image{
+	border-left:1px solid red;
+	height:500px;
+}
+.loginpanel{
+	margin-top:200px;
+}
