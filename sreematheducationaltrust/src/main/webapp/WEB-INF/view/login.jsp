@@ -25,13 +25,18 @@
 <body>
 <div class="container">
 	<div class="row">
+ 
 		<div class="col-lg-8">
 		</div>
 			
 		<div class="col-lg-4 welcome-image">
+ 
+		<div class="col-lg-7">
+		</div>	
+		<div class="col-lg-1"><span class="v-line"></span></div>
+		<div class="col-lg-4">
+ 
 			<div class="loginpanel">
-				
-				 
 				<form:form action="j_spring_security_check" id="login" commandName="adminuser" method="post" accept-charset="UTF-8" role="form">
 					  <div class="form-group">
 					    <label for="username">User Name</label>
