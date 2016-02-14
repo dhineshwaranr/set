@@ -77,7 +77,7 @@
     </bean>
 
 	<!-- News Controller Service & DAO -->
-	<bean id="newsServiceManager" class="org.sreematheducationaltrust.service.NewsServiceImpl"></bean>
-	<bean id="newsDAO" class="org.sreematheducationaltrust.dao.NewsDAOImpl"></bean>
+	<bean id="adminTaskPanelService" class="org.sreematheducationaltrust.service.AdminTaskPanelServiceImpl"></bean>
+	<bean id="adminTaskPanelDAO" class="org.sreematheducationaltrust.dao.AdminTaskPanelDAOImpl"></bean>
    
 </beans>

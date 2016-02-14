@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.sreematheducationaltrust.domain.Gallery;
 import org.sreematheducationaltrust.domain.News;
-import org.sreematheducationaltrust.service.NewsService;
+import org.sreematheducationaltrust.service.AdminTaskPanelService;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
-	NewsService newsServiceManager;
+	AdminTaskPanelService newsServiceManager;
 	
 	/*@RequestMapping("/dashboard")
 	public ModelAndView dashboard(){
@@ -47,10 +47,10 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping(value="/people", method=RequestMethod.GET)
+	@RequestMapping(value="/ourtrust", method=RequestMethod.GET)
 	public String people(){	
-		System.out.println("IN-Gallery");
-		return "people";
+		System.out.println("In-PROPLE");
+		return "ourtrust";
 	}
 		
 	public ModelAndView populateModelAndView(){

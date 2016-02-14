@@ -8,16 +8,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.validation.BindingResult;
+import org.sreematheducationaltrust.domain.Events;
 import org.sreematheducationaltrust.domain.News;
 import org.sreematheducationaltrust.io.UserResponse;
-import org.sreematheducationaltrust.service.NewsService;
+import org.sreematheducationaltrust.service.AdminTaskPanelService;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminTaskPanelController {
 
 	@Autowired
-	NewsService newsServiceManager;
+	AdminTaskPanelService adminTaskPanelService;
 	
 	@RequestMapping(value="/taskPanel",method=RequestMethod.GET)
 	public String taskPanel(){
@@ -34,17 +35,19 @@ public class AdminTaskPanelController {
 			} else {
 				news.setImage(false);
 			}
-			return newsServiceManager.newsPost(news);
+			return adminTaskPanelService.newsPost(news);
 		}
 		return null;
 	}
 	
-	@RequestMapping("{/[object Object]}")
-	public Object multipartImages(Object object){
-		System.out.println("MULTI");
+	@ResponseBody
+	@RequestMapping(value="/eventPost",method=RequestMethod.POST)
+	public UserResponse eventCreate(@ModelAttribute("events")Events events, BindingResult result){
+		//Events evententity = new Events();
+		if (events != null) {
+			return adminTaskPanelService.createEvent(events);
+		}
 		return null;
 	}
-	
-	
 	
 }

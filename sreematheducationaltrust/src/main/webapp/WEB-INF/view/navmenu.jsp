@@ -29,16 +29,7 @@
         </li>
       
         <li><a href="gallery">Gallery</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">People <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="people">History</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Feedback</a></li>
-          </ul>
-        </li>
+        <li><a href="ourtrust">Our Trust</a></li>
         <li class="pull-right"><a href="admin/taskPanel">Admin Task Panel</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->

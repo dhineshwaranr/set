@@ -11,7 +11,7 @@
    <http pattern="/dashboard" security="none"/>
    <http pattern="/getAllNews" security="none"/>
    <http pattern="/gallery" security="none"/>
-   <http pattern="/people" security="none"/>
+   <http pattern="/ourtrust" security="none"/>
    <http pattern="/taskPanel" security="none"/>  
    
    

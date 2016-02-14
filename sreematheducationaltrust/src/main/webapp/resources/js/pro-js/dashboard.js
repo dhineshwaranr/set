@@ -25,7 +25,6 @@ Dashboard.prototype.init = function(){
 }
 
 Dashboard.prototype.doOnPageLoad = function () {
-	console.log("IN-do-load");
 	common().getData(DashboardData.getAllNewsURL,data,Dashboard().fillnewspanel);
 };
 

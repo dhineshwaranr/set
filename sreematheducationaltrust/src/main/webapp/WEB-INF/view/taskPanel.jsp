@@ -150,11 +150,11 @@
 		</form:form>
 		</div>
 		<div role="tabpanel" class="row tab-pane fade" id="events" aria-labelledby="events-tab">
-			<form:form action="newsPost" id="newsPost" commandName="news" method="post" accept-charset="UTF-8" role="form" enctype="multipart/form-data">
+			<form:form action="eventPost" id="eventPost" commandName="events" method="post" accept-charset="UTF-8" role="form" enctype="multipart/form-data">
 					  <div class="row">
 						  <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						    <label for="username">Event Title</label>
-						    <input type="text" class="form-control" id="newsTitle" name="newsTitle" placeholder="Event Title">
+						    <label for="eventTitle">Event Title</label>
+						    <input type="text" class="form-control" id="eventTitle" name="eventTitle" placeholder="Event Title">
 						  </div>
 					  </div>
 					  <div class="row">
@@ -162,7 +162,7 @@
 							  <label for="newsCategory">From</label>
 							  	<div class="form-group">
 					                <div class='input-group date' id='eventfrom'>
-					                    <input type='text' class="form-control" />
+					                    <input type='text' class="form-control" name="eventFrom" id="eventFrom"/>
 					                    <span class="input-group-addon">
 					                        <span class="glyphicon glyphicon-calendar"></span>
 					                    </span>
@@ -173,7 +173,7 @@
 							  <label for="newsLang">To</label>
 							  		<div class="form-group">
 					                <div class='input-group date' id='eventto'>
-					                    <input type='text' class="form-control" />
+					                    <input type='text' class="form-control" name="eventTo" id="eventTo" />
 					                    <span class="input-group-addon">
 					                        <span class="glyphicon glyphicon-calendar"></span>
 					                    </span>
@@ -184,7 +184,7 @@
 					  <div class="row">
 						  <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
 							  <label for="newsCategory">Event Type</label>
-							  <select class="form-control" id="newsCategory" name="newsCategory">
+							  <select class="form-control" id="eventType" name="eventType">
 							    <option>General</option>
 							    <option>Meeting</option>
 							    <option>Official</option>
@@ -194,7 +194,7 @@
 							</div>
 							<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
 							  <label for="newsLang">Event Status</label>
-							  <select class="form-control" id="newsLang" name="newsLang">
+							  <select class="form-control" id="eventStatus" name="eventStatus">
 							    <option>Up Coming</option>
 							    <option>On Going</option>
 							    <option>Completed</option>
@@ -205,7 +205,7 @@
 							<div class="row">
 								<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
 								  <label for="comment">Event Description</label>
-								  <textarea class="form-control" rows="7" id="description" name="description"></textarea>
+								  <textarea class="form-control" rows="7" id="eventDescription" name="eventDescription"></textarea>
 								</div>	
 							</div>
 					  <div class="row pull-right">
@@ -224,10 +224,10 @@
 <%@ include file="js.jsp"%>
 
 <script type="text/javascript">
-/*jQuery(document).ready(function() {
-	var newspost = new News();
-	newspost.init();
-});*/
+jQuery(document).ready(function() {
+	var taskPanel = new TaskPanel();
+	taskPanel.init();
+});
 
 $('input:checkbox').change(
     function(){
@@ -238,7 +238,7 @@ $('input:checkbox').change(
         }
  });
 
- $(document).on('submit', '#newsPost', function(e) {
+ /*$(document).on('submit', '#newsPost', function(e) {
 			console.log('admin/newsPost');
 			$.ajaxForm({
 		        url: 'admin/newsPost',
@@ -249,7 +249,7 @@ $('input:checkbox').change(
 		        }
 		    }); 
 		    e.preventDefault();
-		}); 
+		}); */
     
   <!-- TABS -->
 (function($) {
@@ -305,7 +305,9 @@ $('input:checkbox').change(
 <script src="<c:url value='../resources/js/main.js' />"></script>
 <script src="<c:url value='../resources/js/moment-with-locales.js' />"></script>
 <script src="<c:url value='../resources/js/bootstrap-datetimepicker.js' />"></script>
-<%-- <script src="<c:url value='../resources/js/pro-js/news.js' />"></script> --%>
+<script src="<c:url value='/resources/js/pro-js/config.js' />"></script> 
+<script src="<c:url value='/resources/js/jquery.form.js' />"></script>
+<script src="<c:url value='../resources/js/pro-js/adminTaskPanel.js' />"></script>
 
 </script>
 </body>

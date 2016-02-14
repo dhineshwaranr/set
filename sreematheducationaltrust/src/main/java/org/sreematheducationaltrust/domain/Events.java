@@ -17,7 +17,14 @@ public class Events {
 	private Date eventTo;
 	private String eventType;
 	private String eventStatus;
+	private Boolean isImage;
 	
+	public Boolean getIsImage() {
+		return isImage;
+	}
+	public void setIsImage(Boolean isImage) {
+		this.isImage = isImage;
+	}
 	public int getId() {
 		return id;
 	}
