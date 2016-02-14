@@ -8,7 +8,11 @@
    <http pattern="/resources/**" security="none"/>
    <http pattern="/login*" security="none"/>
    <http pattern="/forgotpassword" security="none"/>
-   <http pattern="/dashboard" security="none"/> 
+   <http pattern="/dashboard" security="none"/>
+   <http pattern="/getAllNews" security="none"/>
+   <http pattern="/gallery" security="none"/>
+   <http pattern="/people" security="none"/>
+   <http pattern="/taskPanel" security="none"/>  
    
    
    <http auto-config="true" use-expressions="true" >  

@@ -4,16 +4,6 @@
  
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Dashboard</title>
-
-</head>
-<body>
-<div class="container">
-	<div class="row">
-		
-	</div>
-</div>
-
- 
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -27,17 +17,58 @@
 </head>
 <body>
 <div class="container">
-	<div class="row-fluid nav-menu">
+	<div class="row nav-menu">
 		<%@ include file="navmenu.jsp"%>
 	</div>
 	<hr>
-	<div class="row-fluid content">
-		<div class="col-lg-6 gray">
-			
+	<div class="row">
+		<div class="col-ls-12 col-md-12 col-sm-12 col-xs-12 news-slider" >
+			<div id="myCarousel" class="carousel slide">
+			  <!-- Carousel items -->
+			  <div class="carousel-inner">
+			    <div class="active item">
+			        <img src="http://placehold.it/300x200/888&text=Item 1" />
+			    </div>
+			    <div class="item">
+			        <img src="http://placehold.it/300x200/aaa&text=Item 2" />
+			    </div>
+			    <div class="item">
+			        <img src="http://placehold.it/300x200/444&text=Item 3" />
+			    </div>
+			  </div>
+			  <!-- Carousel nav -->
+			  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+			  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+			</div>
 		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="heading"><span>Today News</span></div>
+		<div id="newsPanel"></div>
+	</div>
+	<div class="row">
+		<div class="heading"><span>Today News</span></div>
+		<div id="newsPanel"></div>
 	</div>
 </div>
 <%@ include file="js.jsp"%>
- 
+<script src="<c:url value='/resources/js/pro-js/common.js' />"></script>
+<script src="<c:url value='/resources/js/pro-js/dashboard.js' />"></script> 
+<script src="<c:url value='/resources/js/pro-js/config.js' />"></script> 
+<script src="<c:url value='/resources/js/jquery.form.js' />"></script> 
+<script type="text/javascript">
+var $ = jQuery.noConflict();
+$(document).ready(function() {
+	var dashboard = new Dashboard();
+	dashboard.init();
+});
+
+// invoke the carousel
+$('#myCarousel').carousel({
+  interval: 30000
+});
+
+</script> 
 </body>
 </html>

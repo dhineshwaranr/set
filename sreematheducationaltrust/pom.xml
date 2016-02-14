@@ -45,6 +45,8 @@
 	</dependency>
     
     
+    
+    
     <dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-aop</artifactId>
@@ -95,7 +97,19 @@
 		<scope>runtime</scope>
 	</dependency>
   
-  
+  <!-- Jackson -->
+     <dependency>
+         <groupId>com.fasterxml.jackson.core</groupId>
+         <artifactId>jackson-databind</artifactId>
+         <version>2.2.3</version>
+  	</dependency>
+  	<!-- Jackson JSON Mapper -->
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>1.9.10</version>
+    </dependency>
+    
  <!-- Data Source -->
   	<dependency>
 	  <groupId>org.springframework</groupId>

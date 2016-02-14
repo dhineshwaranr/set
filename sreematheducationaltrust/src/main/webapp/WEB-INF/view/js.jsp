@@ -14,9 +14,8 @@
 <title><%=request.getAttribute("pageTitle")%></title>
 	
 	<script src="<c:url value='/resources/js/jquery.min.js' />"></script>
-	<script src="<c:url value='/resources/js/tether.min.js' />"></script>
 	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
-
+	
 
 </head>
 </html>

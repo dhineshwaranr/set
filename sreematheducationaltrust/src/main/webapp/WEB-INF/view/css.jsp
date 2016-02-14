@@ -13,6 +13,7 @@
 <META Http-Equiv="Expires" Content="0">
 
 <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.min.css'/>" type="text/css" />
+<link rel="stylesheet" href="<c:url value='/resources/css/font-awesome.min.css'/>" type="text/css" />
 <link rel="stylesheet" href="<c:url value='/resources/css/sreematheducationaltrust.css'/>" type="text/css" />
 
 </head>
