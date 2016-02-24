@@ -19,7 +19,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="" type="square"><a href="dashboard">Home<span class="sr-only">(current)</span></a></li>
-        <li><a href="">About us</a></li>
+        <li><a href="aboutus">About us</a></li>
         <li><a href="ourtrust">Service</a></li>
         <li><a href="ourtrust">Blogs</a></li>
         <li><a href="gallery">Gallery</a></li>

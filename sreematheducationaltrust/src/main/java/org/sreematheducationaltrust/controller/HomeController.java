@@ -47,10 +47,10 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping(value="/ourtrust", method=RequestMethod.GET)
+	@RequestMapping(value="/aboutus", method=RequestMethod.GET)
 	public String people(){	
-		System.out.println("In-PROPLE");
-		return "ourtrust";
+		System.out.println("In-aboutus");
+		return "aboutus";
 	}
 	
 	@RequestMapping(value="/digitalClock", method=RequestMethod.GET)

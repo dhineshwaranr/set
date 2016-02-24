@@ -17,6 +17,7 @@
 </head>
 <body>
 <div class="container">
+<%@ include file="footer.jsp"%>	
 	<div class="row nav-menu">
 		<%@ include file="navmenu.jsp"%>
 	</div>
@@ -56,7 +57,7 @@
 			
 		</div>
 	</div>
-<%@ include file="footer.jsp"%>	
+
 </div>
 <%@ include file="js.jsp"%>
 <script src="<c:url value='/resources/js/pro-js/common.js' />"></script>
