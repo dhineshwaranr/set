@@ -52,6 +52,12 @@ public class HomeController {
 		System.out.println("In-PROPLE");
 		return "ourtrust";
 	}
+	
+	@RequestMapping(value="/digitalClock", method=RequestMethod.GET)
+	public String showClock(){	
+		System.out.println("In-PROPLE");
+		return "digitalClock";
+	}
 		
 	public ModelAndView populateModelAndView(){
 		ModelAndView model = new ModelAndView();

@@ -215,14 +215,68 @@
 		</form:form>
 			
 		</div>
-		<div role="tabpanel" class="row tab-pane fade" id="gallery" aria-labelledby="gallery-tab">Gallery</div>
+		<div role="tabpanel" class="row tab-pane fade" id="gallery" aria-labelledby="gallery-tab">
+					<form:form action="addImages" id="addImages" commandName="images" method="post" accept-charset="UTF-8" role="form" enctype="multipart/form-data">
+					  <div class="row">
+						  <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						    <label for="galleryTitle">Add Title</label>
+						    <input type="text" class="form-control" id="galleryTitle" name="galleryTitle" placeholder="Title">
+						  </div>
+					  </div>
+					  <div class="row">
+						  <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							  <label for="newsCategory">On</label>
+							  	<div class="form-group">
+					                <div class='input-group date' id='eventfrom'>
+					                    <input type='text' class="form-control" name="heldon" id="heldon"/>
+					                    <span class="input-group-addon">
+					                        <span class="glyphicon glyphicon-calendar"></span>
+					                    </span>
+					                </div>
+					            </div>
+							</div>
+							<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    							<label for="newsCategory">Album</label>
+    							<span class="btn btn-default btn-file btn-block">
+      							Upload Image
+							      <input name="filesToUpload[]" id="filesToUpload" type="file" multiple="" title="Select an image file" />
+							    </span>
+  							</div>
+						</div>	
+					  <div class="row">
+						  <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							  <label for="newsCategory">Event Type</label>
+							  <select class="form-control" id="eventType" name="eventType">
+							    <option>General</option>
+							    <option>Meeting</option>
+							    <option>Official</option>
+							    <option>Function</option>
+							    <option>Medical camp</option>
+							  </select>
+							</div>
+							
+						</div>
+						<div class="row">
+							
+  						</div>
+  						<div class="row">
+	  						<div class="img-wrapper">
+	  						</div>
+  						</div>
+					  <div class="row pull-right">
+					  	<input type="submit" value="Post" name="Save" class="btn btn-success"></button>
+					  	<input type="submit" value="Clear" class="btn btn-danger"></button>
+					  </div>
+		</form:form>
+		</div>
+		
 	</div>
 </div>
 
 
 
 <%@ include file="js.jsp"%>
-
+<script src="<c:url value='/resources/js/imageUpload.js' />"></script>
 <script type="text/javascript">
 jQuery(document).ready(function() {
 	var taskPanel = new TaskPanel();

@@ -12,7 +12,8 @@
    <http pattern="/getAllNews" security="none"/>
    <http pattern="/gallery" security="none"/>
    <http pattern="/ourtrust" security="none"/>
-   <http pattern="/taskPanel" security="none"/>  
+   <http pattern="/taskPanel" security="none"/>
+   <http pattern="/digitalClock" security="none"/>  
    
    
    <http auto-config="true" use-expressions="true" >  

@@ -43,14 +43,20 @@
 		</div>
 	</div>
 	<hr>
-	<div class="row">
-		<div class="heading"><span>Today News</span></div>
-		<div id="newsPanel"></div>
+	
+	<div class="row allNewsSection">
+		<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+			<div class="heading"><span>Today News</span></div>
+			<div id="newsPanel"></div>
+		</div>
+		
+		<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 latestNewsBlogsSection">
+				<div class="heading"><span>Latest News Blogs</span></div>
+				<div id="newsPanels" class="latestNewsBlogs"></div>
+			
+		</div>
 	</div>
-	<div class="row">
-		<div class="heading"><span>Today News</span></div>
-		<div id="newsPanel"></div>
-	</div>
+<%@ include file="footer.jsp"%>	
 </div>
 <%@ include file="js.jsp"%>
 <script src="<c:url value='/resources/js/pro-js/common.js' />"></script>

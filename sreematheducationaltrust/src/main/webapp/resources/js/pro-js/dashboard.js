@@ -57,13 +57,14 @@ Dashboard.prototype.fillnewspanel = function (data) {
 		//console.log("GET-ALL-NEWS-->"+JSON.stringify(data));
 		$.each(data, function(i, obj) {
 			
-			defaulttemp += '<div class="col-lg-3 daily-news"id="'+obj.newsId+'">';
+			defaulttemp += '<div class="daily-news"id="'+obj.newsId+'">';
 			defaulttemp	+= '<div class="newsHeading"><b><span>'+obj.newsTitle+'</span></b></div>';
 			defaulttemp += '<div class="newsDescription">'+obj.description+'</div>';
 			defaulttemp	+= '</div>';
 			
 		});
 		$("#newsPanel").append(defaulttemp);
+		$("#newsPanels").append(defaulttemp);
 					
 	}
 	

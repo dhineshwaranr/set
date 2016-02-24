@@ -20,15 +20,41 @@
 }
 body{
 	font-family:'Lato-Light';
+	color:black !important;
+}
+.langChoose{
+	margin: 14px 0px 20px 0px;
+    padding: 2px 10px 0px 0px;
+    text-decoration: none;
+}
+.langChoose:hover{
+	text-decoration: none;
+}
+.navbar .navbar-nav li{
+	margin:0px 28px 0px 28px !important;
+	color:white !important;
+	
+}
+.navbar .navbar-nav li a{
+	color:white !important;
+	position: relative;
+}
+.navbar .navbar-nav li a:hover{
+	color:white !important;
+	font-size:15px;
+}
+.navbar-default {
+    background-color: #232F84 !important;
+    border-color: #232F84 !important;
 }
 .v-line{
   width: 0px;
   background-color: silver;
-  height: 500px;
+  height: 100%;
   float: left;
-  border: 1px ridge silver ;
-  border-radius: 2px;
-  margin-top:40px;
+  border: 2px ridge silver ;
+  border-radius: 1px;
+  margin-top:0px;
 }
 .loginpanel{
 	font-size:20px;
@@ -44,6 +70,7 @@ body{
 	display:none;
 }
 .news-slider{
+	border:1px solid #232F84;
 	height:auto !important;
 	width:100%;
 	padding:0px 0px 0px 0px !important;
@@ -55,18 +82,18 @@ body{
 }
 
 .heading{
-  background: #B8B8B8; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left, #B8B8B8 , #F8F8F8); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, #B8B8B8, #F8F8F8); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, #B8B8B8, #F8F8F8); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, #B8B8B8 , #F8F8F8);
+  background: #232F84; /* For browsers that do not support gradients */
+  //background: -webkit-linear-gradient(left, #232F84 , #F8F8F8); /* For Safari 5.1 to 6.0 */
+  //background: -o-linear-gradient(right, #232F84, #F8F8F8); /* For Opera 11.1 to 12.0 */
+  //background: -moz-linear-gradient(right, #232F84, #F8F8F8); /* For Firefox 3.6 to 15 */
+  //background: linear-gradient(to right, #232F84 , #F8F8F8);
   padding:5px 5px 5px 10px;
+  font-size:20px;
 }
 .dailynews{
 	display:inline-flex !important;
 }
 .daily-news{
-	//border:1px solid gray;
 	max-width:auto !important;
 	max-height:250px !important;
 	overflow:hidden;
@@ -74,7 +101,19 @@ body{
 	margin:5px 5px 5px 5px;
 	cursor:pointer;
 }
-
+.daily-news:hover{
+	border-left:2px solid #232F84;
+}
+.allNewsSection .latestNewsBlogsSection .daily-news{
+	overflow: hidden;
+	width:auto;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	line-height: 20px; /* fallback */
+	max-height: 80px; /* fallback */
+	-webkit-line-clamp: 2; /* number of lines to show */
+	-webkit-box-orient: vertical;	
+}
 .daily-news .newsDescription {
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -93,4 +132,204 @@ body{
 	-webkit-line-clamp: 2; /* number of lines to show */
 	-webkit-box-orient: vertical;
 }
+.footer{
+	border:1px solid gray;
+	width:auto;
+	height:500px;
+}
+.foot-col1, .foot-col2{
+	border:1px solid black;
+	
+	height:500px;
+}
 
+/*Image Upload*/
+.jcrop-holder {
+  direction: ltr;
+  text-align: left;
+  /* IE10 touch compatibility */
+  -ms-touch-action: none;
+}
+/* Selection Border */
+.jcrop-vline,
+.jcrop-hline {
+  background: #ffffff url("Jcrop.gif");
+  font-size: 0;
+  position: absolute;
+}
+.jcrop-vline {
+  height: 100%;
+  width: 1px !important;
+}
+.jcrop-vline.right {
+  right: 0;
+}
+.jcrop-hline {
+  height: 1px !important;
+  width: 100%;
+}
+.jcrop-hline.bottom {
+  bottom: 0;
+}
+/* Invisible click targets */
+.jcrop-tracker {
+  height: 100%;
+  width: 100%;
+  /* "turn off" link highlight */
+  -webkit-tap-highlight-color: transparent;
+  /* disable callout, image save panel */
+  -webkit-touch-callout: none;
+  /* disable cut copy paste */
+  -webkit-user-select: none;
+}
+/* Selection Handles */
+.jcrop-handle {
+  background-color: #333333;
+  border: 1px #eeeeee solid;
+  width: 7px;
+  height: 7px;
+  font-size: 1px;
+}
+.jcrop-handle.ord-n {
+  left: 50%;
+  margin-left: -4px;
+  margin-top: -4px;
+  top: 0;
+}
+.jcrop-handle.ord-s {
+  bottom: 0;
+  left: 50%;
+  margin-bottom: -4px;
+  margin-left: -4px;
+}
+.jcrop-handle.ord-e {
+  margin-right: -4px;
+  margin-top: -4px;
+  right: 0;
+  top: 50%;
+}
+.jcrop-handle.ord-w {
+  left: 0;
+  margin-left: -4px;
+  margin-top: -4px;
+  top: 50%;
+}
+.jcrop-handle.ord-nw {
+  left: 0;
+  margin-left: -4px;
+  margin-top: -4px;
+  top: 0;
+}
+.jcrop-handle.ord-ne {
+  margin-right: -4px;
+  margin-top: -4px;
+  right: 0;
+  top: 0;
+}
+.jcrop-handle.ord-se {
+  bottom: 0;
+  margin-bottom: -4px;
+  margin-right: -4px;
+  right: 0;
+}
+.jcrop-handle.ord-sw {
+  bottom: 0;
+  left: 0;
+  margin-bottom: -4px;
+  margin-left: -4px;
+}
+/* Dragbars */
+.jcrop-dragbar.ord-n,
+.jcrop-dragbar.ord-s {
+  height: 7px;
+  width: 100%;
+}
+.jcrop-dragbar.ord-e,
+.jcrop-dragbar.ord-w {
+  height: 100%;
+  width: 7px;
+}
+.jcrop-dragbar.ord-n {
+  margin-top: -4px;
+}
+.jcrop-dragbar.ord-s {
+  bottom: 0;
+  margin-bottom: -4px;
+}
+.jcrop-dragbar.ord-e {
+  margin-right: -4px;
+  right: 0;
+}
+.jcrop-dragbar.ord-w {
+  margin-left: -4px;
+}
+/* The "jcrop-light" class/extension */
+.jcrop-light .jcrop-vline,
+.jcrop-light .jcrop-hline {
+  background: #ffffff;
+  filter: alpha(opacity=70) !important;
+  opacity: .70!important;
+}
+.jcrop-light .jcrop-handle {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background-color: #000000;
+  border-color: #ffffff;
+  border-radius: 3px;
+}
+/* The "jcrop-dark" class/extension */
+.jcrop-dark .jcrop-vline,
+.jcrop-dark .jcrop-hline {
+  background: #000000;
+  filter: alpha(opacity=70) !important;
+  opacity: 0.7 !important;
+}
+.jcrop-dark .jcrop-handle {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background-color: #ffffff;
+  border-color: #000000;
+  border-radius: 3px;
+}
+/* Simple macro to turn off the antlines */
+.solid-line .jcrop-vline,
+.solid-line .jcrop-hline {
+  background: #ffffff;
+}
+/* Fix for twitter bootstrap et al. */
+.jcrop-holder img,
+img.jcrop-preview {
+  max-width: none;
+}
+.btn{
+  margin-right:2px;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+      margin-bottom: 0px;
+  /*margin:0 0 20px;*/
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 999px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+.img-wrapper{
+    display:inline-flex;
+}
+/* .well{
+	width: 278px;
+    height: 143px;
+} */
