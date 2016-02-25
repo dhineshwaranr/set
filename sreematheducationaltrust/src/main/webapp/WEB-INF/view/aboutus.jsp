@@ -10,39 +10,44 @@
 <body>
 <div class="container">
 	<%@ include file="footer.jsp"%>	
+	<hr>
 	<div class="row nav-menu">
 		<%@ include file="navmenu.jsp"%>
 	</div>
 	<div class="row startedDetails">
-		<div class="aboutusContent">
-<p><b>ABOUT SET</b><br></p>
-
-<p><b>WELCOME</b><br></p>
-
-<p>Dear Sir/Madam,<br></p>
-
-<p>It is our very special pleasure to introduce Annai Teresa Charitable Trust's Home as one of the outstanding institutions for the welfare of the most vulnerable childrens with special needs and mental/physical challenges as well as destitute children in Tamilnadu State, India.<br></p>
-
-<p>Our Founder, Mr. G. Gopi Sarathy, who hailed from a very poor family, had the vision of a JUST society ever since and felt the need for the rehabilitation through integration for disabled, orphaned and destitute children under one roof. Since having started in 2009 with 124 children, support and shelter. At present we house 110 children in total.</p><br>
-
-<p>The constant approach in reaching our objective of making the world a better place is the outcome of the generous contributions from the good hearted souls in India and abroad to whom the inmates of our homes, the staff an the management dedicate their deep thankfulness. ATCT creating a small group of hand selected medical and survival experts who venture into the most extreme and austere locations on this to educate local healthcare workers, provide remote medicine and donate supplies to developing areas so they can be self sufficient.</p><br>
-
-<p>ATCT a team willing to speak teach a medical class, treat patients, and help indigenous people who have never seen a practitioner.</p><br>
-
-<p>We are Team Annai Teresa Charitable Trust non-profit volunteer organization who relies on your sponsorship, donations and assistance to make all this possible.</p><br>
-
-<p>ATCT Save a Child's Heart medical facilities in India or during one of our medical missions to a developing country. Thousands of children from poor families around the world are alive today because of a small group of medical professionals who volunteer their time and expertise to perform cardiac surgery and train medical personnel.</p><br>
-
-<p>ATCT saves children with congenital heart defects who have almost no chance of surviving to adulthood in their native countries, and saves their lives with no political, cultural, religious, or racial preference whatsoever. Based in India, our mission is to improve the quality of Hospitalization Support : Open Heart Surgery , Closed Heart Surgery , Pediatric Cardiac Care, Cancer Care , Kidney Dialysis , Kidney Transplantation, for children from countries where the heart surgery they need is unobtainable.</p><br>
-
-<p><b>MISSION</b></p><br>
-
-<p>To inspire and nurture the human spirit.</p><br>
-
-<p><b>VISION</b></p><br>
-
-<p>To help with financial support to the Deserving/Destitute victims of contagious and non contagious Diseases across India. Rehabilitation support to the children, elders and also to the victims of Natural Devastations.</p><br>
-		
+		<div class=" row aboutusContent">
+			<div class="section-1">
+			<p><b>The Education Trust is a national non-profit advocacy organization that promotes high academic achievement for all students at all levels, particularly for students of color and low-income students. We were founded for one reason and one reason alone: to push, prod, and cajole our country toward educational justice.</b></p>		
+			<p>From our beginnings in the early 1990s, our unrelenting advocacy continues to be supported by solid data analysis, equity-focused legislative proposals, strong partnerships with leading organizations, and proven strategies to improve the educational outcomes of our nation’s youth.</p>
+			<p>With these tools we aim to expose — and eliminate — the gaps in opportunity by race and income that have led to enormous gaps in educational achievement, pre-K through college. These gaps can severely limit economic and social mobility.</p>
+			</div>
+			<div class="ourMission section-2">
+				<span class="heading">Our Mission</span>
+				<hr>
+				<p>The Education Trust promotes high academic achievement for all students at all levels — pre-kindergarten through college. Our goal is to close the gaps in opportunity and achievement that consign far too many young people — especially those from low-income families or who are black, Latino, or American Indian — to lives on the margins of the American mainstream.</p>
+			</div>
+		</div>
+		<div class="row advanceMission">
+		<div class="col-1 col-lg-6 col-ms-12 col-sm-12 col-xs-12">
+			<sapn class="heading">How We Advance Our Mission</sapn>
+			<hr>
+			<p>Although many organizations speak up for the adults employed by schools and colleges, we speak up for students, especially those whose needs and potential are often overlooked. We evaluate every policy, every practice, and every dollar spent through a single lens: what is right for students. We carry out our mission in three primary ways:</p>
+			<ul class="">
+				<li><p>We work alongside educators, parents, students, policymakers, and civic and business leaders in communities across the country, providing practical assistance in their efforts to transform schools and colleges into institutions that serve all students well.</p></li>
+				<li><p>We analyze local, state, and national data and use what we learn to help build broader understanding of achievement and opportunity gaps and the actions necessary to close them.</p></li>
+				<li><p>We actively work to shape and influence national and state policy, bringing lessons learned from on-the-ground work and from unflinching data analyses to build the case for policies that will help all students reach high levels of achievement.</p></li>
+			</ul>
+		</div>
+		<div class="col-2 col-lg-6 col-ms-12 col-sm-12 col-xs-12">
+			<sapn class="heading">Our Core Beliefs</sapn>
+			<hr>
+			<ul class="">
+				<li><p>We believe in the power of education to close the gaps that separate low-income students and students of color from other young Americans.</p></li>
+				<li><p>We believe schools and colleges, appropriately organized, can help virtually all students master the knowledge they need to succeed</p></li>
+				<li><p>We believe long-standing gaps in opportunity, achievement, and attainment have roots inside and outside of schools. And though we know these gaps are stubborn, we also know they are not inevitable.</p></li>
+				<li><p>We believe a strong education improves the lives of young people, is vital to sustaining our democracy, and strengthens America.</p></li>
+			</ul>
+			</div>
 		</div>
 	</div>
 	<div class="row trustity">
@@ -56,6 +61,7 @@
 		c
 		</div>
 	</div>
+	<%@ include file="footerBottom.jsp"%>
 </div>
 
 <%@ include file="js.jsp"%>

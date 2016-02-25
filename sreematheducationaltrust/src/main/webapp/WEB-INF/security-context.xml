@@ -9,9 +9,10 @@
    <http pattern="/login*" security="none"/>
    <http pattern="/forgotpassword" security="none"/>
    <http pattern="/dashboard" security="none"/>
+   <http pattern="/aboutus" security="none"/>
+   <http pattern="/services" security="none"/>
    <http pattern="/getAllNews" security="none"/>
    <http pattern="/gallery" security="none"/>
-   <http pattern="/aboutus" security="none"/>
    <http pattern="/taskPanel" security="none"/>
    
    

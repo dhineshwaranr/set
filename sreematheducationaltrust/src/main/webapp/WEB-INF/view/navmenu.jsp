@@ -20,7 +20,7 @@
       <ul class="nav navbar-nav">
         <li class="" type="square"><a href="dashboard">Home<span class="sr-only">(current)</span></a></li>
         <li><a href="aboutus">About us</a></li>
-        <li><a href="ourtrust">Service</a></li>
+        <li><a href="services">Service</a></li>
         <li><a href="ourtrust">Blogs</a></li>
         <li><a href="gallery">Gallery</a></li>
         <li><a href="ourtrust">Video</a></li>
@@ -30,4 +30,5 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<hr>
 </div>

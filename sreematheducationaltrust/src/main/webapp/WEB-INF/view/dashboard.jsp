@@ -18,6 +18,7 @@
 <body>
 <div class="container">
 <%@ include file="footer.jsp"%>	
+	<hr>
 	<div class="row nav-menu">
 		<%@ include file="navmenu.jsp"%>
 	</div>
@@ -38,8 +39,8 @@
 			    </div>
 			  </div>
 			  <!-- Carousel nav -->
-			  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-			  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+			  <!-- <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+			  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a> -->
 			</div>
 		</div>
 	</div>
@@ -57,7 +58,8 @@
 			
 		</div>
 	</div>
-
+	<hr>
+<%@ include file="footerBottom.jsp"%>
 </div>
 <%@ include file="js.jsp"%>
 <script src="<c:url value='/resources/js/pro-js/common.js' />"></script>
