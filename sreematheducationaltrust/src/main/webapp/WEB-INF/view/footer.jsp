@@ -1,13 +1,15 @@
 <div class="row footer">
 	<div class="footContent col-lg-3 col-md-4 col-sm-12 col-xs-12">
 		<div class="helpDesk">
-			<span class="fa fa-bluetooth fa-2x"></span>
-			<span class="ContactNo">+91&nbsp9876543210</span>
+			<div class="mobileNo">
+				<span class="fa fa fa-phone"></span>
+				<span class="ContactNo">+91&nbsp9876543210</span>
+			</div>
+			<div class="Contactemail">
+				<span class="fa fa fa-envelope-o"></span>
+				<span class="">set@gmail.com</span>	
+			</div>
 		</div>
-	</div>
-	<div class="footContent col-lg-3 col-md-4 col-sm-12 col-xs-12">
-		<span class="fa fa-bluetooth fa-2x"></span>
-		<span class="Contactemail">set@gmail.com</span>
 	</div>
 	<div class="footContent col-lg-3 col-md-4 col-sm-12 col-xs-12 pull-right">
 			<div class="footer-social-icons">

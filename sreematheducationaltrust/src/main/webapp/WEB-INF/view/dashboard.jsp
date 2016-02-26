@@ -65,7 +65,10 @@
 <script src="<c:url value='/resources/js/pro-js/common.js' />"></script>
 <script src="<c:url value='/resources/js/pro-js/dashboard.js' />"></script> 
 <script src="<c:url value='/resources/js/pro-js/config.js' />"></script> 
-<script src="<c:url value='/resources/js/jquery.form.js' />"></script> 
+<script src="<c:url value='/resources/js/jquery.form.js' />"></script>
+
+
+ 
 <script type="text/javascript">
 var $ = jQuery.noConflict();
 $(document).ready(function() {

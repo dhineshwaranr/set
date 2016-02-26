@@ -342,6 +342,86 @@ hr {
 	text-decoration:none;
 	color:#232F84;;
 }
+.footContent .helpDesk{
+	display:inline-flex;
+}
+.footContent .helpDesk div {
+	margin: 10px 30px 0px 0px;
+}
+.footerBottom .bfContent .socialMediaShare ul{
+	list-style:none;
+	color:white;
+	display:inline-flex;
+	padding:0px !important;
+	cursor:pointer;
+}
+.footerBottom .bfContent .socialMediaShare ul li{
+	margin:0px 15px 9px 3px;
+}
+.footerBottom .bfContent .pageTranslate .dropdown .dropdown-menu{
+	background-color: #232F84;
+}
+.footerBottom .bfContent .pageTranslate .dropdown .dropdown-menu li a{
+	color:white !important;
+}
+.footerBottom .bfContent .pageTranslate .dropdown .dropdown-menu li a:hover{
+	color:black !important;
+}
+.footerBottomTwo .flyToTop i{
+	margin:0px 0px 0px 100px;
+}
+.footerBottomTwo .flyToTop{
+	margin:-16px 0px 0px 0px;
+}
+
+/**/
+
+#return-to-top {
+    position: fixed;
+    bottom: 5px;
+    right: 10px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
+}
+
+
+/* Extra Things */
+
+/**/
+
 /*Image Upload*/
 .jcrop-holder {
   direction: ltr;

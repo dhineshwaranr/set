@@ -2,7 +2,29 @@
 <div class="row footerBottom">
 	<div class="bfContent col-lg-3 col-md-6 col-sm-12 col-xs-12">
 		<h3 class="no-span">Social Media</h3>
-		<div></div>
+		<div class="socialMediaShare">
+			<ul>
+				<li><a><i class="fa fa-facebook"></i></a></li>
+				<li><a><i class="fa fa-twitter"></i></a></li>
+				<li><a><i class="fa fa-rss-square"></i></a></li>
+				<li><a><i class="fa fa-yahoo"></i></a></li>
+				<li><a><i class="fa fa-pinterest"></i></a></li>
+			</ul>
+		</div>
+		<div class="pageTranslate">
+			<div class="dropdown langChoose">
+			<h3 class="no-span">Translate Page</h3>
+		    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Choose Language<b class="caret"></b></a>
+		    <ul class="dropdown-menu">
+		        <li><a href="#">Tamil</a></li>
+		        <li><a href="#">English</a></li>
+		        <li><a href="#">Malayalam</a></li>
+		        <li><a href="#">Hindi</a></li>
+		        <li><a href="#">Telegu</a></li>
+		        <li><a href="#">Kannada</a></li>
+		    </ul>
+		</div>
+		</div>
 	</div>
 	<div class="bfContent col-lg-3 col-md-6 col-sm-12 col-xs-12">
 		<h3 class="no-span">Our Offices</h3>
@@ -73,30 +95,33 @@
 <hr>
 <div class="row footerBottomTwo">
 		<div class=" col-lg-5">
-		<div class="nav subCategory">
-			   <nav class="navbar navbar-default" role="navigation" id="topmenu">
-			    <ul class="nav navbar-nav">
-			      <li class="dropdown">
-			        <a href="#" data-toggle="collapse" data-target="#one">Home</a>
-			      </li>
-			      <li class="dropdown">
-			        <a href="#" data-toggle="collapse" data-target="#two">Events</a>
-			      </li>
-			      <li class="dropdown">
-			        <a href="#" data-toggle="collapse" data-target="#three">Donate</a>
-			      </li>
-			      <li class="dropdown">
-			        <a href="#" data-toggle="collapse" data-target="#three">Service</a>
-			      </li>
-			    </ul>
-			  </nav>
-    	</div>
+			<div class="nav subCategory">
+				   <nav class="navbar navbar-default" role="navigation" id="topmenu">
+				    <ul class="nav navbar-nav">
+				      <li class="dropdown">
+				        <a href="#" data-toggle="collapse" data-target="#one">Home</a>
+				      </li>
+				      <li class="dropdown">
+				        <a href="#" data-toggle="collapse" data-target="#two">Events</a>
+				      </li>
+				      <li class="dropdown">
+				        <a href="#" data-toggle="collapse" data-target="#three">Donate</a>
+				      </li>
+				      <li class="dropdown">
+				        <a href="#" data-toggle="collapse" data-target="#three">Service</a>
+				      </li>
+				    </ul>
+				  </nav>
+	    	</div>
     	</div>
     	<div class="col-lg-5">
 			<div class="copyrights">
 				<p>© 2016 SET - by SAT </p>
 			</div>
 		</div>
-		<div class="flyToTop col-lg-2"></div>
+		<div class="flyToTop col-lg-2">
+			<a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+		</div>
 	</div>
 	</div>
+	
