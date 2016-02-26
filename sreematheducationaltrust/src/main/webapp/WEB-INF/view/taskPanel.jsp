@@ -47,6 +47,9 @@
 					<li role="presentation" class="next">
 						<a href="#gallery" role="tab" id="gallery-tab" data-toggle="tab" aria-controls="gallery"> <span class="text">Gallery</span></a>
 					</li>
+					<li role="presentation" class="next">
+						<a href="#extras" role="tab" id="extras-tab" data-toggle="tab" aria-controls="extras"> <span class="text">Extras</span></a>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -269,6 +272,17 @@
 					  </div>
 		</form:form>
 		</div>
+		<div role="tabpanel" class="row tab-pane fade in active" id="extras" aria-labelledby="extras-tab">
+	    	<form:form action="extras" id="extras" commandName="extras" method="post" accept-charset="UTF-8" role="form">
+			<div class="row">
+				<div class="form-group col-lg-3 col-md-12 col-sm-12 col-xs-12">
+				    <label for="galleryTitle">Add Language</label>
+				    <input type="text" class="form-control" id="galleryTitle" name="galleryTitle" placeholder="Language Name">
+				</div>
+			</div>
+			
+			</form:form>
+		</div>
 		
 	</div>
 </div>
@@ -305,7 +319,7 @@ $('input:checkbox').change(
 		    e.preventDefault();
 		}); */
     
-  <!-- TABS -->
+  <!-- TABS, -->
 (function($) {
 
   'use strict';
