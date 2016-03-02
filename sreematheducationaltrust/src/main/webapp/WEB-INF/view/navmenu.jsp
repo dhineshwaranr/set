@@ -21,10 +21,10 @@
         <li class="" type="square"><a href="dashboard">Home<span class="sr-only">(current)</span></a></li>
         <li><a href="aboutus">About us</a></li>
         <li><a href="services">Service</a></li>
-        <li><a href="ourtrust">Blogs</a></li>
+        <li><a href="blog">Blog</a></li>
         <li><a href="gallery">Gallery</a></li>
-        <li><a href="ourtrust">Video</a></li>
-        <li><a href="ourtrust">Contact us</a></li>
+        <li><a href="videos">Video</a></li>
+        <li><a href="contactus">Contact us</a></li>
         <li class="pull-right"><a href="admin/taskPanel">Admin Task Panel</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->

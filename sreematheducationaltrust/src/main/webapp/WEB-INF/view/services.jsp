@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>About us</title>
+<title>Services - Sreemath Educational Trust</title>
 <%@ include file="css.jsp"%>
 </head>
 <body>
@@ -15,6 +15,7 @@
 		<%@ include file="navmenu.jsp"%>
 	</div>
 	<div class="row whatWeDo">
+	<h1>Services</h1>
 		<div class="service col-lg-4 col-md-12 col-sm-12 col-xs-12">
 			<div class="headingStyle1">
 				<span><a href="#">K-12 Policy & Practice</a></span>

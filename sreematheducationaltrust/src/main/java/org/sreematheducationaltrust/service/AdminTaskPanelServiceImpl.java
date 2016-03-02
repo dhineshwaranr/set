@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.sreematheducationaltrust.dao.AdminTaskPanelDAO;
 import org.sreematheducationaltrust.domain.Events;
+import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.News;
+import org.sreematheducationaltrust.io.BaseResponse;
 import org.sreematheducationaltrust.io.UserResponse;
 
 public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
@@ -16,6 +18,9 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 	public UserResponse newsPost(News news) {
 		UserResponse response = new UserResponse();
 		try{
+			Language lang = new Language();
+			lang.getId(news.getLanguage().getLanguage());
+			news.setLanguage(news.getLanguage());
 			adminTaskPanelDAO.newsPost(news);
 			response.setStatusCode("1");
 			response.setStatusMessage("Success");
@@ -53,6 +58,18 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 	public List<Events> getAllEvents() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public BaseResponse addLanguage(Language language) {
+		BaseResponse response = new BaseResponse();
+		try{
+			adminTaskPanelDAO.addLanguage(language);
+			response.setStatusCode("1");
+			response.setStatusMessage("Language Added");
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return response;
 	}
 
 }

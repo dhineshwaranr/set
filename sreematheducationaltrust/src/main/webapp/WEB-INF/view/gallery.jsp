@@ -153,10 +153,11 @@
 </head>
 <body>
 <div class="container">
+	<%@ include file="footer.jsp"%>
+	<hr>
 	<div class="row nav-menu">
 		<%@ include file="navmenu.jsp"%>
 	</div>
-	<hr>
 	<div class="row">
     <h1>Gallery</h1>
         <hr>
@@ -243,11 +244,9 @@
 				</div>
 			</div>
 		</div>
-
-
+		<hr>
+		<%@ include file="footerBottom.jsp"%>
 	</div>
-	
-
 <%@ include file="js.jsp"%>
 <script src="<c:url value='/resources/js/pro-js/common.js' />"></script>
 <%-- <script src="<c:url value='/resources/js/pro-js/gallery.js' />"></script> --%> 

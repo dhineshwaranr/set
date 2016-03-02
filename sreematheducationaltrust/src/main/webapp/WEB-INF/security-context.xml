@@ -11,8 +11,12 @@
    <http pattern="/dashboard" security="none"/>
    <http pattern="/aboutus" security="none"/>
    <http pattern="/services" security="none"/>
-   <http pattern="/getAllNews" security="none"/>
+   <http pattern="/blog" security="none"/>
+   <http pattern="/videos" security="none"/>
    <http pattern="/gallery" security="none"/>
+   <http pattern="/contactUs" security="none"/>
+   
+   <http pattern="/getAllNews" security="none"/>
    <http pattern="/taskPanel" security="none"/>
    
    

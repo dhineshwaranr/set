@@ -15,9 +15,10 @@ var TaskPanel = function(){
 TaskPanel.prototype.init = function(){
 	try{
 		console.log("NEWS INIT");
-		this.doOnPageLoad();
 		this.newsPost();
+		this.doOnPageLoad();
 		this.eventPost();
+		this.addLanguage();
 	}catch(e){
 	}
 }
@@ -39,6 +40,10 @@ TaskPanel.prototype.eventPost = function () {
 	var url = "admin/"+$(this).attr("action");
 	common().ajaxForm(id, url, TaskPanelData.data, TaskPanel().callOnAddSuccess, TaskPanel().callOnAddFailure );
 };
+
+TaskPanel.prototype.addLanguage = function () {
+	console.log("addLanguage");
+}
 
 TaskPanel.prototype.callOnAddSuccess = function(obj) {
 	if(obj.statusCode == "1") {

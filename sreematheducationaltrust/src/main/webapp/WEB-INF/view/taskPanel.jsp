@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/jquery.fileupload-ui.css'/>" type="text/css" />
 <link rel="stylesheet" href="<c:url value='/resources/css/jquery.fileupload-ui-noscript.css'/>" type="text/css" />
 <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap-datetimepicker.css'/>" type="text/css" />
+<link href="<c:url value='https://fonts.googleapis.com/icon?family=Material+Icons'/>" rel="stylesheet">
 
 </head>
 <body>
@@ -66,7 +67,7 @@
 						  <div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
 							  <label for="newsCategory">News Category</label>
 							  <select class="form-control" id="newsCategory" name="newsCategory">
-							    <option>General</option>
+							    <option value="General">General</option>
 							    <option>Science</option>
 							    <option>Politics</option>
 							    <option>Sprots</option>
@@ -74,9 +75,9 @@
 							  </select>
 							</div>
 							<div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
-							  <label for="newsLang">News Language</label>
-							  <select class="form-control" id="newsLang" name="newsLang">
-							    <option>Tamil</option>
+							  <label for="language">News Language</label>
+							  <select class="form-control" id="language" name="language.language">
+							    <option value="Tamil">Tamil</option>
 							    <option>English</option>
 							    <option>Hindi</option>
 							    <option>Sprots</option>
@@ -86,7 +87,7 @@
 							 <div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
 							  <label for="newsType">News Type</label>
 							  <select class="form-control" id="newsType" name="newsType">
-							    <option>General</option>
+							    <option value="General">General</option>
 							    <option>Event</option>
 							    <option>Fucntion</option>
 							  </select>
@@ -272,12 +273,19 @@
 					  </div>
 		</form:form>
 		</div>
-		<div role="tabpanel" class="row tab-pane fade in active" id="extras" aria-labelledby="extras-tab">
-	    	<form:form action="extras" id="extras" commandName="extras" method="post" accept-charset="UTF-8" role="form">
-			<div class="row">
-				<div class="form-group col-lg-3 col-md-12 col-sm-12 col-xs-12">
-				    <label for="galleryTitle">Add Language</label>
-				    <input type="text" class="form-control" id="galleryTitle" name="galleryTitle" placeholder="Language Name">
+		<div role="tabpanel" class="row tab-pane fade" id="extras" aria-labelledby="extras-tab">
+	      <div class="row"> 	
+	    	<form:form id="language" action="addLanguage" commandName="language" method="post" accept-charset="UTF-8" role="form">
+				<div class="form-group col-lg-4 col-md-12 col-sm-12 col-xs-12">
+					<div class="extraSettings">
+						<ul>
+							<li><a>Language</a></li>
+							<li><a>Menu</a></li>
+							<li><a>C</a></li>
+							<li><a>D</a></li>
+							<li><a>E</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 			
@@ -319,7 +327,9 @@ $('input:checkbox').change(
 		    e.preventDefault();
 		}); */
     
-  <!-- TABS, -->
+    
+    
+  <!-- TABS -->
 (function($) {
 
   'use strict';
@@ -356,6 +366,7 @@ $('input:checkbox').change(
  $(function () {
        $('#eventto').datetimepicker();
 });
+
     
 </script>
 

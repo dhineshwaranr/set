@@ -24,6 +24,13 @@ public class Language {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="language", orphanRemoval=true)
 	private List<News> news;
 	
+	public String getId(String language) {
+		return language;
+	}
+	public void setId(String language) {
+		this.language = language;
+	}
+	
 	public int getId() {
 		return id;
 	}

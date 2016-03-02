@@ -11,16 +11,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.sreematheducationtrust.dto.LanguageDTO;
+
 
 @Entity
 public class News {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "news_id", unique = true, nullable = false, length = 10)
+	@Column(name = "news_id")
 	private int newsId;
 	private String newsTitle;
-	private String newsLang;
 	private String newsType;
 	private String newsCategory;
 	private String description;
@@ -28,6 +29,17 @@ public class News {
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Language language;
 	
+	public News(){
+		
+	}
+	public News(String newsTitle, String newsType, String newsCategory,String description, boolean isImage,Language language){
+		this.newsTitle = newsTitle;
+		this.newsType = newsType;
+		this.newsCategory = newsCategory;
+		this.description = description;
+		this.isImage = isImage;
+		this.language = language;
+	}
 	
 	public int getNewsId() {
 		return newsId;
@@ -41,12 +53,7 @@ public class News {
 	public void setNewsTitle(String newsTitle) {
 		this.newsTitle = newsTitle;
 	}
-	public String getNewsLang() {
-		return newsLang;
-	}
-	public void setNewsLang(String newsLang) {
-		this.newsLang = newsLang;
-	}
+	
 	public String getNewsType() {
 		return newsType;
 	}
