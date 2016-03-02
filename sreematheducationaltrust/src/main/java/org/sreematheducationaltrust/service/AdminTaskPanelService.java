@@ -2,6 +2,7 @@ package org.sreematheducationaltrust.service;
 
 import java.util.List;
 
+import org.sreematheducationaltrust.domain.AdminUsers;
 import org.sreematheducationaltrust.domain.Events;
 import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.News;
@@ -17,4 +18,8 @@ public interface AdminTaskPanelService {
 	public UserResponse createEvent(Events event);
 	public List<Events> getAllEvents();
 	public BaseResponse addLanguage(Language language);
+	public AdminUsers getUserByUserName(String userName);
+	public boolean resetAttempt(String username);
+	public Integer verifyAttempt(String username);
+	public boolean blockUser(String username);
 }

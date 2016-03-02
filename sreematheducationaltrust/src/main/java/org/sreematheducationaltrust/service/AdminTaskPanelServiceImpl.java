@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.sreematheducationaltrust.dao.AdminTaskPanelDAO;
+import org.sreematheducationaltrust.domain.AdminUsers;
 import org.sreematheducationaltrust.domain.Events;
 import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.News;
@@ -60,6 +61,7 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 		return null;
 	}
 
+
 	public BaseResponse addLanguage(Language language) {
 		BaseResponse response = new BaseResponse();
 		try{
@@ -70,6 +72,26 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 			System.out.println(e);
 		}
 		return response;
+	}
+	public AdminUsers getUserByUserName(String userName) {
+		 
+		return null;
+	}
+
+	public boolean resetAttempt(String username) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public Integer verifyAttempt(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean blockUser(String username) {
+		// TODO Auto-generated method stub
+		return false;
+
 	}
 
 }

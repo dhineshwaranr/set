@@ -7,7 +7,7 @@
   
    <http pattern="/resources/**" security="none"/>
    <http pattern="/login*" security="none"/>
-   <http pattern="/forgotpassword" security="none"/>
+   <!--<http pattern="/forgotpassword" security="none"/>
    <http pattern="/dashboard" security="none"/>
    <http pattern="/aboutus" security="none"/>
    <http pattern="/services" security="none"/>
@@ -18,34 +18,35 @@
    
    <http pattern="/getAllNews" security="none"/>
    <http pattern="/taskPanel" security="none"/>
-   
-   
+   <http pattern="/taskPanel" security="none"/> -->
+
    
    <http auto-config="true" use-expressions="true" >  
    <access-denied-handler error-page="/403page" />  
        
-   <intercept-url pattern="/*" access="isAuthenticated()"/> 
+   <intercept-url pattern="/" access="isAuthenticated()"/> 
    
      <form-login login-page='/login' authentication-failure-url="/login?error=1" 
-     username-parameter="userName"  password-parameter="password" 
-     default-target-url="/dashboard"  always-use-default-target="true" />  
+     username-parameter="userName"  password-parameter="password" login-processing-url="/j_spring_security_check" 
+     default-target-url="/aboutus"  always-use-default-target="true" />  
  
   <logout logout-success-url="/login?logout" delete-cookies="JSESSIONID" invalidate-session="true" />  
    
    <remember-me data-source-ref="dataSource" token-validity-seconds="86400"/>
    <headers/>
+  
    </http> 
   
    <authentication-manager erase-credentials="false" >  
    <authentication-provider>  
    <password-encoder ref="encoder" />    
     <jdbc-user-service data-source-ref="dataSource"   
-    users-by-username-query="select user_name,password from adminUsers where user_name=?"  
-    authorities-by-username-query="select user_name,role from adminUsers where user_name=?" />  
+    users-by-username-query="select userName,password,isactive from adminUsers where userName=?"  
+    authorities-by-username-query="select userName,role from adminUsers where userName=?" />  
    </authentication-provider>  
    </authentication-manager>  
  
-<!--   <beans:bean id="authenticationFailureHandler" class="com.webcbg.security.UserAuthenticationErrorHandler" /> -->
+	<!-- <beans:bean id="authenticationFailureHandler" class="org.sreematheducationaltrust.security.UserAuthenticationErrorHandler" />  -->
   
  
   <beans:bean id="encoder"  

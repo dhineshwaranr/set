@@ -31,12 +31,24 @@ public class AdminTaskPanelController {
 	
 	@ResponseBody
 	@RequestMapping(value="/newsPost",method=RequestMethod.POST)
-	public UserResponse newsCreate(@ModelAttribute("news")News news,  BindingResult result){
+
+
+	public UserResponse newsCreate(@ModelAttribute("news")News news, BindingResult result){
 		try{
-			if(news != null){
-				adminTaskPanelService.newsPost(news);
-				
+		News newsentity = new News();
+		Language lang = new Language();
+		String langChoosed = news.getLanguage().getLanguage();
+		lang.setLanguage(langChoosed);
+		news.setLanguage(lang);
+		
+		if (news != null) {
+			if (news.isImage()) {
+				news.setImage(true);
+			} else {
+				news.setImage(false);
 			}
+		}
+	
 		}catch(Exception e){
 			System.out.println(e);
 		}

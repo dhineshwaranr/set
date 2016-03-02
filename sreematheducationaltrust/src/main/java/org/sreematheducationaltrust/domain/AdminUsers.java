@@ -11,11 +11,23 @@ public class AdminUsers {
 	@Id
 	@GeneratedValue
 	private int id;
-	@Column(name="user_name")
 	private String userName;
 	private String password;
 	private String role;
-	private boolean isAdmin;
+	private boolean isactive;
+	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public boolean isIsactive() {
+		return isactive;
+	}
+	public void setIsactive(boolean isactive) {
+		this.isactive = isactive;
+	}
 	
 	public int getId() {
 		return id;

@@ -1,12 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Admin Task Panel</title>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ include file="css.jsp"%>
-
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>" type="text/css" />
 <link rel="stylesheet" href="<c:url value='/resources/css/jquery.fileupload.css'/>" type="text/css" />
 <link rel="stylesheet" href="<c:url value='/resources/css/jquery.fileupload-ui.css'/>" type="text/css" />
@@ -16,6 +18,11 @@
 
 </head>
 <body>
+<sql:setDataSource var="ds" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://127.0.0.1:3306/sreemath_educational_trust_dev" user="root" password="root"/>
+<sql:query dataSource="${ds}" var="result">  
+    SELECT * from Language;
+</sql:query>
+
 <div class="container">
 	<div class="row nav-menu">
 		<%@ include file="navmenu.jsp"%>
@@ -74,7 +81,9 @@
 							    <option>Medicine</option>
 							  </select>
 							</div>
+								
 							<div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
+<<<<<<< HEAD
 							  <label for="language">News Language</label>
 							  <select class="form-control" id="language" name="language.language">
 							    <option value="Tamil">Tamil</option>
@@ -82,6 +91,13 @@
 							    <option>Hindi</option>
 							    <option>Sprots</option>
 							    <option>Medicine</option>
+=======
+							  <label for="newsLang">News Language</label>
+							  <select class="form-control" id="language" name="language.language">
+							    <c:forEach var="row" items="${result.rows}">  
+      								<option value='<c:out value="${row.id}"/>'><c:out value="${row.language}"/></option>
+								</c:forEach>
+>>>>>>> ab1c6726c16d3a999c0eebe464b11a4d7318e946
 							  </select>
 							</div>
 							 <div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">

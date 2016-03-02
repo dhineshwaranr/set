@@ -32,9 +32,36 @@
 		<div class="col-lg-4 welcome-image">
  
 		<div class="col-lg-7">
+		<c:if test="${not empty error}">
+		<div class="errorblock alert alert-danger">
+						
+				     
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+					${error}
+					</div>
+					</c:if>
+					
+					<c:if test="${not empty param['error']}">
+           				<div class="errorblock alert alert-danger">
+           
+                    
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+					<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
+					</div>
+					 </c:if>
+					 
+					  <c:if test="${not empty msg}">
+		<div class="alert alert-success alert-dismissible">
+						
+				     
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+					${msg}
+					</div>
+					</c:if>
+		
 		</div>	
-		<div class="col-lg-1"><span class="v-line"></span></div>
-		<div class="col-lg-4">
+		 
+		 
  
 			<div class="loginpanel">
 				<form:form action="j_spring_security_check" id="login" commandName="adminuser" method="post" accept-charset="UTF-8" role="form">
@@ -51,10 +78,13 @@
 					  </div>
 					  <button type="submit" class="btn btn-default">Submit</button>
 				</form:form>
-			</div>
-		</div>
+			 
+		 
 	</div>
 </div>
+</div>
+</div>
+
 <%@ include file="js.jsp"%>
 </body>
 </html>

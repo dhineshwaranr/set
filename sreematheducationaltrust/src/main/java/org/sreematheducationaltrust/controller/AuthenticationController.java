@@ -19,11 +19,11 @@ public class AuthenticationController {
 	
 	@RequestMapping("/login")
 	public String getLoginForm(@RequestParam(required = false) String authfailed, String logout, AdminUsers adminuser, ModelMap map) {
-		String error = "";
-		if (logout != null) {
-			error = "Logged out successfully. Please Login to continue!";
-			map.addAttribute("msg", error);
-		} 
 		return "login";
+	}
+	
+	@RequestMapping("/403page")
+	public String ge403denied() {
+		return "403page";
 	}
 }
