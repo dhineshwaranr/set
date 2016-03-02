@@ -21,8 +21,8 @@ public class Language {
 	private int id;
 	@Column(nullable = false)
 	private String language;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy="language", orphanRemoval=true)
-	private List<News> news;
+	/*@OneToMany(cascade = CascadeType.ALL, mappedBy="language", orphanRemoval=true)
+	private List<News> news;*/
 	
 	public int getId() {
 		return id;
@@ -38,11 +38,11 @@ public class Language {
 		this.language = language;
 	}
 	
-	public List<News> getNews() {
+	/*public List<News> getNews() {
 		return news;
 	}
 	public void setNews(List<News> news) {
 		this.news = news;
-	}
+	}*/
 	
 }

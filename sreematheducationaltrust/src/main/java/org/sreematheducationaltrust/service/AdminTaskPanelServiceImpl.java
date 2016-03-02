@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.sreematheducationaltrust.dao.AdminTaskPanelDAO;
+import org.sreematheducationaltrust.domain.AdminUsers;
 import org.sreematheducationaltrust.domain.Events;
 import org.sreematheducationaltrust.domain.News;
 import org.sreematheducationaltrust.io.UserResponse;
@@ -53,6 +54,26 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 	public List<Events> getAllEvents() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public AdminUsers getUserByUserName(String userName) {
+		 
+		return null;
+	}
+
+	public boolean resetAttempt(String username) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public Integer verifyAttempt(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean blockUser(String username) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
