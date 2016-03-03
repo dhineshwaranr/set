@@ -76,6 +76,7 @@ public class AdminTaskPanelDAOImpl implements AdminTaskPanelDAO {
 	}
 	
 	@Transactional
+ 
 	public List<Language> getAllLanguage() {
 		List<Language> languageList = null;
 		try{
@@ -86,6 +87,15 @@ public class AdminTaskPanelDAOImpl implements AdminTaskPanelDAO {
 		}
 		return languageList;
 	}
+	public void addLanguage(Language language) {
+		try {
+			if (null != language) {
+				this.sessionFactory.getCurrentSession().save(language);
+			}
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+ 	}
 	
 	
 

@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- 
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Dashboard</title>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -33,6 +30,12 @@
 			    </div>
 			    <div class="item">
 			        <img src="http://placehold.it/300x200/aaa&text=Item 2" />
+			    </div>
+			    <div class="item">
+			        <img src="http://placehold.it/300x200/444&text=Item 3" />
+			    </div>
+			    <div class="item">
+			        <img src="http://placehold.it/300x200/444&text=Item 3" />
 			    </div>
 			    <div class="item">
 			        <img src="http://placehold.it/300x200/444&text=Item 3" />
@@ -78,7 +81,7 @@ $(document).ready(function() {
 
 // invoke the carousel
 $('#myCarousel').carousel({
-  interval: 30000
+  interval: 3000
 });
 
 </script> 

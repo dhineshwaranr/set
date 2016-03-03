@@ -54,15 +54,27 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/services", method=RequestMethod.GET)
-	public String people(){	
+	public String services(){	
 		System.out.println("In-services");
 		return "services";
 	}
 	
-	@RequestMapping(value="/digitalClock", method=RequestMethod.GET)
-	public String showClock(){	
-		System.out.println("In-PROPLE");
-		return "digitalClock";
+	@RequestMapping(value="/blog", method=RequestMethod.GET)
+	public String blog(){	
+		System.out.println("In-blog");
+		return "blog";
+	}
+	
+	@RequestMapping(value="/videos", method=RequestMethod.GET)
+	public String video(){	
+		System.out.println("In-Videos");
+		return "videos";
+	}
+	
+	@RequestMapping(value="/contactus", method=RequestMethod.GET)
+	public String contactUs(){	
+		System.out.println("In-ContactUs");
+		return "contactus";
 	}
 		
 	public ModelAndView populateModelAndView(){

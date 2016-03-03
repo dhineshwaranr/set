@@ -27,6 +27,9 @@ hr {
     margin-top: 10px !important;
     margin-bottom: 10px !important;
 }
+/*Carousal*/
+
+/**/
 /*Share On Social Media*/
 .button {
    transition:all .25s ease-in-out;
@@ -612,3 +615,60 @@ img.jcrop-preview {
 	width: 278px;
     height: 143px;
 } */
+
+/*Blog*/
+.allPeopleBlogs .blogs {
+	//border:1px solid blue;
+	max-width:auto;
+	max-height:100px;
+	display:inline-flex;
+	overflow:hidden;
+	margin:5px 5px 0px 0px;
+	cursor:pointer;
+}
+.allPeopleBlogs .blogs:hover {
+	-webkit-box-shadow: 2px 1px 5px 2px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    2px 1px 5px 2px #ccc;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         2px 1px 5px 2px #ccc;
+}
+.allPeopleBlogs .blogs .imageAvatar{
+	position:relative;
+	display:flex;
+    overflow:hidden;
+    width:auto;
+    height:auto;
+    
+}
+.allPeopleBlogs .blogs .imageAvatar img{
+	flex-shrink:0;
+    margin:0px 20px 0px 0px;
+	width:100px; 
+    height:100px;
+}
+.allPeopleBlogs .blogs .comments{
+	font-size:14px !important;
+	text-overflow: ellipsis;
+	max-width:auto;
+	max-height:100px;
+}
+.videoWrapper .videoWrapperColumn .sharedVideos{
+	margin:30px 0px 0px 0px;
+}
+
+.extraSettings{
+	overflow-y:scroll;
+}
+
+.extraSettings ul{
+	list-style: none;
+	cursor:pointer;
+}
+.extraSettings ul li:hover{
+	border-left:2px solid #232F84;
+	list-style:none;
+	
+}
+.extraSettings ul li{
+	margin:10px 10px 10px 0px;
+	padding:5px 5px 6px 10px;	
+}

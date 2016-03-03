@@ -8,6 +8,7 @@ import org.sreematheducationaltrust.domain.AdminUsers;
 import org.sreematheducationaltrust.domain.Events;
 import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.News;
+import org.sreematheducationaltrust.io.BaseResponse;
 import org.sreematheducationaltrust.io.UserResponse;
 
 public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
@@ -18,6 +19,9 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 	public UserResponse newsPost(News news) {
 		UserResponse response = new UserResponse();
 		try{
+			Language lang = new Language();
+			lang.getId(news.getLanguage().getLanguage());
+			news.setLanguage(news.getLanguage());
 			adminTaskPanelDAO.newsPost(news);
 			response.setStatusCode("1");
 			response.setStatusMessage("Success");
@@ -57,6 +61,18 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 		return null;
 	}
 
+
+	public BaseResponse addLanguage(Language language) {
+		BaseResponse response = new BaseResponse();
+		try{
+			adminTaskPanelDAO.addLanguage(language);
+			response.setStatusCode("1");
+			response.setStatusMessage("Language Added");
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return response;
+	}
 	public AdminUsers getUserByUserName(String userName) {
 		 
 		return null;
@@ -75,6 +91,7 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 	public boolean blockUser(String username) {
 		// TODO Auto-generated method stub
 		return false;
+
 	}
 
 	public List<Language> getAllLanguage() {

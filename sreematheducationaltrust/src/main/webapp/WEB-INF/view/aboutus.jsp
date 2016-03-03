@@ -15,6 +15,7 @@
 		<%@ include file="navmenu.jsp"%>
 	</div>
 	<div class="row startedDetails">
+	<h1>About Us</h1>
 		<div class=" row aboutusContent">
 			<div class="section-1">
 			<p><b>The Education Trust is a national non-profit advocacy organization that promotes high academic achievement for all students at all levels, particularly for students of color and low-income students. We were founded for one reason and one reason alone: to push, prod, and cajole our country toward educational justice.</b></p>		
