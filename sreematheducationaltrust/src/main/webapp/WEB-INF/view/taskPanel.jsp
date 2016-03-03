@@ -18,11 +18,7 @@
 
 </head>
 <body>
-<sql:setDataSource var="ds" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://127.0.0.1:3306/sreemath_educational_trust_dev" user="root" password="root"/>
-<sql:query dataSource="${ds}" var="result">  
-    SELECT * from Language;
-</sql:query>
-
+<%@ include file="sql.jsp"%>
 <div class="container">
 	<div class="row nav-menu">
 		<%@ include file="navmenu.jsp"%>
@@ -74,30 +70,18 @@
 						  <div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
 							  <label for="newsCategory">News Category</label>
 							  <select class="form-control" id="newsCategory" name="newsCategory">
-							    <option value="General">General</option>
-							    <option>Science</option>
-							    <option>Politics</option>
-							    <option>Sprots</option>
-							    <option>Medicine</option>
+							    <c:forEach var="category" items="${category.rows}">  
+      								<option value='<c:out value="${category.id}"/>'><c:out value="${category.category}"/></option>
+								</c:forEach>
 							  </select>
 							</div>
 								
 							<div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
-<<<<<<< HEAD
-							  <label for="language">News Language</label>
-							  <select class="form-control" id="language" name="language.language">
-							    <option value="Tamil">Tamil</option>
-							    <option>English</option>
-							    <option>Hindi</option>
-							    <option>Sprots</option>
-							    <option>Medicine</option>
-=======
 							  <label for="newsLang">News Language</label>
 							  <select class="form-control" id="language" name="language.language">
-							    <c:forEach var="row" items="${result.rows}">  
-      								<option value='<c:out value="${row.id}"/>'><c:out value="${row.language}"/></option>
+							    <c:forEach var="langrow" items="${language.rows}">  
+      								<option value='<c:out value="${langrow.id}"/>'><c:out value="${langrow.language}"/></option>
 								</c:forEach>
->>>>>>> ab1c6726c16d3a999c0eebe464b11a4d7318e946
 							  </select>
 							</div>
 							 <div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -292,16 +276,24 @@
 		<div role="tabpanel" class="row tab-pane fade" id="extras" aria-labelledby="extras-tab">
 	      <div class="row"> 	
 	    	<form:form id="language" action="addLanguage" commandName="language" method="post" accept-charset="UTF-8" role="form">
-				<div class="form-group col-lg-4 col-md-12 col-sm-12 col-xs-12">
-					<div class="extraSettings">
-						<ul>
-							<li><a>Language</a></li>
-							<li><a>Menu</a></li>
-							<li><a>C</a></li>
-							<li><a>D</a></li>
-							<li><a>E</a></li>
+				<!-- <div class="form-group col-lg-4 col-md-12 col-sm-12 col-xs-12"> -->
+					<div class="extraSettings tabbable tabs-vertical tabs-right">
+						<ul class="nav nav-tabs extrasLeftt">
+							<li><a href="#languageOptionPanel" data-toggle="tab">Language</a></li>
+							<li><a href="#menuOptionPanel" data-toggle="tab">Menu</a></li>
+							<li><a href="#categoryOptionPanel" data-toggle="tab">Category</a></li>
+							<li><a href="#contactOptionPanel" data-toggle="tab">Contact Details</a></li>
+							<li><a href="#helpDeskOptionPanel" data-toggle="tab">Help Desk</a></li>
 						</ul>
-					</div>
+						<div class="tab-content fade in active">
+							 <div class="tab-pane" id="languageOptionPanel">
+							 	Add Language
+							 </div>	
+							 <div class="tab-pane" id="menuOptionPanel">
+							 	Add Menu
+							 </div>							
+						</div>
+					<!-- </div> -->
 				</div>
 			</div>
 			

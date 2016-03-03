@@ -19,9 +19,9 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 	public UserResponse newsPost(News news) {
 		UserResponse response = new UserResponse();
 		try{
-			Language lang = new Language();
+			/*Language lang = new Language();
 			lang.getId(news.getLanguage().getLanguage());
-			news.setLanguage(news.getLanguage());
+			news.setLanguage(news.getLanguage());*/
 			adminTaskPanelDAO.newsPost(news);
 			response.setStatusCode("1");
 			response.setStatusMessage("Success");

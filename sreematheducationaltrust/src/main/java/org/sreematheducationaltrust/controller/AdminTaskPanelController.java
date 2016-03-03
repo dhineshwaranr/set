@@ -35,18 +35,19 @@ public class AdminTaskPanelController {
 
 	public UserResponse newsCreate(@ModelAttribute("news")News news, BindingResult result){
 		try{
-		News newsentity = new News();
+		/*News newsentity = new News();
 		Language lang = new Language();
 		String langChoosed = news.getLanguage().getLanguage();
 		lang.setLanguage(langChoosed);
-		news.setLanguage(lang);
+		news.setLanguage(lang);*/
 		
-		if (news != null) {
+		if (news.getLanguage() != null) {
 			if (news.isImage()) {
 				news.setImage(true);
 			} else {
 				news.setImage(false);
 			}
+			adminTaskPanelService.newsPost(news);
 		}
 	
 		}catch(Exception e){

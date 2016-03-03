@@ -4,6 +4,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -13,6 +14,7 @@
 <%@ include file="css.jsp"%>
 </head>
 <body>
+<%@ include file="sql.jsp"%>
 <div class="container">
 <%@ include file="footer.jsp"%>	
 	<hr>

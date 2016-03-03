@@ -8,6 +8,7 @@
     	<mapping class="org.sreematheducationaltrust.domain.AdminUsers" />
         <mapping class="org.sreematheducationaltrust.domain.News" />
         <mapping class="org.sreematheducationaltrust.domain.Language" />
+        <mapping class="org.sreematheducationaltrust.domain.Category" />
     </session-factory>
    
 </hibernate-configuration>

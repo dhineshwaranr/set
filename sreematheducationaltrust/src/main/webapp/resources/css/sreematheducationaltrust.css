@@ -672,3 +672,191 @@ img.jcrop-preview {
 	margin:10px 10px 10px 0px;
 	padding:5px 5px 6px 10px;	
 }
+
+
+// Tabs on the left
+.tabs-left > .nav-tabs {
+  float: left;
+  margin-right: $navTabContentSpacing - $navTabBdWidth;
+  border-right: $navTabBdWidth solid $navTabBdColor;
+
+  > li {
+    > a {
+      margin-right: -$navTabBdWidth;
+      @include border-radius($borderRadiusBase 0 0 $borderRadiusBase);
+
+      &:hover,
+      &:focus {
+        border-color: $navTabBgHover $navTabBdColor $navTabBgHover $navTabBgHover;    
+      }
+    }
+
+    &.active {
+      > a {
+        &,
+        &:hover,
+        &:focus {
+          border-color: $navTabBdColor transparent $navTabBdColor $navTabBdColor;
+          *border-right-color: $navTabBgActive;        
+        } 
+      }
+    }
+  }
+}
+/*Left Float Tabs*/
+
+$borderRadiusBase: 4px;
+$navTabVerticalMinWidth: 74px;
+
+$navTabSpacing: 3px;
+$navTabContentSpacing: 20px;
+$verticalTabHeight: 42px;
+$navTabBdWidth: 1px;
+$navTabBdColor: #ddd;
+$navLinkBgActive: #fff;
+$navTabBgActive: $navLinkBgActive;
+$navTabBgHover: #eee;
+
+// Tabs on the right
+.tabs-right > .nav-tabs {
+  float: right;
+  margin-left: $navTabContentSpacing - $navTabBdWidth;
+  border-left: $navTabBdWidth solid $navTabBdColor;
+
+  > li {
+    > a {
+      margin-left: -$navTabBdWidth;
+      @include border-radius(0 $borderRadiusBase $borderRadiusBase 0);
+
+      &:hover,
+      &:focus {
+        border-color: $navTabBgHover $navTabBgHover $navTabBgHover $navTabBdColor;
+      }
+    }
+
+    &.active {
+      > a {
+        &,
+        &:hover,
+        &:focus {
+          border-color: $navTabBdColor $navTabBdColor $navTabBdColor transparent;
+          *border-left-color: $navTabBgActive;
+        } 
+      }
+    }
+  }
+}
+.tabs-vertical {
+  position: relative;
+
+  > .nav-tabs {
+    position: absolute;
+    top: $navTabContentSpacing;
+    display: block;
+    width: auto;
+    height: $verticalTabHeight;
+    margin: 0;
+    white-space: nowrap;
+    border: 0 none;
+    @include transform-origin(0, 0);
+    @include rotate(90deg);
+    @include box-sizing(border-box);
+
+    > li {
+      position: relative;
+      display: inline-block;
+
+      > a {
+        min-width: 0;
+        margin: 0;
+      }
+
+      &.active {
+        z-index: 1; // keep above adjacent tabs
+      }
+    }
+  }
+
+  &.tabs-left {
+    > .nav-tabs {
+      left: $verticalTabHeight + $navTabBdWidth; // must use this because of left margin on tab-content
+      border-top: $navTabBdWidth solid $navTabBdColor;
+
+      > li {
+        height: $verticalTabHeight + $navTabBdWidth;
+        top: -$navTabBdWidth;
+        
+        > a {
+          @include border-radius(0 0 $borderRadiusBase $borderRadiusBase);
+
+          &:hover,
+          &:focus {
+            border-color: $navTabBdColor $navTabBgHover $navTabBgHover $navTabBgHover;
+          }
+        }
+
+        &.active {
+          > a {
+            &,
+            &:hover,
+            &:focus {
+              background-color: $navLinkBgActive; // overlap border of tab-content
+              border-color: transparent $navTabBdColor $navTabBdColor $navTabBdColor;
+              *border-top-color: $navTabBgActive;
+            }
+          }
+        }
+      }
+    }
+    .tab-content {
+      margin-left: $verticalTabHeight;
+      border-left: $navTabBdWidth solid $navTabBdColor;
+    }
+  }
+  &.tabs-right { 
+    > .nav-tabs {
+      left: 100%;
+      margin-left: -$navTabBdWidth;
+      border-bottom: $navTabBdWidth solid $navTabBdColor;
+
+      > li { 
+        > a {
+          @include border-radius($borderRadiusBase $borderRadiusBase 0 0);
+
+          &:hover,
+          &:focus {
+            border-color: $navTabBgHover $navTabBgHover $navTabBdColor $navTabBgHover;
+          }
+        }
+
+        &.active{
+          > a {
+            &,
+            &:hover,
+            &:focus {
+              background-color: $navLinkBgActive; // overlap border of tab-content
+              border-color: $navTabBdColor $navTabBdColor transparent $navTabBdColor;
+              *border-bottom-color: $navTabBgActive;
+            }
+          }
+        }
+      }
+    }
+    .tab-content {
+      margin-right: $verticalTabHeight;
+      border-right: $navTabBdWidth solid $navTabBdColor;
+    }
+  }
+}
+
+.tabs-left,
+.tabs-right {
+  .nav-tabs > li {
+    float: none;
+    > a {
+      min-width: $navTabVerticalMinWidth;
+      margin-right: 0;
+      margin-bottom: $navTabSpacing;    
+    }
+  }
+}

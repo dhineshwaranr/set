@@ -1,14 +1,10 @@
 <div class="row">
 <div class="dropdown langChoose pull-right">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Choose Language<b class="caret"></b></a>
-    <ul class="dropdown-menu">
-        <li><a href="#">Tamil</a></li>
-        <li><a href="#">English</a></li>
-        <li><a href="#">Malayalam</a></li>
-        <li><a href="#">Hindi</a></li>
-        <li><a href="#">Telegu</a></li>
-        <li><a href="#">Kannada</a></li>
-    </ul>
+    <select class="form-control" id="newsCategory" name="newsCategory">
+    <c:forEach var="langrow" items="${language.rows}">  
+    	<option value='<c:out value="${langrow.id}"/>'><c:out value="${langrow.language}"/></option>
+	</c:forEach>
+	</select>
 </div>
 </div>
 <div class="row">
