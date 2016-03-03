@@ -43,17 +43,17 @@ public class AdminTaskPanelController {
 	
 	@ResponseBody
 	@RequestMapping(value="/newsPost",method=RequestMethod.POST)
-
-
-	public UserResponse newsCreate(@ModelAttribute("news")News news, BindingResult result){
+	public UserResponse newsCreate(@ModelAttribute News news, BindingResult result){
 		try{
-		System.out.println("lang:  "+news.getLanguage().getLanguage());
 		if (news != null) {
 			if (news.isImage()) {
 				news.setImage(true);
 			} else {
 				news.setImage(false);
 			}
+			//String content = new String(news.getDescription(), "UTF-8");
+			//System.out.println(content);
+			//return adminTaskPanelService.newsPost(news);
 		}
 	
 		}catch(Exception e){

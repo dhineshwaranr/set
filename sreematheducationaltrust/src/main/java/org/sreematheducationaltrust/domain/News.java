@@ -11,8 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.sreematheducationtrust.dto.LanguageDTO;
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class News {
@@ -26,7 +25,8 @@ public class News {
 	private String newsCategory;
 	private String description;
 	private boolean isImage;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
+	 @JsonBackReference
 	private Language language;
 	
 	public News(){

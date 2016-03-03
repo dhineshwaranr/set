@@ -58,7 +58,7 @@
 		</div>
 	<div id="myTabContent" class="tab-content">		
     	<div role="tabpanel" class="row tab-pane fade in active" id="news" aria-labelledby="home-tab">
-	    	<form:form action="newsPost" id="newsPost" commandName="news" method="post" accept-charset="UTF-8" role="form" enctype="multipart/form-data">
+	    	<form:form action="newsPost" id="newsPost" modelAttribute="news" method="post" accept-charset="UTF-8" role="form" enctype="multipart/form-data">
 					  <div class="row">
 						  <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						    <label for="username">News Title</label>
@@ -79,10 +79,11 @@
 								
 							<div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
 							  <label for="newsLang">Language</label>
-							  <form:select path="language" class="form-control" name="language">
+							  <form:select class="form-control" path="language.id" name="language.id">
 								<form:options items="${languageList}" itemValue="id" itemLabel="language"/>
 							  </form:select>
 							</div>
+							
 							 <div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
 							  <label for="newsType">Type</label>
 							  <select class="form-control" id="newsType" name="newsType">

@@ -35,18 +35,24 @@ public class AdminTaskPanelDAOImpl implements AdminTaskPanelDAO {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<News> getAllNews() {
 		List<News> list = null;
 		try {
-			Query query = (Query) this.sessionFactory.getCurrentSession().createQuery("from News");
+			Query query = (Query) this.sessionFactory.getCurrentSession().createQuery("from News n WHERE n.language.id = ?");
+			int num = 1;
+			query.setParameter(0, num);
 			list = query.list();
 		} catch (HibernateException e) {
 			System.out.println("Exception while trying to get the users from UserEntity based on the page no");
 			e.printStackTrace();
 		}
+		for(News newss : list){
+			System.out.println(newss.getNewsId());
+			System.out.println(newss.getLanguage());
+		}
 		return list;
-		
 	}
 
 	public List<News> getNewsByLanguage(String newsLAnguage) {

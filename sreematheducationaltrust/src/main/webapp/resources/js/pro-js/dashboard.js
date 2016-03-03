@@ -52,6 +52,7 @@ Dashboard.prototype.callOnAddFailure = function() {
 };
 
 Dashboard.prototype.fillnewspanel = function (data) {
+	console.log("asdfa"+data);
 	var defaulttemp ='';
 	if(data != null){
 		//console.log("GET-ALL-NEWS-->"+JSON.stringify(data));
