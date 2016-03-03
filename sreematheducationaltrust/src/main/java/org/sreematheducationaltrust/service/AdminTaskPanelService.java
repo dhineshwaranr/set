@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.sreematheducationaltrust.domain.AdminUsers;
 import org.sreematheducationaltrust.domain.Events;
+import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.News;
 import org.sreematheducationaltrust.io.UserResponse;
 
@@ -19,4 +20,5 @@ public interface AdminTaskPanelService {
 	public boolean resetAttempt(String username);
 	public Integer verifyAttempt(String username);
 	public boolean blockUser(String username);
+	public List<Language> getAllLanguage();
 }

@@ -21,8 +21,8 @@ public class Language {
 	private int id;
 	@Column(nullable = false)
 	private String language;
-	/*@OneToMany(cascade = CascadeType.ALL, mappedBy="language", orphanRemoval=true)
-	private List<News> news;*/
+	@OneToMany(fetch = FetchType.LAZY,mappedBy="language", orphanRemoval=true)
+	private List<News> news;
 	
 	public int getId() {
 		return id;

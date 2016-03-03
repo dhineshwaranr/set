@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.sreematheducationaltrust.domain.Events;
+import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.News;
 import org.sreematheducationaltrust.io.UserResponse;
 
@@ -72,6 +73,18 @@ public class AdminTaskPanelDAOImpl implements AdminTaskPanelDAO {
 	public List<Events> getAllEvents() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Transactional
+	public List<Language> getAllLanguage() {
+		List<Language> languageList = null;
+		try{
+			Query query = (Query) this.sessionFactory.getCurrentSession().createQuery("from Language");
+			languageList = query.list();
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return languageList;
 	}
 	
 	

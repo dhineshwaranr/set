@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.sreematheducationaltrust.dao.AdminTaskPanelDAO;
 import org.sreematheducationaltrust.domain.AdminUsers;
 import org.sreematheducationaltrust.domain.Events;
+import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.News;
 import org.sreematheducationaltrust.io.UserResponse;
 
@@ -74,6 +75,10 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 	public boolean blockUser(String username) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public List<Language> getAllLanguage() {
+		return adminTaskPanelDAO.getAllLanguage();
 	}
 
 }

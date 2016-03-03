@@ -25,7 +25,7 @@ public class News {
 	private String newsCategory;
 	private String description;
 	private boolean isImage;
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Language language;
 	
 	
@@ -71,7 +71,7 @@ public class News {
 	public void setImage(boolean isImage) {
 		this.isImage = isImage;
 	}
-	
+
 	public Language getLanguage() {
 		return language;
 	}

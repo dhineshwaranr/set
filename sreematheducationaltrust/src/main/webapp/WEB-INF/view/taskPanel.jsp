@@ -7,7 +7,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
 <%@ include file="css.jsp"%>
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>" type="text/css" />
 <link rel="stylesheet" href="<c:url value='/resources/css/jquery.fileupload.css'/>" type="text/css" />
@@ -17,11 +17,6 @@
 
 </head>
 <body>
-<sql:setDataSource var="ds" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://127.0.0.1:3306/sreemath_educational_trust_dev" user="root" password="root"/>
-<sql:query dataSource="${ds}" var="result">  
-    SELECT * from Language;
-</sql:query>
-
 <div class="container">
 	<div class="row nav-menu">
 		<%@ include file="navmenu.jsp"%>
@@ -71,7 +66,7 @@
 					  </div>
 					  <div class="row">
 						  <div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
-							  <label for="newsCategory">News Category</label>
+							  <label for="newsCategory">Category</label>
 							  <select class="form-control" id="newsCategory" name="newsCategory">
 							    <option value="General">General</option>
 							    <option>Science</option>
@@ -82,15 +77,14 @@
 							</div>
 								
 							<div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
-							  <label for="newsLang">News Language</label>
-							  <select class="form-control" id="language" name="language.language">
-							    <c:forEach var="row" items="${result.rows}">  
-      								<option value='<c:out value="${row.id}"/>'><c:out value="${row.language}"/></option>
-								</c:forEach>
-							  </select>
+							  <label for="newsLang">Language</label>
+							  <form:select path="language" class="form-control" name="language">
+								<form:options items="${languageList}" itemValue="id" itemLabel="language"/>
+							  </form:select>
+							
 							</div>
 							 <div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
-							  <label for="newsType">News Type</label>
+							  <label for="newsType">Type</label>
 							  <select class="form-control" id="newsType" name="newsType">
 							    <option>General</option>
 							    <option>Event</option>
