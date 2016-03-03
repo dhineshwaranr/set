@@ -30,6 +30,7 @@ public class HomeController {
 	
 	@RequestMapping("/dashboard")
 	public String dashboard(){
+		
 		return "dashboard";
 	}
 	
@@ -39,13 +40,11 @@ public class HomeController {
 		return newsServiceManager.getAllNews();
 	}
 	
-	
 	@RequestMapping(value="/gallery", method=RequestMethod.GET)
 	public String gallery(){	
 		System.out.println("IN-Gallery");
 		return "gallery";
 	}
-	
 	
 	@RequestMapping(value="/aboutus", method=RequestMethod.GET)
 	public String aboutUs(){	

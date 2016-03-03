@@ -7,7 +7,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
 <%@ include file="css.jsp"%>
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>" type="text/css" />
 <link rel="stylesheet" href="<c:url value='/resources/css/jquery.fileupload.css'/>" type="text/css" />
@@ -18,7 +18,7 @@
 
 </head>
 <body>
-<%@ include file="sql.jsp"%>
+
 <div class="container">
 	<div class="row nav-menu">
 		<%@ include file="navmenu.jsp"%>
@@ -59,7 +59,7 @@
 		</div>
 	<div id="myTabContent" class="tab-content">		
     	<div role="tabpanel" class="row tab-pane fade in active" id="news" aria-labelledby="home-tab">
-	    	<form:form action="newsPost" id="newsPost" commandName="news" method="post" accept-charset="UTF-8" role="form" enctype="multipart/form-data">
+	    	<form:form action="newsPost" id="newsPost" modelAttribute="news" method="post" accept-charset="UTF-8" role="form" enctype="multipart/form-data">
 					  <div class="row">
 						  <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						    <label for="username">News Title</label>
@@ -68,7 +68,7 @@
 					  </div>
 					  <div class="row">
 						  <div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
-							  <label for="newsCategory">News Category</label>
+							  <label for="newsCategory">Category</label>
 							  <select class="form-control" id="newsCategory" name="newsCategory">
 							    <c:forEach var="category" items="${category.rows}">  
       								<option value='<c:out value="${category.id}"/>'><c:out value="${category.category}"/></option>
@@ -77,15 +77,14 @@
 							</div>
 								
 							<div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
-							  <label for="newsLang">News Language</label>
-							  <select class="form-control" id="language" name="language.language">
-							    <c:forEach var="langrow" items="${language.rows}">  
-      								<option value='<c:out value="${langrow.id}"/>'><c:out value="${langrow.language}"/></option>
-								</c:forEach>
-							  </select>
+							  <label for="newsLang">Language</label>
+							  <form:select class="form-control" path="language.id" name="language.id">
+								<form:options items="${languageList}" itemValue="id" itemLabel="language"/>
+							  </form:select>
 							</div>
+							
 							 <div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
-							  <label for="newsType">News Type</label>
+							  <label for="newsType">Type</label>
 							  <select class="form-control" id="newsType" name="newsType">
 							    <option value="General">General</option>
 							    <option>Event</option>

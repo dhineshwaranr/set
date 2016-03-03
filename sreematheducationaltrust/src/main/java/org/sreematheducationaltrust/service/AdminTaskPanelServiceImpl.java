@@ -94,4 +94,8 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 
 	}
 
+	public List<Language> getAllLanguage() {
+		return adminTaskPanelDAO.getAllLanguage();
+	}
+
 }

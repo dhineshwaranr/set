@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Language {
 
@@ -21,16 +23,9 @@ public class Language {
 	private int id;
 	@Column(nullable = false)
 	private String language;
-	private String languageHlink;
-	@OneToMany(mappedBy="language", orphanRemoval=true)
+	@OneToMany(fetch = FetchType.LAZY,mappedBy="language", orphanRemoval=true)
+	@JsonManagedReference
 	private List<News> news;
-	
-	public String getLanguageHlink() {
-		return languageHlink;
-	}
-	public void setLanguageHlink(String languageHlink) {
-		this.languageHlink = languageHlink;
-	}
 	
 	public String getId(String language) {
 		return language;

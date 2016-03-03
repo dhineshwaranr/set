@@ -1,33 +1,38 @@
 package org.sreematheducationaltrust.domain;
 
 import javax.persistence.Entity;
+
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 
 @Entity
 public class Category {
 
 	@Id
 	@GeneratedValue
-	public int id;
-	public String category;
-	public String categoryDescription;
+	private int id;
+	private String catagory;
+	private String categoryDescription;
 	
-	public int getId() {
-		return id;
-	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getCategory() {
-		return category;
+
+	public String getCatagory() {
+		return catagory;
 	}
-	public void setCategory(String category) {
-		this.category = category;
+
+	public void setCatagory(String catagory) {
+		this.catagory = catagory;
 	}
+
 	public String getCategoryDescription() {
 		return categoryDescription;
 	}
+
 	public void setCategoryDescription(String categoryDescription) {
 		this.categoryDescription = categoryDescription;
 	}

@@ -15,5 +15,7 @@ public interface AdminTaskPanelDAO {
 	public News getNewsById(int newsId);
 	public void createEvent(Events event);
 	public List<Events> getAllEvents();
+ 	public List<Language> getAllLanguage();
 	public void addLanguage(Language language);
+ 
 }

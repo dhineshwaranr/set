@@ -22,4 +22,5 @@ public interface AdminTaskPanelService {
 	public boolean resetAttempt(String username);
 	public Integer verifyAttempt(String username);
 	public boolean blockUser(String username);
+	public List<Language> getAllLanguage();
 }
