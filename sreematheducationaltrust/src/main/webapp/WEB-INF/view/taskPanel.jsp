@@ -42,23 +42,23 @@
 	<div class="row">
 			<div class="" role="tabpanel" data-example-id="togglable-tabs">
 				<ul id="myTab" class="nav nav-tabs nav-tabs-responsive"	role="tablist">
-					<li role="presentation" class="active">
+					<li role="presentation">
 						<a href="#news" id="news-tab" role="tab" data-toggle="tab" aria-controls="newse" aria-expanded="true"> <span class="text">News</span></a>
 					</li>
-					<li role="presentation" class="next">
+					<li role="presentation">
 						<a href="#events" role="tab" id="events-tab" data-toggle="tab" aria-controls="events"> <span class="text">Events</span></a>
 					</li>
-					<li role="presentation" class="next">
+					<li role="presentation">
 						<a href="#gallery" role="tab" id="gallery-tab" data-toggle="tab" aria-controls="gallery"> <span class="text">Gallery</span></a>
 					</li>
-					<li role="presentation" class="next">
+					<li role="presentation">
 						<a href="#extras" role="tab" id="extras-tab" data-toggle="tab" aria-controls="extras"> <span class="text">Extras</span></a>
 					</li>
 				</ul>
 			</div>
 		</div>
 	<div id="myTabContent" class="tab-content">		
-    	<div role="tabpanel" class="row tab-pane fade in active" id="news" aria-labelledby="home-tab">
+    	<div role="tabpanel" class="row tab-pane fade" id="news" aria-labelledby="home-tab">
 	    	<form:form action="newsPost" id="newsPost" modelAttribute="news" method="post" accept-charset="UTF-8" role="form" enctype="multipart/form-data">
 					  <div class="row">
 						  <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -278,17 +278,17 @@
 				<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
 					<div class="col-lg-2 extraSettings tabbable tabs-vertical tabs-right">
 						<ul class="nav nav-tabs tabs-left sideways">
-							<li><a href="#languageOptionPanel" data-toggle="tab">Language</a></li>
-							<li><a href="#menuOptionPanel" data-toggle="tab">Menu</a></li>
-							<li><a href="#categoryOptionPanel" data-toggle="tab">Category</a></li>
-							<li><a href="#contactOptionPanel" data-toggle="tab">Contact Details</a></li>
-							<li><a href="#helpDeskOptionPanel" data-toggle="tab">Help Desk</a></li>
+							<li><a class="extraTab" href="#languageOptionPanel" data-toggle="tab">Language</a></li>
+							<li><a class="extraTab" href="#menuOptionPanel" data-toggle="tab">Menu</a></li>
+							<li><a class="extraTab" href="#categoryOptionPanel" data-toggle="tab">Category</a></li>
+							<li><a class="extraTab" href="#contactOptionPanel" data-toggle="tab">Contact Details</a></li>
+							<li><a class="extraTab" href="#helpDeskOptionPanel" data-toggle="tab">Help Desk</a></li>
 						</ul>
 					</div>				
 						<div class="col-lg-10 tab-content fade in active">
 							 <div class="tab-pane" id="languageOptionPanel">
-							 	<table id="list"></table>
-								<div id="pager"></div>
+							 	<table id="languageList"></table>
+								<div id="languageListpager"></div>
 							 </div>	
 							 <div class="tab-pane" id="menuOptionPanel">
 							 	Add Menu

@@ -95,8 +95,7 @@ public class AdminTaskPanelDAOImpl implements AdminTaskPanelDAO {
 	}
 	
 	@Transactional
- 
-	public List<Language> getAllLanguage() {
+ 	public List<Language> getAllLanguage() {
 		List<Language> languageList = null;
 		try{
 			Query query = (Query) this.sessionFactory.getCurrentSession().createQuery("from Language");
@@ -106,6 +105,7 @@ public class AdminTaskPanelDAOImpl implements AdminTaskPanelDAO {
 		}
 		return languageList;
 	}
+	
 	public void addLanguage(Language language) {
 		try {
 			if (null != language) {

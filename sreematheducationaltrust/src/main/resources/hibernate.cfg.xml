@@ -9,8 +9,8 @@
     	<mapping class="org.sreematheducationaltrust.domain.AdminUsers" />
         <mapping class="org.sreematheducationaltrust.domain.News" /> 
         <mapping class="org.sreematheducationaltrust.domain.Language" />
-        <mapping class="org.sreematheducationaltrust.domain.Category" />
-        <mapping class="org.sreematheducationaltrust.domain.MenuBar" />  
+      <!--   <mapping class="org.sreematheducationaltrust.domain.Category" />-->
+        <mapping class="org.sreematheducationaltrust.domain.MenuBar" />   
     </session-factory>
    
 </hibernate-configuration>

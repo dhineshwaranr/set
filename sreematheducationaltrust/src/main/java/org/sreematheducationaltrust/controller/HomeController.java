@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.sreematheducationaltrust.domain.Gallery;
+import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.News;
 import org.sreematheducationaltrust.service.AdminTaskPanelService;
 
@@ -23,7 +25,7 @@ import org.sreematheducationaltrust.service.AdminTaskPanelService;
 public class HomeController {
 	
 	@Autowired
-	AdminTaskPanelService newsServiceManager;
+	AdminTaskPanelService adminTaskPanelService;
 	
 	/*@RequestMapping("/dashboard")
 	public ModelAndView dashboard(){
@@ -33,9 +35,9 @@ public class HomeController {
 	}*/
 	
 	@RequestMapping("/dashboard")
-	public String dashboard(){
-		
-		return "dashboard";
+	public ModelAndView dashboard(){
+		ModelMap model = populateModel();
+		return new ModelAndView("dashboard","model",model);
 	}
 	
 	@ResponseBody
@@ -44,7 +46,7 @@ public class HomeController {
 		List<Object> objects = new ArrayList<Object>();
 		System.out.println(languageChoosen +"||"+requestedPage);
 		if(requestedPage.equals("dashbord")){
-			List<News> newsList = newsServiceManager.getNewsByLanguage(Integer.parseInt(languageChoosen));
+			List<News> newsList = adminTaskPanelService.getNewsByLanguage(Integer.parseInt(languageChoosen));
 			System.out.println("Language Choosed===>"+newsList);
 			objects.addAll(0, newsList);
 		}
@@ -55,49 +57,52 @@ public class HomeController {
 	@ResponseBody
 	@RequestMapping(value="/getAllNews",method=RequestMethod.GET)
 	public List<News> getAllNews(){
-		return newsServiceManager.getAllNews();
+		return adminTaskPanelService.getAllNews();
 	}
 	
 	@RequestMapping(value="/gallery", method=RequestMethod.GET)
-	public String gallery(){	
-		System.out.println("IN-Gallery");
-		return "gallery";
+	public ModelAndView gallery(){	
+		ModelMap model = populateModel();
+		return new ModelAndView("gallery","model",model);
 	}
 	
 	@RequestMapping(value="/aboutus", method=RequestMethod.GET)
-	public String aboutUs(){	
-		System.out.println("In-aboutus");
-		return "aboutus";
+	public ModelAndView aboutUs(){	
+		ModelMap model = populateModel();
+		return new ModelAndView("aboutus","model",model);
 	}
 	
 	@RequestMapping(value="/services", method=RequestMethod.GET)
-	public String services(){	
-		System.out.println("In-services");
-		return "services";
+	public ModelAndView services(){	
+		ModelMap model = populateModel();
+		return new ModelAndView("services","model",model);
 	}
 	
 	@RequestMapping(value="/blog", method=RequestMethod.GET)
-	public String blog(){	
-		System.out.println("In-blog");
-		return "blog";
+	public ModelAndView blog(){	
+		ModelMap model = populateModel();
+		return new ModelAndView("blog","model",model);
 	}
 	
 	@RequestMapping(value="/videos", method=RequestMethod.GET)
-	public String video(){	
-		System.out.println("In-Videos");
-		return "videos";
+	public ModelAndView video(){	
+		ModelMap model = populateModel();
+		return new ModelAndView("videos","model",model);
 	}
 	
 	@RequestMapping(value="/contactus", method=RequestMethod.GET)
-	public String contactUs(){	
-		System.out.println("In-ContactUs");
-		return "contactus";
+	public ModelAndView contactUs(){	
+		ModelMap model = populateModel();
+		return new ModelAndView("contactus","model",model);
+		 
 	}
 		
-	public ModelAndView populateModelAndView(){
-		ModelAndView model = new ModelAndView();
-		
-		
+	public ModelMap populateModel(){
+		ModelMap model = new ModelMap();
+		Language lang = new Language();
+		List<Language> languageList = adminTaskPanelService.getAllLanguage();
+		model.put("languageList",languageList);
+		model.put("lang",lang);
 		return model;
 	}
 }

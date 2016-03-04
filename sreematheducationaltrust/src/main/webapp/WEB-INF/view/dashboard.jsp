@@ -14,7 +14,7 @@
 <%@ include file="css.jsp"%>
 </head>
 <body>
-<%@ include file="sql.jsp"%>
+<%-- <%@ include file="sql.jsp"%> --%>
 <div class="container">
 <span id="dashboard" value="dashbord" hidden></span>
 <%@ include file="footer.jsp"%>	

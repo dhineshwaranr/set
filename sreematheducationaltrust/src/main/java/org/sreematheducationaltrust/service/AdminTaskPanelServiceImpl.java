@@ -54,11 +54,11 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 		}
 		return response;
 	}
+	
 	public List<Events> getAllEvents() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 	public BaseResponse addLanguage(Language language) {
 		BaseResponse response = new BaseResponse();
@@ -71,6 +71,7 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 		}
 		return response;
 	}
+	
 	public AdminUsers getUserByUserName(String userName) {
 		 
 		return null;

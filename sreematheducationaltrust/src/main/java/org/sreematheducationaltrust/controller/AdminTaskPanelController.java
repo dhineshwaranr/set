@@ -18,9 +18,9 @@ import org.sreematheducationaltrust.domain.Events;
 import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.News;
 import org.sreematheducationaltrust.io.BaseResponse;
+import org.sreematheducationaltrust.io.CustomJsonResponse;
 import org.sreematheducationaltrust.io.UserResponse;
 import org.sreematheducationaltrust.service.AdminTaskPanelService;
-
 
 @Controller
 @RequestMapping("/admin")
@@ -31,14 +31,9 @@ public class AdminTaskPanelController {
 	AdminTaskPanelService adminTaskPanelService;
 	
 	@RequestMapping(value="/taskPanel",method=RequestMethod.GET)
-	public String taskPanel(ModelMap model){
-		News newsentity = new News();
-		Language lang = new Language();
-		newsentity.setLanguage(lang);
-		List<Language> languageList = adminTaskPanelService.getAllLanguage();
-		model.addAttribute("languageList",languageList);
-		model.addAttribute("news",newsentity);
-		return "taskPanel";
+	public ModelAndView taskPanel(){
+		ModelMap model = populateModel();
+		return new ModelAndView("taskPanel","model",model);
 	}
 	
 	@ResponseBody
@@ -70,8 +65,6 @@ public class AdminTaskPanelController {
 		}
 		return null;
 	}
-	
-
 
 	@ResponseBody
 	@RequestMapping(value="/addLanguage",method=RequestMethod.POST)
@@ -81,6 +74,31 @@ public class AdminTaskPanelController {
 			return adminTaskPanelService.addLanguage(language);
 		}
 		return null;
-
 	}
+		
+	@ResponseBody
+	@RequestMapping(value="/getAllLanguage",method=RequestMethod.GET)
+	public List<Language> getAllLanguage(){
+		List<Language> langList = adminTaskPanelService.getAllLanguage(); 
+		/*CustomJsonResponse jsonResponse = new CustomJsonResponse();
+		System.out.println("LANG---->"+langList.get(0).getId());
+		jsonResponse.setLanguageRows(langList);
+		jsonResponse.setRecords(String.valueOf(langList.size()));
+		jsonResponse.setPage( "1" );
+		jsonResponse.setTotal( "10" );
+		return jsonResponse;*/
+		return langList;
 	}
+	
+	private ModelMap populateModel(){
+		ModelMap model = new ModelMap();
+		News newsentity = new News();
+		Language lang = new Language();
+		newsentity.setLanguage(lang);
+		List<Language> languageList = adminTaskPanelService.getAllLanguage();
+		model.put("languageList",languageList);
+		model.put("news",newsentity);
+		return model;
+	}
+	
+}

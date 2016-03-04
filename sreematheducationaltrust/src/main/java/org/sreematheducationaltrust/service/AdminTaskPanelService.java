@@ -17,10 +17,13 @@ public interface AdminTaskPanelService {
 	public News getNewsById(int newsId);
 	public UserResponse createEvent(Events event);
 	public List<Events> getAllEvents();
+	
 	public BaseResponse addLanguage(Language language);
+	public List<Language> getAllLanguage();
+	
 	public AdminUsers getUserByUserName(String userName);
 	public boolean resetAttempt(String username);
 	public Integer verifyAttempt(String username);
 	public boolean blockUser(String username);
-	public List<Language> getAllLanguage();
+	
 }

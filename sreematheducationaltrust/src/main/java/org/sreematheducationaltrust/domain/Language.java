@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -23,20 +26,12 @@ public class Language {
 	private int id;
 	@Column(nullable = false)
 	private String language;
-	@OneToMany(fetch = FetchType.LAZY,mappedBy="language", orphanRemoval=true)
+	
+	/*@OneToMany(fetch = FetchType.EAGER,mappedBy="language", orphanRemoval=true)
 	@JsonManagedReference
 	private List<News> news;
+	*/
 	
-	@OneToMany(fetch = FetchType.LAZY,mappedBy="language", orphanRemoval=true)
-	@JsonManagedReference
-	private List<MenuBar> menu;
-	
-	public List<MenuBar> getMenu() {
-		return menu;
-	}
-	public void setMenu(List<MenuBar> menu) {
-		this.menu = menu;
-	}
 	public String getId(String language) {
 		return language;
 	}
@@ -58,11 +53,11 @@ public class Language {
 		this.language = language;
 	}
 	
-	public List<News> getNews() {
+	/*public List<News> getNews() {
 		return news;
 	}
 	public void setNews(List<News> news) {
 		this.news = news;
-	}
+	}*/
 	
 }

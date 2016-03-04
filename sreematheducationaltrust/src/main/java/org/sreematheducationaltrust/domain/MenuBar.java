@@ -11,15 +11,17 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
+@Table(name="Menu")
 public class MenuBar {
 
 	@Id
 	@GeneratedValue
-	private String id;
+	private int id;
 	private String menuName;
 	private int displayOrder;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonBackReference
+	@JoinColumn(name="language_id")
 	private Language language;
 	
 	public int getDisplayOrder() {

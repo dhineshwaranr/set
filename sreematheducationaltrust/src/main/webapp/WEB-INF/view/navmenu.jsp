@@ -1,11 +1,14 @@
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="row">
-<div class="dropdown langChoose pull-right">
-    <select class="form-control" id="chooseNewsLanguage" name="newsLanguage">
-    <c:forEach var="langrow" items="${language.rows}">  
-    	<option value='<c:out value="${langrow.id}"/>'><c:out value="${langrow.language}"/></option>
-	</c:forEach>
-	</select>
-</div>
+	<div class="form-group col-lg-2 col-md-2 col-sm-12 col-xs-12 pull-right">
+		<select class="form-control" id="chooseNewsLanguage" name="chooseNewsLanguage">
+		<c:forEach items="${model.languageList}" var="element">
+			<option value="${element.id}">${element.language}</option>
+		</c:forEach>
+		</select>
+	</div>
 </div>
 <div class="row">
 <nav class="navbar navbar-default">

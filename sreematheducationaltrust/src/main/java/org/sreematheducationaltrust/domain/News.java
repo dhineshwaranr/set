@@ -27,6 +27,7 @@ public class News {
 	private boolean isImage;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonBackReference
+	@JoinColumn(name="language_id")
 	private Language language;
 	
 	public News(){
