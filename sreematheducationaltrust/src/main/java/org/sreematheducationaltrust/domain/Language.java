@@ -27,6 +27,16 @@ public class Language {
 	@JsonManagedReference
 	private List<News> news;
 	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy="language", orphanRemoval=true)
+	@JsonManagedReference
+	private List<MenuBar> menu;
+	
+	public List<MenuBar> getMenu() {
+		return menu;
+	}
+	public void setMenu(List<MenuBar> menu) {
+		this.menu = menu;
+	}
 	public String getId(String language) {
 		return language;
 	}

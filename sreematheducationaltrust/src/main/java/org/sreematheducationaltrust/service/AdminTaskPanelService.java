@@ -13,7 +13,7 @@ public interface AdminTaskPanelService {
 
 	public UserResponse newsPost(News news);
 	public List<News> getAllNews();
-	public List<News> getNewsByLanguage(String newsLAnguage);
+	public List<News> getNewsByLanguage(int newsLAnguage);
 	public News getNewsById(int newsId);
 	public UserResponse createEvent(Events event);
 	public List<Events> getAllEvents();

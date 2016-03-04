@@ -275,24 +275,25 @@
 		<div role="tabpanel" class="row tab-pane fade" id="extras" aria-labelledby="extras-tab">
 	      <div class="row"> 	
 	    	<form:form id="language" action="addLanguage" commandName="language" method="post" accept-charset="UTF-8" role="form">
-				<!-- <div class="form-group col-lg-4 col-md-12 col-sm-12 col-xs-12"> -->
-					<div class="extraSettings tabbable tabs-vertical tabs-right">
-						<ul class="nav nav-tabs extrasLeftt">
+				<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+					<div class="col-lg-2 extraSettings tabbable tabs-vertical tabs-right">
+						<ul class="nav nav-tabs tabs-left sideways">
 							<li><a href="#languageOptionPanel" data-toggle="tab">Language</a></li>
 							<li><a href="#menuOptionPanel" data-toggle="tab">Menu</a></li>
 							<li><a href="#categoryOptionPanel" data-toggle="tab">Category</a></li>
 							<li><a href="#contactOptionPanel" data-toggle="tab">Contact Details</a></li>
 							<li><a href="#helpDeskOptionPanel" data-toggle="tab">Help Desk</a></li>
 						</ul>
-						<div class="tab-content fade in active">
+					</div>				
+						<div class="col-lg-10 tab-content fade in active">
 							 <div class="tab-pane" id="languageOptionPanel">
-							 	Add Language
+							 	<table id="list"></table>
+								<div id="pager"></div>
 							 </div>	
 							 <div class="tab-pane" id="menuOptionPanel">
 							 	Add Menu
 							 </div>							
 						</div>
-					<!-- </div> -->
 				</div>
 			</div>
 			
@@ -305,6 +306,7 @@
 
 
 <%@ include file="js.jsp"%>
+<script src="<c:url value='/resources/js/pro-js/taskPanel.js' />"></script>
 <script src="<c:url value='/resources/js/imageUpload.js' />"></script>
 <script type="text/javascript">
 jQuery(document).ready(function() {

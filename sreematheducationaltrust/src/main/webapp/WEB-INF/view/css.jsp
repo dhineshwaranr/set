@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.min.css'/>" type="text/css" />
 <link rel="stylesheet" href="<c:url value='/resources/css/font-awesome.min.css'/>"/>
 <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="<c:url value='/resources/css/ui.jqgrid.css'/>" type="text/css" />
 <link rel="stylesheet" href="<c:url value='/resources/css/sreematheducationaltrust.css'/>" type="text/css" />
 
 </head>

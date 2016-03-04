@@ -16,6 +16,7 @@
 <body>
 <%@ include file="sql.jsp"%>
 <div class="container">
+<span id="dashboard" value="dashbord" hidden></span>
 <%@ include file="footer.jsp"%>	
 	<hr>
 	<div class="row nav-menu">

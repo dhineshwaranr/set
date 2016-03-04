@@ -35,13 +35,11 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 		return adminTaskPanelDAO.getAllNews();
 	}
 
-	public List<News> getNewsByLanguage(String newsLAnguage) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<News> getNewsByLanguage(int newsLanguage) {
+		return adminTaskPanelDAO.getNewsByLanguage(newsLanguage);
 	}
 
 	public News getNewsById(int newsId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

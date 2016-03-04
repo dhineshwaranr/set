@@ -1,6 +1,6 @@
 <div class="row">
 <div class="dropdown langChoose pull-right">
-    <select class="form-control" id="newsCategory" name="newsCategory">
+    <select class="form-control" id="chooseNewsLanguage" name="newsLanguage">
     <c:forEach var="langrow" items="${language.rows}">  
     	<option value='<c:out value="${langrow.id}"/>'><c:out value="${langrow.language}"/></option>
 	</c:forEach>

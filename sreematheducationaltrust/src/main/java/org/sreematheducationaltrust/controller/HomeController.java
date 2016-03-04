@@ -1,5 +1,6 @@
 package org.sreematheducationaltrust.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,8 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.sreematheducationaltrust.domain.Gallery;
@@ -33,6 +37,20 @@ public class HomeController {
 		
 		return "dashboard";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/languageChoosed/{requestedPage}/{languageChoosen}", method=RequestMethod.GET)
+	public Object getNewsByLanguage(@PathVariable String languageChoosen,@PathVariable String requestedPage){
+		List<Object> objects = new ArrayList<Object>();
+		System.out.println(languageChoosen +"||"+requestedPage);
+		if(requestedPage.equals("dashbord")){
+			List<News> newsList = newsServiceManager.getNewsByLanguage(Integer.parseInt(languageChoosen));
+			System.out.println("Language Choosed===>"+newsList);
+			objects.addAll(0, newsList);
+		}
+		return objects;
+	}
+	
 	
 	@ResponseBody
 	@RequestMapping(value="/getAllNews",method=RequestMethod.GET)

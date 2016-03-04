@@ -26,7 +26,7 @@ public class News {
 	private String description;
 	private boolean isImage;
 	@ManyToOne(fetch = FetchType.EAGER)
-	 @JsonBackReference
+	@JsonBackReference
 	private Language language;
 	
 	public News(){
