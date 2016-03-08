@@ -9,6 +9,7 @@
 </head>
 <body>
 <div class="container">
+<span id="requestedPage" value="aboutus" hidden></span>
 	<%@ include file="footer.jsp"%>	
 	<hr>
 	<div class="row nav-menu">
@@ -66,5 +67,12 @@
 </div>
 
 <%@ include file="js.jsp"%>
+
+<script type="text/javascript">
+var $ = jQuery.noConflict();
+$(document).ready(function() {
+	languageChange();
+});
+</script>
 </body>
 </html>

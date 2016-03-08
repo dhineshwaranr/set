@@ -18,7 +18,9 @@
 	<script src="<c:url value='/resources/js/grid.locale-en.js' />"></script>
 	<script src="<c:url value='/resources/js/jquery.jqGrid.min.js' />"></script>
 	<script src="<c:url value='/resources/js/sreematheducationtrust.js' />"></script>
-
+	
+	
+	<script src="<c:url value='/resources/js/pro-js/config.js' />"></script> 
 </head>
 </html>
 	

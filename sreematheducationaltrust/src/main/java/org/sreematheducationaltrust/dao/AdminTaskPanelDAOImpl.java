@@ -5,15 +5,19 @@ import java.util.List;
 import javax.servlet.ServletContext;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.sreematheducationaltrust.domain.AboutUs;
 import org.sreematheducationaltrust.domain.Events;
 import org.sreematheducationaltrust.domain.Language;
+import org.sreematheducationaltrust.domain.MenuBar;
 import org.sreematheducationaltrust.domain.News;
+import org.sreematheducationaltrust.io.BaseResponse;
 import org.sreematheducationaltrust.io.UserResponse;
 
 @Service
@@ -115,6 +119,43 @@ public class AdminTaskPanelDAOImpl implements AdminTaskPanelDAO {
 			e.printStackTrace();
 		}
  	}
+	
+	@Transactional
+	public List<MenuBar> getMenuItems(int language) {
+		List<MenuBar> list = null;
+		try {
+			Query query = (Query) this.sessionFactory.getCurrentSession().createQuery("from MenuBar n WHERE n.language.id = ?");
+			query.setParameter(0, language);
+			list = query.list();
+		} catch (HibernateException e) {
+			System.out.println("Exception while trying to get data");
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<MenuBar> getAllMenu() {
+		List<MenuBar> menuList = null;
+		try{
+			Query query = (Query) this.sessionFactory.getCurrentSession().createQuery("from MenuBar");
+			menuList = query.list();
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return menuList;
+	}
+
+	public void saveAboutUsContent(AboutUs aboutuscontent) {
+		try{
+			Session session = sessionFactory.getCurrentSession();
+	        session.save(aboutuscontent);
+		}catch(Exception e){
+			
+			
+		}
+	}
 	
 	
 

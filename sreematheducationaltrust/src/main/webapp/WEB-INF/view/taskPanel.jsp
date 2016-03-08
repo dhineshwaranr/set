@@ -1,8 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <title>Admin Task Panel</title>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -15,11 +19,13 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/jquery.fileupload-ui-noscript.css'/>" type="text/css" />
 <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap-datetimepicker.css'/>" type="text/css" />
 <link href="<c:url value='https://fonts.googleapis.com/icon?family=Material+Icons'/>" rel="stylesheet">
-
+<link rel="stylesheet" href="<c:url value='/resources/css/ui.jqgrid.css'/>"/>
 </head>
 <body>
 
 <div class="container">
+<span id="requestedPage" value="taskpanel" hidden></span>
+	<span id="requestedPage" value="admin/taskpanel" hidden></span>
 	<div class="row nav-menu">
 		<%@ include file="navmenu.jsp"%>
 	</div>
@@ -81,7 +87,7 @@
 							  <form:select class="form-control" path="language.id" name="language.id">
 								<form:options items="${languageList}" itemValue="id" itemLabel="language"/>
 							  </form:select>
-							</div>
+							</div>   
 							
 							 <div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
 							  <label for="newsType">Type</label>
@@ -274,30 +280,69 @@
 		</div>
 		<div role="tabpanel" class="row tab-pane fade" id="extras" aria-labelledby="extras-tab">
 	      <div class="row"> 	
-	    	<form:form id="language" action="addLanguage" commandName="language" method="post" accept-charset="UTF-8" role="form">
+	    	
 				<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
 					<div class="col-lg-2 extraSettings tabbable tabs-vertical tabs-right">
 						<ul class="nav nav-tabs tabs-left sideways">
 							<li><a class="extraTab" href="#languageOptionPanel" data-toggle="tab">Language</a></li>
 							<li><a class="extraTab" href="#menuOptionPanel" data-toggle="tab">Menu</a></li>
 							<li><a class="extraTab" href="#categoryOptionPanel" data-toggle="tab">Category</a></li>
+							<li><a class="extraTab" href="#aboutUsPanel" data-toggle="tab">AboutUs</a></li>
 							<li><a class="extraTab" href="#contactOptionPanel" data-toggle="tab">Contact Details</a></li>
 							<li><a class="extraTab" href="#helpDeskOptionPanel" data-toggle="tab">Help Desk</a></li>
 						</ul>
 					</div>				
 						<div class="col-lg-10 tab-content fade in active">
-							 <div class="tab-pane" id="languageOptionPanel">
+							 <div class="col-lg-12 tab-pane" id="languageOptionPanel">
 							 	<table id="languageList"></table>
 								<div id="languageListpager"></div>
 							 </div>	
-							 <div class="tab-pane" id="menuOptionPanel">
-							 	Add Menu
+							 <div class="col-lg-12 tab-pane" id="menuOptionPanel">
+							 	<table id="menuList"></table>
+								<div id="menuListpager"></div>
+							 </div>
+							  <div class="col-lg-12 tab-pane" id="aboutUsPanel">
+							 		
+				<form:form action="saveAboutUs" id="aboutuscontent" modelAttribute="aboutuscontent" method="post" accept-charset="UTF-8" role="form" enctype="multipart/form-data">
+					  <div class="row">
+						  <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						    <label for="title">Title</label>
+						    <input type="text" class="form-control" id="aboutusTitle" name="title" placeholder="title">
+						  </div>
+					  </div>
+					  
+					  <div class="row">
+						  	
+							<div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							  <label for="newsLang">Language</label>
+							  <form:select class="form-control" path="language.id" name="language.id">
+								<form:options items="${languageList}" itemValue="id" itemLabel="language"/>
+							  </form:select>
+							</div>  
+							<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						    <label for="displayOrder">Display Order</label>
+						    <input type="text" class="form-control" id="displayOrder" name="displayOrder" placeholder="Display Order">
+						  </div>  
+						</div>
+					<div class="row">
+						<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						  <label for="comment">Content</label>
+						  <textarea class="form-control" rows="7" id="aboutUsContent" name="content"></textarea>
+						</div>	
+					</div>
+					<div class="row pull-right">
+					  	<input type="submit" value="Post" name="Save" class="btn btn-success"></button>
+					  	<input type="submit" value="Clear" class="btn btn-danger"></button>
+					  </div>
+			</form:form>
+					
+							 		
 							 </div>							
 						</div>
 				</div>
 			</div>
 			
-			</form:form>
+			
 		</div>
 		
 	</div>
@@ -312,7 +357,9 @@
 jQuery(document).ready(function() {
 	var taskPanel = new TaskPanel();
 	taskPanel.init();
+	languageChange();
 });
+
 
 $('input:checkbox').change(
     function(){
@@ -372,7 +419,7 @@ $('input:checkbox').change(
  $(function () {
        $('#eventfrom').datetimepicker();
 });   
- $(function () {
+$(function () {
        $('#eventto').datetimepicker();
 });
 

@@ -30,10 +30,15 @@ var tabsFn = (function() {
 })();
 
 $( "#chooseNewsLanguage" ).change(function() {
-  var languageChoosen = $("#chooseNewsLanguage").val();
-  var data = JSON.stringify(languageChoosen);
-  var page = $("#dashboard").attr("value");
-  if(languageChoosen != ""){
+  languageChange();
+});
+
+function languageChange(){
+	var languageChoosen = $("#chooseNewsLanguage").val();
+	var data = JSON.stringify(languageChoosen);
+  	var page = $("#requestedPage").attr("value");
+  	
+	if(languageChoosen != ""){
   	var url = "/languageChoosed"+"/"+page+"/"+languageChoosen;
   	console.log(appConfig.location);
   	$.ajax({
@@ -42,7 +47,37 @@ $( "#chooseNewsLanguage" ).change(function() {
     dataType : "json",
     success: function( data ) {
     	if(page == "dashbord"){
+        	console.log("DATA==>"+JSON.stringify(data));
         	fillnewspanel(data);
+        	fillMenuPanel(data);
+        }
+        if(page == "aboutus"){
+        	
+        	fillMenuPanel(data);
+        }
+        if(page == "service"){
+        	console.log(data);
+        	fillMenuPanel(data);
+        }
+        if(page == "blog"){
+        	
+        	fillMenuPanel(data);
+        }
+        if(page == "gallery"){
+        	
+        	fillMenuPanel(data);
+        }
+        if(page == "video"){
+        	
+        	fillMenuPanel(data);
+        }
+         if(page == "contactus"){
+        	
+        	fillMenuPanel(data);
+        }
+        if(page == "taskpanel"){
+        	
+        	fillMenuPanel(data);
         }	
     },
     error: function( xhr, status, errorThrown ) {
@@ -51,19 +86,16 @@ $( "#chooseNewsLanguage" ).change(function() {
     complete: function( xhr, status ) {
         //alert( "The request is complete!" );
     }
-});
+	});
   }
-});
+}
 
 function fillnewspanel(data){
+
 	var defaulttemp ='';
 	if(data != null){
-		console.log("GET-ALL-NEWS-->"+JSON.stringify(data));
-		$.each(data, function(i, obj) {
+		$.each(data[0], function(i, obj) {
 			$(obj).each(function(key, value){
-			console.log(value.newsId);
-			console.log(value.newsTitle);
-			console.log(value.description);
 				defaulttemp += '<div class="daily-news"id="'+value.newsId+'">';
 				defaulttemp	+= '<div class="newsHeading"><b><span>'+value.newsTitle+'</span></b></div>';
 				defaulttemp += '<div class="newsDescription">'+value.description+'</div>';
@@ -74,7 +106,24 @@ function fillnewspanel(data){
 		$("#newsPanels").empty();
 		$("#newsPanel").append(defaulttemp);
 		$("#newsPanels").append(defaulttemp);
-					
 	}
-	
 }
+
+function fillMenuPanel(data){
+///alert("12312");
+	var defaulttemp ='';
+	if(data != null){
+		$.each(data[1], function(i, obj) {
+			$(obj).each(function(key, value){
+				defaulttemp += '<li class=""><a href="'+value.menuUrl+'">'+value.menuName+'</a></li>';
+			});
+		});
+			$("#Main-Menu-panel").empty();
+			$("#Main-Menu-panel").append(defaulttemp);
+		}
+}
+/*
+	    
+        
+*/
+

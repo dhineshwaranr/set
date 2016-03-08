@@ -6,6 +6,8 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
   }
   if(target == "#languageOptionPanel"){
 	  loadLanguage();
+  }if(target == "#menuOptionPanel"){
+	  loadMenu();
   }
 });
 
@@ -18,7 +20,7 @@ function newsObj(){
 	    success: function( data ) {
 	    	if(page == "dashbord"){
 	        	fillnewspanel(data);
-	        }	
+	        }
 	    },
 	    error: function( xhr, status, errorThrown ) {
 	        alert( "Sorry, there was a problem!" );
@@ -29,7 +31,6 @@ function newsObj(){
 	});
 }
 
-
 function loadLanguage(){
 	jQuery("#languageList").jqGrid({	 
 		url:appConfig.location+'/admin/getAllLanguage',
@@ -37,30 +38,50 @@ function loadLanguage(){
 		mtype: 'GET',
 		colNames:['No','Language'],
 		colModel:[
-		{name:'id',index:'id', width:'2%', sorttype:"int",align: "center", editable: false,hidden:false},
-		{name:'language',index:'language', width:'3%', sorttype:"int",align: "center", editable: false,hidden:false},
+		{name:'id',index:'id', width:10, sorttype:"int",align: "center", editable: false,hidden:false},
+		{name:'language',index:'language', width:10, sorttype:"int",align: "center", editable: false,hidden:false}
 		],
 		autowidth:true,
         pager: '#languageListpager',
 		sortname: 'id',
-		viewrecords: false,
+		viewrecords: true,
 		sortorder: "desc",
+		gridview: true,
 		loadonce:false,
-		toolbar: [true,"top"],
-		jsonReader : { repeatitems: false },	
 		editurl: "processoperation",
-		jsonReader : {
-	          root: "rows",
-	          page: "page",
-	          total: "total",
-	          records: "records",
-	          repeatitems: false,
-	          cell: "cell",
-	          id: "id"
-	      }
 	});
 	
 	jQuery("#languageList").jqGrid("navGrid", "#languageListpager",
 		{search:true,edit: true, add: true, del: true, refresh:true}
 	);
 };
+
+function loadMenu(){
+	jQuery("#menuList").jqGrid({	 
+		url:appConfig.location+'/admin/getAllMenu',
+		datatype: "json",
+		mtype: 'GET',
+		colNames:['No','Menu Name','Language'],
+		colModel:[
+		{name:'id',index:'id', width:10, sorttype:"int",align: "center", editable: false,hidden:false,key: true,formoptions: { rowpos: 1, colpos: 1}},
+		{name:'menuName',index:'menuName', width:10, sorttype:"int",align: "center", editable: false,hidden:false,key: true},
+		{name:'language',index:'language', width:10, sorttype:"int",align: "center", editable: false,hidden:false,key: true},
+		],
+		height: 250,
+		rowNum: 10,
+		rowList: [5, 10, 20, 50, 100],
+		autowidth:true,
+        pager: '#menuListpager',
+		sortname: 'id',
+		viewrecords: true,
+		sortorder: "desc",
+		
+		loadonce:false,
+		editurl: "processoperation",
+	});
+	jQuery("#menuList").jqGrid("navGrid", "#menuListpager",
+		{search:true,edit: true, add: true, del: true, refresh:true}
+	);
+};
+
+$(window).resize(function () { jQuery("#theGrid").jqGrid('setGridWidth', parseInt($(window).width()) - 20); });

@@ -153,6 +153,7 @@
 </head>
 <body>
 <div class="container">
+<span id="requestedPage" value="gallery" hidden></span>
 	<%@ include file="footer.jsp"%>
 	<hr>
 	<div class="row nav-menu">
@@ -254,6 +255,7 @@
 <script src="<c:url value='/resources/js/jquery.form.js' />"></script> 
 <script type="text/javascript">
 $(document).ready(function() {
+	languageChange();
         
    /* activate the carousel */
    $("#modal-carousel").carousel({interval:false});

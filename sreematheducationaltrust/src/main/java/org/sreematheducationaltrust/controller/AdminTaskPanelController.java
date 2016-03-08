@@ -1,6 +1,9 @@
 package org.sreematheducationaltrust.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,8 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.sreematheducationaltrust.domain.AboutUs;
 import org.sreematheducationaltrust.domain.Events;
 import org.sreematheducationaltrust.domain.Language;
+import org.sreematheducationaltrust.domain.MenuBar;
 import org.sreematheducationaltrust.domain.News;
 import org.sreematheducationaltrust.io.BaseResponse;
 import org.sreematheducationaltrust.io.CustomJsonResponse;
@@ -31,9 +36,17 @@ public class AdminTaskPanelController {
 	AdminTaskPanelService adminTaskPanelService;
 	
 	@RequestMapping(value="/taskPanel",method=RequestMethod.GET)
-	public ModelAndView taskPanel(){
-		ModelMap model = populateModel();
-		return new ModelAndView("taskPanel","model",model);
+	public ModelAndView taskPanel(Model model){
+		News newsentity = new News();
+		AboutUs aboutuscontent = new AboutUs();
+		Language language = new Language();
+		newsentity.setLanguage(language);
+		aboutuscontent.setLanguage(language);
+		List<Language> languageList = adminTaskPanelService.getAllLanguage();
+		model.addAttribute("languageList",languageList);
+		model.addAttribute("news",newsentity);
+		model.addAttribute("aboutuscontent", aboutuscontent);
+		return new ModelAndView("taskPanel", "model", model);
 	}
 	
 	@ResponseBody
@@ -90,15 +103,38 @@ public class AdminTaskPanelController {
 		return langList;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/getAllMenu", method=RequestMethod.GET)
+	public List<Map<String,String>> getAllMenu(){
+		List<Map<String,String>> menuList = adminTaskPanelService.getAllMenu();
+		for(Map<String,String> lm : menuList){
+			for(Map.Entry<String, String> entry : lm.entrySet()){
+				//System.out.println(entry.getKey());
+				//System.out.println(entry.getValue());
+			}
+		}
+		return menuList;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/saveAboutUs",method=RequestMethod.POST)
+	public BaseResponse saveAboutUsContent(@ModelAttribute AboutUs aboutuscontent, BindingResult result){
+		try{
+		System.out.println("saveAboutus");
+		System.out.println(aboutuscontent.getTitle());
+		System.out.println(aboutuscontent.getContent());
+		System.out.println(aboutuscontent.getLanguage().getLanguage());
+		//return adminTaskPanelService.saveAboutUsContent(aboutuscontent);
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return null;
+	}
+	
+	@SuppressWarnings("unused")
 	private ModelMap populateModel(){
-		ModelMap model = new ModelMap();
-		News newsentity = new News();
-		Language lang = new Language();
-		newsentity.setLanguage(lang);
-		List<Language> languageList = adminTaskPanelService.getAllLanguage();
-		model.put("languageList",languageList);
-		model.put("news",newsentity);
-		return model;
+		System.out.println("POPULATE");
+		return null;
 	}
 	
 }

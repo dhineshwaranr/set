@@ -15,6 +15,7 @@
 </head>
 <body>
 	<div class="container">
+		<span id="requestedPage" value="contactus" hidden></span>
 		<%@ include file="footer.jsp"%>
 		<hr>
 		<div class="row nav-menu">
@@ -28,5 +29,11 @@
 		<%@ include file="footerBottom.jsp"%>
 	</div>
 	<%@ include file="js.jsp"%>
+<script type="text/javascript">
+var $ = jQuery.noConflict();
+$(document).ready(function() {
+	languageChange();
+});
+</script>	
 </body>
 </html>

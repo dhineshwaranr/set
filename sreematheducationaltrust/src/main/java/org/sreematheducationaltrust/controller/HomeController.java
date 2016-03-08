@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.sreematheducationaltrust.domain.Gallery;
 import org.sreematheducationaltrust.domain.Language;
+import org.sreematheducationaltrust.domain.MenuBar;
 import org.sreematheducationaltrust.domain.News;
 import org.sreematheducationaltrust.service.AdminTaskPanelService;
 
@@ -43,14 +44,49 @@ public class HomeController {
 	@ResponseBody
 	@RequestMapping(value="/languageChoosed/{requestedPage}/{languageChoosen}", method=RequestMethod.GET)
 	public Object getNewsByLanguage(@PathVariable String languageChoosen,@PathVariable String requestedPage){
-		List<Object> objects = new ArrayList<Object>();
+		List<Object> langObjects = new ArrayList<Object>();
+		List<Object>  menuObject = new ArrayList<Object>();
 		System.out.println(languageChoosen +"||"+requestedPage);
 		if(requestedPage.equals("dashbord")){
 			List<News> newsList = adminTaskPanelService.getNewsByLanguage(Integer.parseInt(languageChoosen));
-			System.out.println("Language Choosed===>"+newsList);
-			objects.addAll(0, newsList);
+			langObjects.add(0,newsList);
+			List<MenuBar> menu = adminTaskPanelService.getMenuItems(Integer.parseInt(languageChoosen));
+			langObjects.add(1,menu);
 		}
-		return objects;
+		if(requestedPage.equals("aboutus")){
+			List<News> newsList = null;
+			langObjects.add(0,newsList);
+			List<MenuBar> menu = adminTaskPanelService.getMenuItems(Integer.parseInt(languageChoosen));
+			langObjects.add(1,menu);
+		}
+		if(requestedPage.equals("service")){
+			List<MenuBar> menu = adminTaskPanelService.getMenuItems(Integer.parseInt(languageChoosen));
+			langObjects.add(1,menu);
+		}
+		if(requestedPage.equals("blog")){
+			List<MenuBar> menu = adminTaskPanelService.getMenuItems(Integer.parseInt(languageChoosen));
+			langObjects.add(1,menu);
+		}
+		if(requestedPage.equals("gallery")){
+			List<MenuBar> menu = adminTaskPanelService.getMenuItems(Integer.parseInt(languageChoosen));
+			langObjects.add(1,menu);
+		}
+		if(requestedPage.equals("video")){
+			List<MenuBar> menu = adminTaskPanelService.getMenuItems(Integer.parseInt(languageChoosen));
+			langObjects.add(1,menu);
+		}
+		if(requestedPage.equals("contactus")){
+			List<MenuBar> menu = adminTaskPanelService.getMenuItems(Integer.parseInt(languageChoosen));
+			langObjects.add(1,menu);
+		}
+		if(requestedPage.equals("taskpanel")){
+			System.out.println("admin/taskpanel");
+			List<News> newsList = adminTaskPanelService.getNewsByLanguage(Integer.parseInt(languageChoosen));
+			langObjects.add(0,newsList);
+			List<MenuBar> menu = adminTaskPanelService.getMenuItems(Integer.parseInt(languageChoosen));
+			langObjects.add(1,menu);
+		}
+		return langObjects;
 	}
 	
 	

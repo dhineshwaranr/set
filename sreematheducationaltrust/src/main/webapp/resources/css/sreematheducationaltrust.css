@@ -76,8 +76,9 @@ hr {
 	margin-bottom:0px !important;
 }
 .navbar .navbar-nav li{
-	margin:0px 28px 0px 28px !important;
 	color:white !important;
+	position: relative !important;
+	z-index: 1; 
 	
 }
 .navbar .navbar-nav li a{
@@ -361,13 +362,13 @@ hr {
 .footerBottom .bfContent .socialMediaShare ul li{
 	margin:0px 15px 9px 3px;
 }
-.footerBottom .bfContent .pageTranslate .dropdown .dropdown-menu{
+.footerBottom .bfContent .pageTranslate .dropdown select{
 	background-color: #232F84;
-}
-.footerBottom .bfContent .pageTranslate .dropdown .dropdown-menu li a{
 	color:white !important;
+	border: 1px solid #2A3CC1;
 }
-.footerBottom .bfContent .pageTranslate .dropdown .dropdown-menu li a:hover{
+
+.footerBottom .bfContent .pageTranslate .dropdown select :hover{
 	color:black !important;
 }
 .footerBottomTwo .flyToTop i{

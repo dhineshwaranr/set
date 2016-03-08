@@ -1,22 +1,23 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
 <title>Dashboard - Sreemath Educational Trust</title>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ include file="css.jsp"%>
 </head>
 <body>
 <%-- <%@ include file="sql.jsp"%> --%>
 <div class="container">
-<span id="dashboard" value="dashbord" hidden></span>
+<span id="requestedPage" value="dashbord" hidden></span>
 <%@ include file="footer.jsp"%>	
 	<hr>
 	<div class="row nav-menu">
@@ -80,6 +81,7 @@ var $ = jQuery.noConflict();
 $(document).ready(function() {
 	var dashboard = new Dashboard();
 	dashboard.init();
+	languageChange();
 });
 
 // invoke the carousel

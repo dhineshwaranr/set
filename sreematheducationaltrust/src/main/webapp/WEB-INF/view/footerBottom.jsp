@@ -14,15 +14,11 @@
 		<div class="pageTranslate">
 			<div class="dropdown langChoose">
 			<h3 class="no-span">Translate Page</h3>
-		    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Choose Language<b class="caret"></b></a>
-		    <ul class="dropdown-menu">
-		        <li><a href="#">Tamil</a></li>
-		        <li><a href="#">English</a></li>
-		        <li><a href="#">Malayalam</a></li>
-		        <li><a href="#">Hindi</a></li>
-		        <li><a href="#">Telegu</a></li>
-		        <li><a href="#">Kannada</a></li>
-		    </ul>
+		    <select class="form-control" id="chooseNewsLanguage" name="chooseNewsLanguage">
+			<c:forEach items="${model.languageList}" var="element">
+			<option value="${element.id}">${element.language}</option>
+		</c:forEach>
+		</select>
 		</div>
 		</div>
 	</div>
