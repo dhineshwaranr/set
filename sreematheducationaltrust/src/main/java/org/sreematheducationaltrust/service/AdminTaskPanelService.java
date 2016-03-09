@@ -10,6 +10,7 @@ import org.sreematheducationaltrust.domain.Events;
 import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.MenuBar;
 import org.sreematheducationaltrust.domain.News;
+import org.sreematheducationaltrust.domain.Services;
 import org.sreematheducationaltrust.io.BaseResponse;
 import org.sreematheducationaltrust.io.UserResponse;
 import org.sreematheducationtrust.dto.MenuBarDto;
@@ -20,12 +21,19 @@ public interface AdminTaskPanelService {
 	public List<News> getAllNews();
 	public List<News> getNewsByLanguage(int newsLAnguage);
 	public News getNewsById(int newsId);
+	
 	public UserResponse createEvent(Events event);
 	public List<Events> getAllEvents();
+	
 	public BaseResponse addLanguage(Language language);
 	public List<Language> getAllLanguage();
+	
 	public List<MenuBar> getMenuItems(int language);
 	public List<Map<String,String>> getAllMenu();
+	
+	public List<AboutUs> getAboutUsContentByLanguage(int language);
+	public List<Services> getServiceContentByLanguage(int language);
+	
 	public AdminUsers getUserByUserName(String userName);
 	public boolean resetAttempt(String username);
 	public Integer verifyAttempt(String username);

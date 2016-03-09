@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.sreematheducationaltrust.domain.AboutUs;
 import org.sreematheducationaltrust.domain.Gallery;
 import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.MenuBar;
 import org.sreematheducationaltrust.domain.News;
+import org.sreematheducationaltrust.domain.Services;
 import org.sreematheducationaltrust.service.AdminTaskPanelService;
 
 @Controller
@@ -54,12 +56,15 @@ public class HomeController {
 			langObjects.add(1,menu);
 		}
 		if(requestedPage.equals("aboutus")){
-			List<News> newsList = null;
-			langObjects.add(0,newsList);
+			List<AboutUs> aboutusList = adminTaskPanelService.getAboutUsContentByLanguage(Integer.parseInt(languageChoosen));
+			langObjects.add(0,aboutusList);
 			List<MenuBar> menu = adminTaskPanelService.getMenuItems(Integer.parseInt(languageChoosen));
 			langObjects.add(1,menu);
 		}
 		if(requestedPage.equals("service")){
+			List<Services> serviceList = adminTaskPanelService.getServiceContentByLanguage(Integer.parseInt(languageChoosen));
+			langObjects.add(0,serviceList);
+			
 			List<MenuBar> menu = adminTaskPanelService.getMenuItems(Integer.parseInt(languageChoosen));
 			langObjects.add(1,menu);
 		}

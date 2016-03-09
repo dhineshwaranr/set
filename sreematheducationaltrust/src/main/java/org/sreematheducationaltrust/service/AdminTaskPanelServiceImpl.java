@@ -14,6 +14,7 @@ import org.sreematheducationaltrust.domain.Events;
 import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.MenuBar;
 import org.sreematheducationaltrust.domain.News;
+import org.sreematheducationaltrust.domain.Services;
 import org.sreematheducationaltrust.io.BaseResponse;
 import org.sreematheducationaltrust.io.UserResponse;
 import org.sreematheducationtrust.dto.MenuBarDto;
@@ -136,6 +137,14 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 		response.setStatusCode("1");
 		response.setStatusMessage("Language Added");
 		return null;
+	}
+
+	public List<AboutUs> getAboutUsContentByLanguage(int language) {
+		return adminTaskPanelDAO.getAboutUsContentByLanguage(language);
+	}
+
+	public List<Services> getServiceContentByLanguage(int language) {
+		return adminTaskPanelDAO.getServiceContentByLanguage(language);
 	}
 
 }

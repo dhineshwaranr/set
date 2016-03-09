@@ -15,9 +15,9 @@
 		<div class="row nav-menu">
 			<%@ include file="navmenu.jsp"%>
 		</div>
-		<div class="row whatWeDo">
+		<div class="row whatWeDo" id="whatWeDo">
 			<h1>Services</h1>
-			<div class="service col-lg-4 col-md-12 col-sm-12 col-xs-12">
+			<div class="service col-lg-4 col-md-12 col-sm-12 col-xs-12" id="servicespanel">
 				<div class="headingStyle1">
 					<span><a href="#">K-12 Policy & Practice</a></span>
 				</div>

@@ -47,20 +47,23 @@ function languageChange(){
     dataType : "json",
     success: function( data ) {
     	if(page == "dashbord"){
-        	console.log("DATA==>"+JSON.stringify(data));
+        	//console.log("DATA==>"+JSON.stringify(data));
         	fillnewspanel(data);
         	fillMenuPanel(data);
         }
         if(page == "aboutus"){
-        	
+        	//alert("DONEEE");
+        	//console.log("aboutUs DATA-->"+JSON.stringify(data));
+        	fillAboutUsPanel(data);
         	fillMenuPanel(data);
         }
         if(page == "service"){
-        	console.log(data);
+        	console.log(JSON.stringify(data));
+        	fillservicesPanel(data);
         	fillMenuPanel(data);
         }
         if(page == "blog"){
-        	
+        	fillAboutUsPanel(data);
         	fillMenuPanel(data);
         }
         if(page == "gallery"){
@@ -108,6 +111,41 @@ function fillnewspanel(data){
 		$("#newsPanels").append(defaulttemp);
 	}
 }
+
+function fillAboutUsPanel(data){
+	var defaulttemp ='';
+	if(data != null){
+		$.each(data[0], function(i, obj) {
+			$(obj).each(function(key, value){
+				defaulttemp += '<p>'+value.content+'<p>';			
+			});
+		});
+		$("#section-1").empty();
+		$("#section-1").append(defaulttemp);
+	}
+}
+
+function fillservicesPanel(data){
+	var defaulttemp ='';
+	if(data != null){
+		$.each(data[0], function(i, obj) {
+			$(obj).each(function(key, value){
+				defaulttemp += '<div class="service col-lg-4 col-md-12 col-sm-12 col-xs-12" id="servicespanel">';
+				defaulttemp += '<div class="headingStyle1">';
+				defaulttemp += '<span><a href='+value.url+'>'+value.serviceTitle+'</a></span>';
+				defaulttemp += '</div>';
+				defaulttemp += '<div>';
+				defaulttemp += '<p>'+value.serviceContent+'</p>';
+				defaulttemp += '</div>';
+				defaulttemp += '<button type="button" class="btn btn-primary btn-lg sharp pull-right">Know More</button>';
+				defaulttemp += '</div>';
+			});
+		});
+			$("#whatWeDo").empty();
+			$("#whatWeDo").append(defaulttemp);
+	}
+}
+
 
 function fillMenuPanel(data){
 ///alert("12312");

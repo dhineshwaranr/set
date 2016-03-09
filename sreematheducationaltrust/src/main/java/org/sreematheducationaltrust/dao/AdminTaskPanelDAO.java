@@ -7,6 +7,7 @@ import org.sreematheducationaltrust.domain.Events;
 import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.MenuBar;
 import org.sreematheducationaltrust.domain.News;
+import org.sreematheducationaltrust.domain.Services;
 import org.sreematheducationaltrust.io.BaseResponse;
 import org.sreematheducationaltrust.io.UserResponse;
 
@@ -24,4 +25,7 @@ public interface AdminTaskPanelDAO {
 	public List<MenuBar> getAllMenu();
 	
 	public void saveAboutUsContent(AboutUs aboutuscontent);
+	
+	public List<AboutUs> getAboutUsContentByLanguage(int language);
+	public List<Services> getServiceContentByLanguage(int language);
 }

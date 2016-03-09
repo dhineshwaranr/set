@@ -17,6 +17,7 @@ import org.sreematheducationaltrust.domain.Events;
 import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.MenuBar;
 import org.sreematheducationaltrust.domain.News;
+import org.sreematheducationaltrust.domain.Services;
 import org.sreematheducationaltrust.io.BaseResponse;
 import org.sreematheducationaltrust.io.UserResponse;
 
@@ -155,6 +156,36 @@ public class AdminTaskPanelDAOImpl implements AdminTaskPanelDAO {
 			
 			
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<AboutUs> getAboutUsContentByLanguage(int language) {
+		List<AboutUs> list = null;
+		try {
+			Query query = (Query) this.sessionFactory.getCurrentSession().createQuery("from AboutUs n WHERE n.language.id = ?");
+			query.setParameter(0, language);
+			list = query.list();
+		} catch (HibernateException e) {
+			System.out.println("Exception while trying to get data");
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Services> getServiceContentByLanguage(int language) {
+		List<Services> list = null;
+		try {
+			Query query = (Query) this.sessionFactory.getCurrentSession().createQuery("from Services n WHERE n.language.id = ?");
+			query.setParameter(0, language);
+			list = query.list();
+		} catch (HibernateException e) {
+			System.out.println("Exception while trying to get data");
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
 	

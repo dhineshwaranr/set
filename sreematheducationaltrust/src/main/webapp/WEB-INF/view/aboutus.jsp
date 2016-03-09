@@ -17,8 +17,8 @@
 	</div>
 	<div class="row startedDetails">
 	<h1>About Us</h1>
-		<div class=" row aboutusContent">
-			<div class="section-1">
+		<div class="row aboutusContent" id="aboutusContent">
+			<div class="section-1" id="section-1">
 			<p><b>The Education Trust is a national non-profit advocacy organization that promotes high academic achievement for all students at all levels, particularly for students of color and low-income students. We were founded for one reason and one reason alone: to push, prod, and cajole our country toward educational justice.</b></p>		
 			<p>From our beginnings in the early 1990s, our unrelenting advocacy continues to be supported by solid data analysis, equity-focused legislative proposals, strong partnerships with leading organizations, and proven strategies to improve the educational outcomes of our nation’s youth.</p>
 			<p>With these tools we aim to expose — and eliminate — the gaps in opportunity by race and income that have led to enormous gaps in educational achievement, pre-K through college. These gaps can severely limit economic and social mobility.</p>
