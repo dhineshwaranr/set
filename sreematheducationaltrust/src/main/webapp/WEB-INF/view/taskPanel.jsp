@@ -25,7 +25,7 @@
 
 <div class="container">
 <span id="requestedPage" value="taskpanel" hidden></span>
-	<span id="requestedPage" value="admin/taskpanel" hidden></span>
+	<span id="requestedPage" value="taskpanel" hidden></span>
 	<div class="row nav-menu">
 		<%@ include file="navmenu.jsp"%>
 	</div>

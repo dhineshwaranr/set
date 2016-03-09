@@ -111,23 +111,17 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 
 	public List<Map<String,String>> getAllMenu() {
 		List<MenuBar> mlist = adminTaskPanelDAO.getAllMenu();
-		Map<String,String> menuMap = new HashMap<String,String>();
 		List<Map<String,String>> menuList = new ArrayList<Map<String,String>>();
-		Iterator<MenuBar> iterator = mlist.iterator();
-		System.out.println(mlist.size());
-			
 		for(MenuBar ml : mlist){
-			menuMap.put("id",Integer.toString(ml.getId()));
-			menuMap.put("menuName",ml.getMenuName());
-			menuMap.put("language",ml.getLanguage().getLanguage());
-			String mb = ml.getLanguage().getLanguage();
-			String mb1 = Integer.toString(ml.getId());
-			String mb2 = ml.getMenuName();
-			System.out.println("-id-"+mb1+" lang-"+mb+"- name-"+mb2);
+			Map<String,String> menuMap = new HashMap<String,String>();
+			String mb = Integer.toString(ml.getId());
+			String mb1 = ml.getMenuName();
+			String mb2 = ml.getLanguage().getLanguage();
+			menuMap.put("id",mb);
+			menuMap.put("menuName",mb1);
+			menuMap.put("language",mb2);
 			menuList.add(menuMap);
 		}
-		
-		System.out.println(menuList.size());
 		return menuList;
 	}
 
