@@ -46,6 +46,8 @@ public class AdminTaskPanelController {
 		model.addAttribute("languageList",languageList);
 		model.addAttribute("news",newsentity);
 		model.addAttribute("aboutuscontent", aboutuscontent);
+		List<Language> allLanguagle = getAllLanguage();
+		model.addAttribute("langList", allLanguagle);
 		return new ModelAndView("taskPanel", "model", model);
 	}
 	
@@ -89,8 +91,8 @@ public class AdminTaskPanelController {
 		return null;
 	}
 		
-	@ResponseBody
-	@RequestMapping(value="/getAllLanguage",method=RequestMethod.GET)
+	//@ResponseBody
+	//@RequestMapping(value="/getAllLanguage",method=RequestMethod.GET)
 	public List<Language> getAllLanguage(){
 		List<Language> langList = adminTaskPanelService.getAllLanguage(); 
 		/*CustomJsonResponse jsonResponse = new CustomJsonResponse();
