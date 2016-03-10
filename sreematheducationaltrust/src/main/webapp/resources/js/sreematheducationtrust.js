@@ -153,7 +153,13 @@ function fillMenuPanel(data){
 	if(data != null){
 		$.each(data[1], function(i, obj) {
 			$(obj).each(function(key, value){
-				defaulttemp += '<li class=""><a id="tabs" href="'+appConfig.location+"/"+value.menuUrl+'">'+value.menuName+'</a></li>';
+				if(value.menuName == "admin/taskPanel"){
+					defaulttemp += '<sec:authorize access="hasRole("ROLE_ADMIN")">';
+					defaulttemp += '<li class=""><a id="tabs" href="'+appConfig.location+"/"+value.menuUrl+'">'+value.menuName+'</a></li>';
+					defaulttemp += '</sec:authorize>';
+				}else{
+					defaulttemp += '<li class=""><a id="tabs" href="'+appConfig.location+"/"+value.menuUrl+'">'+value.menuName+'</a></li>';
+				}	
 			});
 		});
 			$("#Main-Menu-panel").empty();

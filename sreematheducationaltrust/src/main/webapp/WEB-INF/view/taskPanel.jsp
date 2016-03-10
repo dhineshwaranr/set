@@ -27,6 +27,7 @@
 <span id="requestedPage" value="taskpanel" hidden></span>
 	<span id="requestedPage" value="taskpanel" hidden></span>
 	<div class="row nav-menu">
+		<a href="http://localhost:8080/sreematheducationaltrust/j_spring_security_logout">Logout</a>
 		<%@ include file="navmenu.jsp"%>
 	</div>
 	<hr>	
