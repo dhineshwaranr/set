@@ -153,15 +153,14 @@ function fillMenuPanel(data){
 	if(data != null){
 		$.each(data[1], function(i, obj) {
 			$(obj).each(function(key, value){
-				defaulttemp += '<li class=""><a href="'+value.menuUrl+'">'+value.menuName+'</a></li>';
+				defaulttemp += '<li class=""><a id="tabs" href="'+appConfig.location+"/"+value.menuUrl+'">'+value.menuName+'</a></li>';
 			});
 		});
 			$("#Main-Menu-panel").empty();
 			$("#Main-Menu-panel").append(defaulttemp);
 		}
 }
-/*
 	    
-        
-*/
+       
+
 
