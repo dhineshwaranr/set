@@ -6,7 +6,10 @@ import java.util.Map;
 
 import org.sreematheducationaltrust.domain.AboutUs;
 import org.sreematheducationaltrust.domain.AdminUsers;
+import org.sreematheducationaltrust.domain.Blogs;
 import org.sreematheducationaltrust.domain.Events;
+import org.sreematheducationaltrust.domain.Gallery;
+import org.sreematheducationaltrust.domain.GalleryCoverPage;
 import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.MenuBar;
 import org.sreematheducationaltrust.domain.News;
@@ -31,8 +34,13 @@ public interface AdminTaskPanelService {
 	public List<MenuBar> getMenuItems(int language);
 	public List<Map<String,String>> getAllMenu();
 	
+	public List<GalleryCoverPage> getGalleryCoverPage();
+	public List<Gallery> getGalleryImages();
+	
 	public List<AboutUs> getAboutUsContentByLanguage(int language);
 	public List<Services> getServiceContentByLanguage(int language);
+	
+	public List<Blogs> getBlogsByLanguage(int language);
 	
 	public AdminUsers getUserByUserName(String userName);
 	public boolean resetAttempt(String username);

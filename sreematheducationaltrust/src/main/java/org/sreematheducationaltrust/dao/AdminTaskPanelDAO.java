@@ -3,7 +3,10 @@ package org.sreematheducationaltrust.dao;
 import java.util.List;
 
 import org.sreematheducationaltrust.domain.AboutUs;
+import org.sreematheducationaltrust.domain.Blogs;
 import org.sreematheducationaltrust.domain.Events;
+import org.sreematheducationaltrust.domain.Gallery;
+import org.sreematheducationaltrust.domain.GalleryCoverPage;
 import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.MenuBar;
 import org.sreematheducationaltrust.domain.News;
@@ -23,6 +26,11 @@ public interface AdminTaskPanelDAO {
 	public void addLanguage(Language language);
 	public List<MenuBar> getMenuItems(int language);
 	public List<MenuBar> getAllMenu();
+	
+	public List<Blogs> getBlogsByLanguage(int language);
+	
+	public List<GalleryCoverPage> getGalleryCoverPage();
+	public List<Gallery> getGalleryImages();
 	
 	public void saveAboutUsContent(AboutUs aboutuscontent);
 	

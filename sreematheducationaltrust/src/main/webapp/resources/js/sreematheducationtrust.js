@@ -63,11 +63,11 @@ function languageChange(){
         	fillMenuPanel(data);
         }
         if(page == "blog"){
-        	fillAboutUsPanel(data);
+        	fillBlogsPanel(data);
         	fillMenuPanel(data);
         }
         if(page == "gallery"){
-        	
+        	fillGallery(data);
         	fillMenuPanel(data);
         }
         if(page == "video"){
@@ -146,6 +146,53 @@ function fillservicesPanel(data){
 	}
 }
 
+function fillBlogsPanel(data){
+	console.log("blog"+JSON.stringify(data[0]));		
+	var defaulttemp ='';
+	if(data != null){
+		$.each(data[0], function(i, obj) {
+			console.log(obj.blogTitle);
+			
+				defaulttemp += '<div class="blogs">';
+				defaulttemp += '<div class="imageAvatar"><img alt="" src="resources/images/No_Profile.png"></div>'; 
+				defaulttemp += '<div class="comments">';
+				defaulttemp += '<h5><b><a href="">'+obj.blogTitle+'</a></b></h5>';
+				defaulttemp += '<p>'+obj.blogContent+'</p>';
+				defaulttemp += '</div>';
+				defaulttemp += '</div>';
+			
+		});
+			$("#allPeopleBlogs").empty();
+			$("#allPeopleBlogs").append(defaulttemp);
+	}	
+}
+
+function fillGallery(data){
+	console.log("blog"+JSON.stringify(data[0]));		
+	var defaulttemp ='';
+	if(data != null){
+		$.each(data[0], function(i, obj) {
+			console.log("GALLL"+obj.name);
+			
+				defaulttemp += '<div class="col-12 col-md-4 col-sm-6 galleryCoverImages">';
+				defaulttemp += '<div class="fall-item fall-effect">'; 
+				defaulttemp += '<a title="Image 1" id="coverImage" href="#">';
+				defaulttemp += '<img src="'+obj.coverImageURL+'">';
+				defaulttemp += '</a>';
+				defaulttemp += '<div class="mask">';
+				defaulttemp += '<h2>'+obj.name+'</h2>';
+				defaulttemp += '<p>'+obj.category+'</p>';
+				defaulttemp += '<a href="#" class="btn btn-default thumbnail img-responsive" id="image-1">View Gallery</a>';
+				defaulttemp += '</div>';
+				defaulttemp += '</div>';
+				defaulttemp += '</div>';
+			
+		});
+			$("#galleryCoverPagePanel").empty();
+			$("#galleryCoverPagePanel").append(defaulttemp);
+	}
+	
+}
 
 function fillMenuPanel(data){
 ///alert("12312");
@@ -153,20 +200,25 @@ function fillMenuPanel(data){
 	if(data != null){
 		$.each(data[1], function(i, obj) {
 			$(obj).each(function(key, value){
-				if(value.menuName == "admin/taskPanel"){
-					defaulttemp += '<sec:authorize access="hasRole("ROLE_ADMIN")">';
+				//console.log(value.menuName);
+				if(value.menuUrl == "admin/taskPanel"){
+					
+					//defaulttemp += '<spring:authorize access="hasRole("ROLE_ADMIN")">';
 					defaulttemp += '<li class=""><a id="tabs" href="'+appConfig.location+"/"+value.menuUrl+'">'+value.menuName+'</a></li>';
-					defaulttemp += '</sec:authorize>';
+					//defaulttemp += '</spring:authorize>';
 				}else{
 					defaulttemp += '<li class=""><a id="tabs" href="'+appConfig.location+"/"+value.menuUrl+'">'+value.menuName+'</a></li>';
 				}	
 			});
 		});
+			//console.log(defaulttemp);
 			$("#Main-Menu-panel").empty();
 			$("#Main-Menu-panel").append(defaulttemp);
 		}
 }
 	    
+
+   
        
 
 

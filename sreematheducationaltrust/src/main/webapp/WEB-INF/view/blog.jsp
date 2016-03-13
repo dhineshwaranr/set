@@ -25,8 +25,8 @@
 		<div class="row">
 			<h1>Blogs</h1>
 			<div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
-				<div class="allPeopleBlogs">
-					<div class="blogs">
+				<div class="allPeopleBlogs" id="allPeopleBlogs">
+					<!-- <div class="blogs">
 						<div class="imageAvatar"><img alt="" src="resources/images/No_Profile.png"></div>
 						<div class="comments">
 							<h5><b><a href="">If these two massively successful blogs have done fine without comments, should you allow comments on your blog?</a></b></h5>
@@ -89,7 +89,7 @@
 							<h5><b><a href="">If these two massively successful blogs have done fine without comments, should you allow comments on your blog?</a></b></h5>
 							<p>I reached out to two of my favorite red-hot popular bloggers and asked them to debate that question here.</p>
 						</div>
-					</div>
+					</div> -->
 					
 				</div>
 			</div>

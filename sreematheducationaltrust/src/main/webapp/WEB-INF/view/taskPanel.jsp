@@ -12,6 +12,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="datatables" uri="http://github.com/dandelion/datatables" %>
+
 <%@ include file="css.jsp"%>
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>" type="text/css" />
 <link rel="stylesheet" href="<c:url value='/resources/css/jquery.fileupload.css'/>" type="text/css" />

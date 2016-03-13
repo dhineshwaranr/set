@@ -13,7 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.sreematheducationaltrust.domain.AboutUs;
+import org.sreematheducationaltrust.domain.Blogs;
 import org.sreematheducationaltrust.domain.Events;
+import org.sreematheducationaltrust.domain.Gallery;
+import org.sreematheducationaltrust.domain.GalleryCoverPage;
 import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.MenuBar;
 import org.sreematheducationaltrust.domain.News;
@@ -188,6 +191,47 @@ public class AdminTaskPanelDAOImpl implements AdminTaskPanelDAO {
 		return list;
 	}
 	
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Blogs> getBlogsByLanguage(int language) {
+		List<Blogs> list = null;
+		try {
+			Query query = (Query) this.sessionFactory.getCurrentSession().createQuery("from Blogs n WHERE n.language.id = ?");
+			query.setParameter(0, language);
+			list = query.list();
+		} catch (HibernateException e) {
+			System.out.println("Exception while trying to get data");
+			e.printStackTrace();
+		}
+		return list;
+	}
 	
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<GalleryCoverPage> getGalleryCoverPage() {
+		List<GalleryCoverPage> list = null;
+		try {
+			Query query = (Query) this.sessionFactory.getCurrentSession().createQuery("from GalleryCoverPage");
+			list = query.list();
+		} catch (HibernateException e) {
+			System.out.println("Exception while trying to get data");
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Gallery> getGalleryImages() {
+		List<Gallery> list = null;
+		try {
+			Query query = (Query) this.sessionFactory.getCurrentSession().createQuery("from Gallery");
+			list = query.list();
+		} catch (HibernateException e) {
+			System.out.println("Exception while trying to get data");
+			e.printStackTrace();
+		}
+		return list;
+	}
 
 }

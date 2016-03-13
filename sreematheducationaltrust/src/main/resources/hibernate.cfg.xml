@@ -6,14 +6,17 @@
 <hibernate-configuration>
 
     <session-factory>
-    	<mapping class="org.sreematheducationaltrust.domain.AdminUsers" />
-        <mapping class="org.sreematheducationaltrust.domain.News" /> 
-        <mapping class="org.sreematheducationaltrust.domain.AboutUs" />
-        <mapping class="org.sreematheducationaltrust.domain.Services" />  
+    	<mapping class="org.sreematheducationaltrust.domain.AdminUsers"/>
+        <mapping class="org.sreematheducationaltrust.domain.News"/> 
+        <mapping class="org.sreematheducationaltrust.domain.AboutUs"/>
+        <mapping class="org.sreematheducationaltrust.domain.Services"/>  
         
-        <mapping class="org.sreematheducationaltrust.domain.Language" />
+        <mapping class="org.sreematheducationaltrust.domain.Language"/>
       <!--   <mapping class="org.sreematheducationaltrust.domain.Category" />-->
-        <mapping class="org.sreematheducationaltrust.domain.MenuBar" />   
+        <mapping class="org.sreematheducationaltrust.domain.MenuBar"/>  
+        <mapping class="org.sreematheducationaltrust.domain.Blogs"/>   
+         <mapping class="org.sreematheducationaltrust.domain.GalleryCoverPage"/>   
+          <mapping class="org.sreematheducationaltrust.domain.Gallery"/>   
     </session-factory>
    
 </hibernate-configuration>

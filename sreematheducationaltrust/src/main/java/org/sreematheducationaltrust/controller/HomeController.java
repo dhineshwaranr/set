@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.sreematheducationaltrust.domain.AboutUs;
-import org.sreematheducationaltrust.domain.Gallery;
+import org.sreematheducationaltrust.domain.Blogs;
+import org.sreematheducationaltrust.domain.GalleryCoverPage;
 import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.MenuBar;
 import org.sreematheducationaltrust.domain.News;
@@ -69,11 +70,15 @@ public class HomeController {
 			langObjects.add(1,menu);
 		}
 		if(requestedPage.equals("blog")){
+			List<Blogs> blogList = adminTaskPanelService.getBlogsByLanguage(Integer.parseInt(languageChoosen));
+			langObjects.add(0,blogList);
 			List<MenuBar> menu = adminTaskPanelService.getMenuItems(Integer.parseInt(languageChoosen));
 			langObjects.add(1,menu);
 		}
 		if(requestedPage.equals("gallery")){
-			List<MenuBar> menu = adminTaskPanelService.getMenuItems(Integer.parseInt(languageChoosen));
+			List<GalleryCoverPage> galleryCoverPage = adminTaskPanelService.getGalleryCoverPage();
+			langObjects.add(0,galleryCoverPage);
+			List<MenuBar> menu = adminTaskPanelService.getMenuItems(1);
 			langObjects.add(1,menu);
 		}
 		if(requestedPage.equals("video")){

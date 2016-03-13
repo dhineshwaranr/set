@@ -10,7 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.sreematheducationaltrust.dao.AdminTaskPanelDAO;
 import org.sreematheducationaltrust.domain.AboutUs;
 import org.sreematheducationaltrust.domain.AdminUsers;
+import org.sreematheducationaltrust.domain.Blogs;
 import org.sreematheducationaltrust.domain.Events;
+import org.sreematheducationaltrust.domain.Gallery;
+import org.sreematheducationaltrust.domain.GalleryCoverPage;
 import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.MenuBar;
 import org.sreematheducationaltrust.domain.News;
@@ -139,6 +142,37 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 
 	public List<Services> getServiceContentByLanguage(int language) {
 		return adminTaskPanelDAO.getServiceContentByLanguage(language);
+	}
+
+	public List<Blogs> getBlogsByLanguage(int language) {
+		return adminTaskPanelDAO.getBlogsByLanguage(language);
+	}
+
+	
+	
+	public List<GalleryCoverPage> getGalleryCoverPage() {
+		List<GalleryCoverPage> galleryCoverPage =  adminTaskPanelDAO.getGalleryCoverPage();
+		List<Gallery> galleryImages = adminTaskPanelDAO.getGalleryImages();
+		List<GalleryCoverPage> getAllGalleryImages = null;
+		for(GalleryCoverPage coverPageImages : galleryCoverPage){
+			int coverId = coverPageImages.getImageId();
+			System.out.println("Id--"+coverId);
+			for(Gallery gallery : galleryImages){
+				int galleryId = gallery.getGallery().getImageId();
+				List<Map<String,String>> galleryList = new ArrayList<Map<String,String>>();
+				if(coverId == galleryId){
+					System.out.println(gallery.getId());
+				}
+			}
+		}
+		return  galleryCoverPage;
+	}
+
+	
+	
+	public List<Gallery> getGalleryImages() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

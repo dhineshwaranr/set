@@ -161,20 +161,20 @@
 	</div>
 	<div class="row">
     <h1>Gallery</h1>
-        <hr>
-    <div class="row">
-      			<div class="col-12 col-md-4 col-sm-6">
-					 <div class="fall-item fall-effect">
-					<a title="Image 1" href="#"> 
-						<img src="http://dummyimage.com/600x350/ccc/969696&amp;text=0xD10x810xD00xB50xD10x800xD10x8B0xD00xB9">
+       
+    <div class="row" id="galleryCoverPagePanel">
+      			 <!-- <div class="col-12 col-md-4 col-sm-6">
+				  <div class="fall-item fall-effect">
+					<a title="Image 1" id="coverImage" href="#"> 
+						<img src="resources/images/1.jpg">
 					</a>
 					<div class="mask">
                         <h2>Test fall</h2>
                         <p>Testing Fall Gallery</p>
                         <a href="#" class="btn btn-default thumbnail img-responsive" id="image-1">Read More</a>
                     </div>
-                    </div>
-				</div>
+                  </div> 
+				</div> -->
     			<!-- <div class="col-12 col-md-4 col-sm-6">
 					<a title="Image 2" href="#"> 
 						<img class="thumbnail img-responsive" id="image-2" src="http://dummyimage.com/600x350/2255EE/969696&amp;text=0xD10x810xD00xB80xD00xBD0xD00xB80xD00xB9">
@@ -187,11 +187,11 @@
 					</a>
 				</div> -->
    	 </div>
-    <hr>
+    
   </div>
   
-	<div class="hidden" id="img-repo">
-		<!-- #image-1 -->
+	<!-- <div class="hidden" id="img-repo">
+		#image-1
 		<div class="item" id="image-1">
 			<img class="thumbnail img-responsive" title="Image 11" src="http://dummyimage.com/600x350/ccc/969696">
 		</div>
@@ -202,7 +202,7 @@
 			<img class="thumbnail img-responsive" title="Image 13" src="http://dummyimage.com/300x300/ccc/969696">
 		</div>
       
-		<!-- #image-2 -->
+		#image-2
 		<div class="item" id="image-2">
 			<img class="thumbnail img-responsive" title="Image 21" src="http://dummyimage.com/600x350/2255EE/969696">
 		</div>
@@ -213,7 +213,7 @@
 			<img class="thumbnail img-responsive" title="Image 23" src="http://dummyimage.com/300x300/2255EE/969696">
 		</div>   
       
-		<!-- #image-3-->
+		#image-3
 		<div class="item" id="image-3">
 			<img class="thumbnail img-responsive" title="Image 31" src="http://dummyimage.com/600x350/449955/FFF">
 		</div>
@@ -223,7 +223,7 @@
 		<div class="item" id="image-3">
 			<img class="thumbnail img-responsive" title="Image 33" src="http://dummyimage.com/300x300/449955/FFF">
 		</div>        
-	</div>
+	</div> -->
 
 		<div class="modal" id="modal-gallery" role="dialog">
 			<div class="modal-dialog">
