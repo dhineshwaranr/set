@@ -702,3 +702,7 @@ img.jcrop-preview {
 .galleryCoverImages{
 	margin: 20px 0px 0px 0px !important;
 }
+.ui-jqgrid-bdiv{
+	height:auto !important;
+}
+

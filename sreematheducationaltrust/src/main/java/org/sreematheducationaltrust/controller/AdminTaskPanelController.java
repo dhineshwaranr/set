@@ -91,8 +91,8 @@ public class AdminTaskPanelController {
 		return null;
 	}
 		
-	//@ResponseBody
-	//@RequestMapping(value="/getAllLanguage",method=RequestMethod.GET)
+	@ResponseBody
+	@RequestMapping(value="/getAllLanguage",method=RequestMethod.GET)
 	public List<Language> getAllLanguage(){
 		List<Language> langList = adminTaskPanelService.getAllLanguage(); 
 		/*CustomJsonResponse jsonResponse = new CustomJsonResponse();

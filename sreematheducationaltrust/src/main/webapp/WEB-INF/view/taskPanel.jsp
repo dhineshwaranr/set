@@ -294,12 +294,12 @@
 							<li><a class="extraTab" href="#helpDeskOptionPanel" data-toggle="tab">Help Desk</a></li>
 						</ul>
 					</div>				
-						<div class="col-lg-10 tab-content fade in active">
-							 <!-- <div class="col-lg-12 tab-pane" id="languageOptionPanel">
+						 <div class="col-lg-10 tab-content fade in active">
+							  <div class="col-lg-12 tab-pane" id="languageOptionPanel">
 							 	<table id="languageList"></table>
 								<div id="languageListpager"></div>
-							 </div> -->
-							 <div class="col-lg-12 tab-pane" id="languageOptionPanel">
+							 </div> 
+							<%-- <div class="col-lg-12 tab-pane" id="languageOptionPanel">
 							 	
 							 	 <datatables:table id="allLanguageList" data="${langList}" cdn="true" row="allLanguageList" theme="bootstrap2" sortable="true" displayLength="5" cssClass="table table-striped">
 								    <datatables:column title="S.No">
@@ -310,13 +310,13 @@
 								    </datatables:column>
 								</datatables:table> 
 								
-							 </div>
+							 </div>--%>
 							 	
 							 <div class="col-lg-12 tab-pane" id="menuOptionPanel">
 							 	<table id="menuList"></table>
 								<div id="menuListpager"></div>
 							 </div>
-							  <div class="col-lg-12 tab-pane" id="aboutUsPanel">
+							 <%-- <div class="col-lg-12 tab-pane" id="aboutUsPanel">
 							 		
 				<form:form action="saveAboutUs" id="aboutuscontent" modelAttribute="aboutuscontent" method="post" accept-charset="UTF-8" role="form" enctype="multipart/form-data">
 					  <div class="row">
@@ -353,7 +353,7 @@
 					
 							 		
 							 </div>							
-						</div>
+						</div> --%>
 				</div>
 			</div>
 			

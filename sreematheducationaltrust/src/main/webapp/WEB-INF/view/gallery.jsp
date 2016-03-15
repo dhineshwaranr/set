@@ -147,9 +147,27 @@
        -ms-transition-delay: 0s;
        transition-delay: 0s;
     }
-			
+.modal .modal-dialog .modal-content	.modal-body .imageRespon img{
+	position: absolute !important;
+    top: 233px !important;
+    left: 460px !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    overflow: hidden !important;
+    transform: translateX(-50%) translateY(-50%) !important;
+    max-width: 850px !important;
+    max-height: 400px !important;
+}
+.modal .modal-dialog .modal-content	.modal-body .imageRespon{
+	width:500px !important;
+	height:530px !important;
+}
+
 </style>
 <%@ include file="css.jsp"%>
+<link rel="stylesheet" href="<c:url value='/resources/css/gallery.css'/>" type="text/css" />
 </head>
 <body>
 <div class="container">
@@ -163,94 +181,52 @@
     <h1>Gallery</h1>
        
     <div class="row" id="galleryCoverPagePanel">
-      			 <!-- <div class="col-12 col-md-4 col-sm-6">
-				  <div class="fall-item fall-effect">
-					<a title="Image 1" id="coverImage" href="#"> 
-						<img src="resources/images/1.jpg">
-					</a>
-					<div class="mask">
-                        <h2>Test fall</h2>
-                        <p>Testing Fall Gallery</p>
-                        <a href="#" class="btn btn-default thumbnail img-responsive" id="image-1">Read More</a>
-                    </div>
-                  </div> 
-				</div> -->
-    			<!-- <div class="col-12 col-md-4 col-sm-6">
-					<a title="Image 2" href="#"> 
-						<img class="thumbnail img-responsive" id="image-2" src="http://dummyimage.com/600x350/2255EE/969696&amp;text=0xD10x810xD00xB80xD00xBD0xD00xB80xD00xB9">
-					</a>
-
-				</div>
-				<div class="col-12 col-md-4 col-sm-6">
-					<a title="Image 3" href="#"> 
-						<img class="thumbnail img-responsive" id="image-3" src="http://dummyimage.com/600x350/449955/FFF&amp;text=0xD00xB70xD00xB50xD00xBB0xD00xB50xD00xBD0xD10x8B0xD00xB9">
-					</a>
-				</div> -->
+      			 
    	 </div>
+    
+  
+  <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      	<div class="imageRespon">
+      	<main> <img src="https://unsplash.it/1800/1200?image=959" alt=""/> </main>
+		<footer class="control translucent">
+		  <div class="wrap">
+		    <div class="left">
+		      <div class="leftmost"></div>
+		      <img src="${appConfig.location}resources/images/left.png"/> </div>
+			    <div class="slider">
+			      <ul class="select">
+			        <li><img src="https://unsplash.it/1800/1200?image=959" alt=""/></li>
+			        <li><img src="https://unsplash.it/1800/1200?image=958" alt=""/></li>
+			        <li><img src="https://unsplash.it/1800/1200?image=957" alt=""/></li>
+			        <li><img src="https://unsplash.it/1800/1200?image=956" alt=""/></li>
+			        <li><img src="https://unsplash.it/1800/1200?image=955" alt=""/></li>
+			        <li><img src="https://unsplash.it/1800/1200?image=954" alt=""/></li>
+			      </uL>
+			    </div>
+		    <div class="right"> <img src="${appConfig.location}resources/images/right.png"/>
+		      <div class="rightmost"></div>
+		    </div>
+		  </div>
+      	 </div>	
+      </div>
+    </div>
+  </div>
+</div>
     
   </div>
   
-	<!-- <div class="hidden" id="img-repo">
-		#image-1
-		<div class="item" id="image-1">
-			<img class="thumbnail img-responsive" title="Image 11" src="http://dummyimage.com/600x350/ccc/969696">
-		</div>
-		<div class="item" id="image-1">
-			<img class="thumbnail img-responsive" title="Image 12" src="http://dummyimage.com/600x600/ccc/969696">
-		</div>
-		<div class="item" id="image-1">
-			<img class="thumbnail img-responsive" title="Image 13" src="http://dummyimage.com/300x300/ccc/969696">
-		</div>
-      
-		#image-2
-		<div class="item" id="image-2">
-			<img class="thumbnail img-responsive" title="Image 21" src="http://dummyimage.com/600x350/2255EE/969696">
-		</div>
-		<div class="item" id="image-2">
-			<img class="thumbnail img-responsive" title="Image 21" src="http://dummyimage.com/600x600/2255EE/969696">
-		</div>
-		<div class="item" id="image-2">
-			<img class="thumbnail img-responsive" title="Image 23" src="http://dummyimage.com/300x300/2255EE/969696">
-		</div>   
-      
-		#image-3
-		<div class="item" id="image-3">
-			<img class="thumbnail img-responsive" title="Image 31" src="http://dummyimage.com/600x350/449955/FFF">
-		</div>
-		<div class="item" id="image-3">
-			<img class="thumbnail img-responsive" title="Image 32" src="http://dummyimage.com/600x600/449955/FFF">
-		</div>
-		<div class="item" id="image-3">
-			<img class="thumbnail img-responsive" title="Image 33" src="http://dummyimage.com/300x300/449955/FFF">
-		</div>        
-	</div> -->
+	
 
-		<div class="modal" id="modal-gallery" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button class="close" type="button" data-dismiss="modal">×</button>
-						<h3 class="modal-title"></h3>
-					</div>
-					<div class="modal-body">
-						<div id="modal-carousel" class="carousel">
-							<div class="carousel-inner"></div>
-							<a class="carousel-control left" href="#modal-carousel"	data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a> 
-							<a class="carousel-control right" href="#modal-carousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
 		<hr>
 		<%@ include file="footerBottom.jsp"%>
 	</div>
 <%@ include file="js.jsp"%>
 <script src="<c:url value='/resources/js/pro-js/common.js' />"></script>
-<%-- <script src="<c:url value='/resources/js/pro-js/gallery.js' />"></script> --%> 
+<script src="<c:url value='/resources/js/pro-js/gallery.js' />"></script>  
 <script src="<c:url value='/resources/js/pro-js/config.js' />"></script> 
 <script src="<c:url value='/resources/js/jquery.form.js' />"></script> 
 <script type="text/javascript">
@@ -261,15 +237,15 @@ $(document).ready(function() {
    $("#modal-carousel").carousel({interval:false});
 
    /* change modal title when slide changes */
-   $("#modal-carousel").on("slid.bs.carousel",       function () {
+   /*$("#modal-carousel").on("slid.bs.carousel",       function () {
         $(".modal-title")
         .html($(this)
         .find(".active img")
         .attr("title"));
-   });
+   });*/
 
    /* when clicking a thumbnail */
-   $(".row .thumbnail").click(function(){
+   /*$(".row .thumbnail").click(function(){
     var content = $(".carousel-inner");
     var title = $(".modal-title");
   
@@ -287,7 +263,7 @@ $(document).ready(function() {
 
     // show the modal
   	$("#modal-gallery").modal("show");
-  });
+  });*/
 
 });
 </script> 

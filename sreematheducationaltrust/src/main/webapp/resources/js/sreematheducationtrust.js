@@ -11,6 +11,11 @@ $('#return-to-top').click(function() {      // When arrow is clicked
     }, 500);
 });
 
+$('#menuLiTabs').on('click', function(){
+  alert( "Good!" ); // jQuery 1.3+
+});
+
+
 var tabsFn = (function() {
   
   function init() {
@@ -182,7 +187,7 @@ function fillGallery(data){
 				defaulttemp += '<div class="mask">';
 				defaulttemp += '<h2>'+obj.name+'</h2>';
 				defaulttemp += '<p>'+obj.category+'</p>';
-				defaulttemp += '<a href="#" class="btn btn-default thumbnail img-responsive" id="image-1">View Gallery</a>';
+				defaulttemp += '<a href="#" class="btn btn-default thumbnail img-responsive" data-toggle="modal" data-target="#largeModal" >View Gallery</a>';
 				defaulttemp += '</div>';
 				defaulttemp += '</div>';
 				defaulttemp += '</div>';
@@ -204,10 +209,10 @@ function fillMenuPanel(data){
 				if(value.menuUrl == "admin/taskPanel"){
 					
 					//defaulttemp += '<spring:authorize access="hasRole("ROLE_ADMIN")">';
-					defaulttemp += '<li class=""><a id="tabs" href="'+appConfig.location+"/"+value.menuUrl+'">'+value.menuName+'</a></li>';
+					defaulttemp += '<li id="menuLiTabs"><a id="tabs" href="'+appConfig.location+"/"+value.menuUrl+'">'+value.menuName+'</a></li>';
 					//defaulttemp += '</spring:authorize>';
 				}else{
-					defaulttemp += '<li class=""><a id="tabs" href="'+appConfig.location+"/"+value.menuUrl+'">'+value.menuName+'</a></li>';
+					defaulttemp += '<li id="menuLiTabs"><a id="tabs" href="'+appConfig.location+"/"+value.menuUrl+'">'+value.menuName+'</a></li>';
 				}	
 			});
 		});
@@ -216,6 +221,7 @@ function fillMenuPanel(data){
 			$("#Main-Menu-panel").append(defaulttemp);
 		}
 }
+
 	    
 
    
