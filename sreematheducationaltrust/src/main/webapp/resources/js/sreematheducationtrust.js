@@ -39,10 +39,11 @@ $( "#chooseNewsLanguage" ).change(function() {
 });
 
 function languageChange(){
+	
 	var languageChoosen = $("#chooseNewsLanguage").val();
 	var data = JSON.stringify(languageChoosen);
   	var page = $("#requestedPage").attr("value");
-  	
+  	alert(languageChoosen);
 	if(languageChoosen != ""){
   	var url = "/languageChoosed"+"/"+page+"/"+languageChoosen;
   	console.log(appConfig.location);
@@ -177,9 +178,9 @@ function fillGallery(data){
 	var defaulttemp ='';
 	if(data != null){
 		$.each(data[0], function(i, obj) {
-			console.log("GALLL"+obj.name);
+			console.log("GALLL"+obj);
 			
-				defaulttemp += '<div class="col-12 col-md-4 col-sm-6 galleryCoverImages">';
+				defaulttemp += '<div class="col-lg-4 col-md-4 col-sm-6 galleryCoverImages">';
 				defaulttemp += '<div class="fall-item fall-effect">'; 
 				defaulttemp += '<a title="Image 1" id="coverImage" href="#">';
 				defaulttemp += '<img src="'+obj.coverImageURL+'">';
@@ -187,7 +188,8 @@ function fillGallery(data){
 				defaulttemp += '<div class="mask">';
 				defaulttemp += '<h2>'+obj.name+'</h2>';
 				defaulttemp += '<p>'+obj.category+'</p>';
-				defaulttemp += '<a href="#" class="btn btn-default thumbnail img-responsive" data-toggle="modal" data-target="#largeModal" >View Gallery</a>';
+				defaulttemp += '<a href="#" class="thumbnail img-responsive" data-toggle="modal" data-target="#largeModal" value="'+obj.imageId+'" id="slideShow" ><i class="fa fa-sliders"></i></a>';
+				defaulttemp += '<a href="#" class="thumbnail img-responsive open-popup" data-toggle="tooltip" title="View Album" data-placement="bottom" id="viewAlbum" data-id="popup_9" data-animation="rotate" value="'+obj.imageId+'" ><i class="fa fa-eye"></i></a>';
 				defaulttemp += '</div>';
 				defaulttemp += '</div>';
 				defaulttemp += '</div>';
@@ -200,12 +202,12 @@ function fillGallery(data){
 }
 
 function fillMenuPanel(data){
-///alert("12312");
+//alert(data[1]);
 	var defaulttemp ='';
 	if(data != null){
 		$.each(data[1], function(i, obj) {
 			$(obj).each(function(key, value){
-				//console.log(value.menuName);
+				
 				if(value.menuUrl == "admin/taskPanel"){
 					
 					//defaulttemp += '<spring:authorize access="hasRole("ROLE_ADMIN")">';
@@ -216,7 +218,7 @@ function fillMenuPanel(data){
 				}	
 			});
 		});
-			//console.log(defaulttemp);
+			
 			$("#Main-Menu-panel").empty();
 			$("#Main-Menu-panel").append(defaulttemp);
 		}

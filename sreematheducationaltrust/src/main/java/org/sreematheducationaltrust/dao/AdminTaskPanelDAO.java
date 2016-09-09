@@ -30,7 +30,7 @@ public interface AdminTaskPanelDAO {
 	public List<Blogs> getBlogsByLanguage(int language);
 	
 	public List<GalleryCoverPage> getGalleryCoverPage();
-	public List<Gallery> getGalleryImages();
+	public List<Gallery> getGalleryImages(int albumId);
 	
 	public void saveAboutUsContent(AboutUs aboutuscontent);
 	

@@ -6,8 +6,15 @@
 
 <title>Gallery - Sreemath Educational Trust</title>
 <style>
-	.thumbnail {margin-bottom:6px;}
-
+	.thumbnail{
+		margin-bottom:6px;
+		background-color: none !important;
+		border: none !important;
+		float:right;    
+	}
+	.img-responsive, .thumbnail a>img{
+		max-width: 10% !important;
+	}
 	.carousel-control.left,.carousel-control.right{
 	  background-image:none;
 	  margin-top:10%;
@@ -164,7 +171,23 @@
 	width:500px !important;
 	height:530px !important;
 }
-
+.albumImages{
+	width:190px;
+	height:200px;
+	margin:0px 10px 10px 0px;
+	float:left;
+	display: inline-block;
+}
+.albumImages img{
+  max-width:100%; 
+  max-height:100%;
+  margin:auto;
+  display:block;
+}
+#albumPanel{
+	//display:inline-flex;
+	overflow-y:scroll;
+}
 </style>
 <%@ include file="css.jsp"%>
 <link rel="stylesheet" href="<c:url value='/resources/css/gallery.css'/>" type="text/css" />
@@ -178,50 +201,48 @@
 		<%@ include file="navmenu.jsp"%>
 	</div>
 	<div class="row">
-    <h1>Gallery</h1>
-       
-    <div class="row" id="galleryCoverPagePanel">
-      			 
-   	 </div>
-    
-  
-  <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      	<div class="imageRespon">
-      	<main> <img src="https://unsplash.it/1800/1200?image=959" alt=""/> </main>
-		<footer class="control translucent">
-		  <div class="wrap">
-		    <div class="left">
-		      <div class="leftmost"></div>
-		      <img src="${appConfig.location}resources/images/left.png"/> </div>
-			    <div class="slider">
-			      <ul class="select">
-			        <li><img src="https://unsplash.it/1800/1200?image=959" alt=""/></li>
-			        <li><img src="https://unsplash.it/1800/1200?image=958" alt=""/></li>
-			        <li><img src="https://unsplash.it/1800/1200?image=957" alt=""/></li>
-			        <li><img src="https://unsplash.it/1800/1200?image=956" alt=""/></li>
-			        <li><img src="https://unsplash.it/1800/1200?image=955" alt=""/></li>
-			        <li><img src="https://unsplash.it/1800/1200?image=954" alt=""/></li>
-			      </uL>
-			    </div>
-		    <div class="right"> <img src="${appConfig.location}resources/images/right.png"/>
-		      <div class="rightmost"></div>
+		    <h1>Gallery</h1>
+		       
+		    <div class="row" id="galleryCoverPagePanel">
+		      			 
+		   	 </div>
+		    <div id="popup_9" class="popup">
+			  <div class="popup-overlay"></div>
+			  <div class="popup-content">
+			    <a href="#" class="close-popup" data-id="popup_9" data-animation="rotate">&times;</a>
+			    	<div id="albumPanel">
+			    	</div>
+			    	</div>
+ 			</div>
+		  
+		  <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+		  <div class="modal-dialog modal-lg">
+		    <div class="modal-content">
+		      <div class="modal-body">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		      	<div class="imageRespon">
+		      	<main> <img src="https://unsplash.it/1800/1200?image=959" alt=""/> </main>
+				<footer class="control translucent">
+				  <div class="wrap">
+				    <div class="left">
+				      <div class="leftmost"></div>
+				      <img src="${appConfig.location}resources/images/left.png"/> </div>
+					    <div class="slider">
+					      <ul class="select" id="slideShowAlbum">
+					        
+					      </uL>
+					    </div>
+				    <div class="right"> <img src="${appConfig.location}resources/images/right.png"/>
+				      <div class="rightmost"></div>
+				    </div>
+				  </div>
+		      	 </div>	
+		      </div>
 		    </div>
 		  </div>
-      	 </div>	
-      </div>
-    </div>
-  </div>
-</div>
-    
-  </div>
-  
-	
+		</div> 
 
-		<hr>
+ 		<hr>
 		<%@ include file="footerBottom.jsp"%>
 	</div>
 <%@ include file="js.jsp"%>
@@ -265,6 +286,98 @@ $(document).ready(function() {
   	$("#modal-gallery").modal("show");
   });*/
 
+});
+
+$("body").on("click",".thumbnail", function(){
+	var albumId = $(this).attr("value");
+	var process = $(this).attr("id");
+	
+	var url = "/viewAlbum/"+albumId;
+	$.ajax({
+    url: appConfig.location + url,
+ 	type: "GET",
+    dataType : "json",
+    success: function( data ) {
+    	if(process === "viewAlbum"){
+    		fillAlbum(data);
+    	}else if(process === "slideShow"){
+    		fillSlideShow(data)
+    	}
+    	
+    },
+    error: function( xhr, status, errorThrown ) {
+        alert( "Sorry, there was a problem!" );
+    },
+    complete: function( xhr, status ) {
+        //alert( "The request is complete!" );
+    }
+	});
+});
+
+function fillAlbum(data){
+
+	var defaulttemp ='';
+	if(data != null){
+		$.each(data, function(i, obj) {
+					defaulttemp += '<div class="albumImages">';
+					defaulttemp += '<img src="'+obj.galleryImageUrl+'" ref="album"></img>'
+					defaulttemp += '<div class="ablumTitle">';
+					defaulttemp += '<span>'+obj.title+'</span>';
+					defaulttemp += '</div>';
+					defaulttemp += '</div>'
+		});
+			$("#popup_9").show(1000);
+			$("#albumPanel").empty();
+			$("#albumPanel").append(defaulttemp);
+	}
+}
+
+function fillSlideShow(data){
+	console.log(data);
+	var defaulttemp ='';
+	if(data != null){
+		$.each(data, function(i, obj) {
+					defaulttemp += '<li><img src="'+obj.galleryImageUrl+'" alt=""/></li>';
+		});
+			$("#slideShowAlbum").empty();
+			$("#slideShowAlbum").append(defaulttemp);
+	}
+	
+}
+
+(function($) {
+  /*$.fn.openPopup = function( settings ) {
+    var elem = $(this);
+    // Establish our default settings
+    var settings = $.extend({
+      anim: 'fade'
+    }, settings);
+    elem.show();
+    elem.find('.popup-content').addClass(settings.anim+'In');
+  }*/
+  
+ $.fn.closePopup = function( settings ) {
+    var elem = $(this);
+    // Establish our default settings
+    var settings = $.extend({
+      anim: 'fade'
+    }, settings);
+    elem.find('.popup-content').removeClass(settings.anim+'In').addClass(settings.anim+'Out');
+    
+    setTimeout(function(){
+        elem.hide();
+        elem.find('.popup-content').removeClass(settings.anim+'Out')
+      }, 500);
+  }
+    
+}(jQuery));
+
+// Click functions for popup
+
+$('.close-popup').click(function(){
+  $('#'+$(this).data('id')).closePopup({
+    anim: (!$(this).attr('data-animation') || $(this).data('animation') == null) ? 'fade' : $(this).data('animation')
+  });
 });
 </script> 
 </body>

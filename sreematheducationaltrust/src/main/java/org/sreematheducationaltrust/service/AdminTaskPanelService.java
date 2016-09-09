@@ -35,7 +35,7 @@ public interface AdminTaskPanelService {
 	public List<Map<String,String>> getAllMenu();
 	
 	public List<GalleryCoverPage> getGalleryCoverPage();
-	public List<Gallery> getGalleryImages();
+	public List<Gallery> getGalleryImages(int albumId);
 	
 	public List<AboutUs> getAboutUsContentByLanguage(int language);
 	public List<Services> getServiceContentByLanguage(int language);

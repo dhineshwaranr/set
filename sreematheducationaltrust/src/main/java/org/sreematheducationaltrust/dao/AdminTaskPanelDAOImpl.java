@@ -222,10 +222,11 @@ public class AdminTaskPanelDAOImpl implements AdminTaskPanelDAO {
 	
 	@SuppressWarnings("unchecked")
 	@Transactional
-	public List<Gallery> getGalleryImages() {
+	public List<Gallery> getGalleryImages(int albumId) {
 		List<Gallery> list = null;
 		try {
-			Query query = (Query) this.sessionFactory.getCurrentSession().createQuery("from Gallery");
+			Query query = (Query) this.sessionFactory.getCurrentSession().createQuery("from Gallery n WHERE n.gallery.id = ?");
+			query.setParameter(0, albumId);
 			list = query.list();
 		} catch (HibernateException e) {
 			System.out.println("Exception while trying to get data");

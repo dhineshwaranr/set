@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.sreematheducationaltrust.domain.AboutUs;
 import org.sreematheducationaltrust.domain.Blogs;
+import org.sreematheducationaltrust.domain.Gallery;
 import org.sreematheducationaltrust.domain.GalleryCoverPage;
 import org.sreematheducationaltrust.domain.Language;
 import org.sreematheducationaltrust.domain.MenuBar;
@@ -78,7 +79,7 @@ public class HomeController {
 		if(requestedPage.equals("gallery")){
 			List<GalleryCoverPage> galleryCoverPage = adminTaskPanelService.getGalleryCoverPage();
 			langObjects.add(0,galleryCoverPage);
-			List<MenuBar> menu = adminTaskPanelService.getMenuItems(1);
+			List<MenuBar> menu = adminTaskPanelService.getMenuItems(Integer.parseInt(languageChoosen));
 			langObjects.add(1,menu);
 		}
 		if(requestedPage.equals("video")){
@@ -141,6 +142,20 @@ public class HomeController {
 		ModelMap model = populateModel();
 		return new ModelAndView("contactus","model",model);
 		 
+	}
+	
+	@RequestMapping(value="/viewAlbum")
+	public String viewAlbum(){
+		return "viewAlbum";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/viewAlbum/{galleryId}",method=RequestMethod.GET)
+	public List<Gallery> viewAlbum(@PathVariable String galleryId){
+		int albumId = Integer.parseInt(galleryId);
+		List<Gallery> galleryList = adminTaskPanelService.getGalleryImages(albumId);
+		System.out.println("album : "+galleryList);
+		return galleryList;
 	}
 		
 	public ModelMap populateModel(){

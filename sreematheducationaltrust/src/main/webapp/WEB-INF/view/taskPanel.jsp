@@ -67,11 +67,11 @@
 		</div>
 	<div id="myTabContent" class="tab-content">		
     	<div role="tabpanel" class="row tab-pane fade" id="news" aria-labelledby="home-tab">
-	    	<form:form action="newsPost" id="newsPost" modelAttribute="news" method="post" accept-charset="UTF-8" role="form" enctype="multipart/form-data">
+	    	<form:form id="newsPost" modelAttribute="news" method="POST" accept-charset="UTF-8" role="form" enctype="multipart/form-data">
 					  <div class="row">
 						  <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						    <label for="username">News Title</label>
-						    <input type="text" class="form-control" id="newsTitle" name="newsTitle" placeholder="News Title">
+						    <label for="newsTitle">News Title</label>
+						    <input type="text" class="form-control" id="newsTitle" name="newsTitle" value="Title" placeholder="News Title">
 						  </div>
 					  </div>
 					  <div class="row">
@@ -86,7 +86,7 @@
 								
 							<div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
 							  <label for="newsLang">Language</label>
-							  <form:select class="form-control" path="language.id" name="language.id">
+							  <form:select class="form-control" path="language.id" name="language.id" id="language">
 								<form:options items="${languageList}" itemValue="id" itemLabel="language"/>
 							  </form:select>
 							</div>   
@@ -100,10 +100,10 @@
 							  </select>
 							</div> 
 						</div>
-					<div class="row">
+					 <div class="row">
 						<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						  <label for="comment">Description</label>
-						  <textarea class="form-control" rows="7" id="description" name="description"></textarea>
+						  <textarea class="form-control" rows="7" id="description" name="description" value="description"></textarea>
 						</div>	
 					</div>
 					  <div class="form-group checkbox">
@@ -120,7 +120,7 @@
 						                <span class="btn btn-success fileinput-button">
 						                    <i class="glyphicon glyphicon-plus"></i>
 						                    <span>Add files...</span>
-						                    <input type="file" name="files[]" multiple>
+						                    <input type="file" id="files" name="files[]" multiple>
 						                </span>
 						                <button type="submit" class="btn btn-primary start">
 						                    <i class="glyphicon glyphicon-upload"></i>
@@ -376,6 +376,13 @@ jQuery(document).ready(function() {
 });
 
 
+$( "form" ).submit(function( event ) {
+  var action = $(this).attr('id');
+  ajaxPostData(action);
+  event.preventDefault();
+});
+
+
 $('input:checkbox').change(
     function(){
         if ($(this).is(':checked')) {
@@ -384,21 +391,6 @@ $('input:checkbox').change(
         	$('.fileupload').hide(1000);
         }
  });
-
- /*$(document).on('submit', '#newsPost', function(e) {
-			console.log('admin/newsPost');
-			$.ajaxForm({
-		        url: 'admin/newsPost',
-		        type: 'POST',
-		        cache: false,
-		        success: function (result) {
-		            alert(result);
-		        }
-		    }); 
-		    e.preventDefault();
-		}); */
-    
-    
     
   <!-- TABS -->
 (function($) {

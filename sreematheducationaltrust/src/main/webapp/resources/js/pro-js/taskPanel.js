@@ -11,6 +11,47 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
   }
 });
 
+function ajaxPostData(action){
+	var url = action;
+	
+	var newsTitle = $('#newsTitle').val();
+	alert("HIT AJAX");
+	var language = $("#language").val();
+	var newsType = $("#newsType").val();
+	var description = $("#description").val();
+	var isImage = $("#isImage").val();
+	var files = $("#files").val();
+	
+	var jsonData = {
+		newsTitle:newsTitle,
+	    language:language,
+	    newsType:newsType,
+	    description:description,
+	    isImage:isImage,
+	}
+	console.log(jsonData);
+	var Form = this;
+ 	console.log();
+  	console.log(data);
+	
+	alert(url);
+	$.ajax({
+	    url: appConfig.location +"/admin/"+ url,
+	 	dataType : "json",
+	    data : jsonData,
+	    type: "POST",
+	    success: function( data ) {
+	    	alert(JSON.stringify(data));
+	    },
+	    error: function( xhr, status, errorThrown ) {
+	        alert( "Sorry, there was a problem!" );
+	    },
+	    complete: function( xhr, status ) {
+	        //alert( "The request is complete!" );
+	    }
+	});
+}
+
 function newsObj(){
 	var url = "/admin/newsObjCreate";
 	$.ajax({

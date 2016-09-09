@@ -13,7 +13,7 @@
 <META Http-Equiv="Expires" Content="0">
 <title><%=request.getAttribute("pageTitle")%></title>
 	
-	<script src="<c:url value='/resources/js/jquery.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery-1.12.2.js' />"></script>
 	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
 	<script src="<c:url value='/resources/js/grid.locale-en.js' />"></script>
 	<script src="<c:url value='/resources/js/jquery.jqGrid.min.js' />"></script>

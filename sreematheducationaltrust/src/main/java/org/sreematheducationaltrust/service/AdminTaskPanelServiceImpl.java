@@ -152,9 +152,9 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 	
 	public List<GalleryCoverPage> getGalleryCoverPage() {
 		List<GalleryCoverPage> galleryCoverPage =  adminTaskPanelDAO.getGalleryCoverPage();
-		List<Gallery> galleryImages = adminTaskPanelDAO.getGalleryImages();
+		//List<Gallery> galleryImages = adminTaskPanelDAO.getGalleryImages();
 		List<GalleryCoverPage> getAllGalleryImages = null;
-		for(GalleryCoverPage coverPageImages : galleryCoverPage){
+		/*for(GalleryCoverPage coverPageImages : galleryCoverPage){
 			int coverId = coverPageImages.getImageId();
 			System.out.println("Id--"+coverId);
 			for(Gallery gallery : galleryImages){
@@ -164,15 +164,14 @@ public class AdminTaskPanelServiceImpl implements AdminTaskPanelService {
 					System.out.println(gallery.getId());
 				}
 			}
-		}
+		}*/
 		return  galleryCoverPage;
 	}
 
 	
 	
-	public List<Gallery> getGalleryImages() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Gallery> getGalleryImages(int albumId) {
+		return adminTaskPanelDAO.getGalleryImages(albumId);
 	}
 
 }

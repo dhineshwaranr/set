@@ -21,6 +21,16 @@
  </filter> 
 
 <filter>
+    <filter-name>httpMethodFilter</filter-name>
+    <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+ </filter>
+
+ <filter-mapping>
+    <filter-name>httpMethodFilter</filter-name>
+    <servlet-name>sreematheducationaltrust-servlet</servlet-name>
+ </filter-mapping> 
+
+<filter>
 <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
     <init-param>

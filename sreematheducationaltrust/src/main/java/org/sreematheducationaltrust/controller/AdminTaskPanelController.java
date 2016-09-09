@@ -5,9 +5,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -55,7 +58,12 @@ public class AdminTaskPanelController {
 	@RequestMapping(value="/newsPost",method=RequestMethod.POST)
 	public UserResponse newsCreate(@ModelAttribute News news, BindingResult result){
 		try{
-
+		System.out.println("News Post-->"+news.getNewsTitle());
+		System.out.println("News Post-->"+news.getDescription());
+		System.out.println("News Post-->"+news.getLanguage());
+		
+		
+		
 		if (news != null) {
 			if (news.isImage()) {
 				news.setImage(true);

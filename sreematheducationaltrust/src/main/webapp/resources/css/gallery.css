@@ -131,3 +131,78 @@ main{
 	border-top-right-radius: 5%;
 	display:none;
 }
+
+
+/*POP-UP ROTATE*/
+.popup {
+  display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+}
+.popup-overlay {
+    background: rgba(0,0,0,0.9);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.popup-content {
+    position: absolute;
+ // background: #fff;
+    width: 1045px;
+    margin: -58px 0 0 -264px;
+    left: 30%;
+    top: 10%;
+    z-index: 11;
+  padding: 14px;
+  max-height:600px;
+}
+.close-popup {
+  display: inline-block;
+  position: absolute;
+  top: -8px;
+  right: -30px;
+  font-size: 42px;
+}
+
+.rotateIn {
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-animation: rotateIn .5s both ease-out;
+    -moz-animation: rotateIn .5s both ease-out;
+    animation: rotateIn .5s both ease-out;
+}
+@-webkit-keyframes rotateIn {
+    from { -webkit-transform: translateZ(-3000px) rotateZ(-360deg); opacity: 0;}
+}
+@-moz-keyframes rotateIn {
+    from {-moz-transform: translateZ(-3000px) rotateZ(-360deg);opacity: 0;}
+}
+@keyframes rotateIn {
+    from {transform: translateZ(-3000px) rotateZ(-360deg);opacity: 0;}
+}
+
+.rotateOut {
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-animation: rotateOut .5s both ease-in;
+    -moz-animation: rotateOut .5s both ease-in;
+    animation: rotateOut .5s both ease-in;
+}
+@-webkit-keyframes rotateOut {
+    to {-webkit-transform: translateZ(-3000px) rotateZ(360deg);opacity: 0;}
+}
+@-moz-keyframes rotateOut {
+    to {-moz-transform: translateZ(-3000px) rotateZ(360deg);opacity: 0;}
+}
+@keyframes rotateOut {
+    to { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0;}
+}
+/**/
