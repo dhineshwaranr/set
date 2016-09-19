@@ -12,7 +12,7 @@ $('#return-to-top').click(function() {      // When arrow is clicked
 });
 
 $('#menuLiTabs').on('click', function(){
-  alert( "Good!" ); // jQuery 1.3+
+  //alert( "Good!" ); // jQuery 1.3+
 });
 
 
@@ -38,12 +38,29 @@ $( "#chooseNewsLanguage" ).change(function() {
   languageChange();
 });
 
+$( ".selectCategoryNews" ).change(function() {
+	alert("selectCategoryNews");
+  getNews();
+});
+function getNews(data){
+	var categoryChoosen = $(".selectCategoryNews").val();
+	var data = JSON.stringify(categoryChoosen);
+	var url = "/getFeeds/"+categoryChoosen;
+  	$.ajax({
+    url: appConfig.location + url,
+ 	type: "GET",
+    dataType : "json",
+	    success: function( data ) {
+	    	fillnewspanel(data);
+	    }
+    });
+}
 function languageChange(){
 	
 	var languageChoosen = $("#chooseNewsLanguage").val();
 	var data = JSON.stringify(languageChoosen);
   	var page = $("#requestedPage").attr("value");
-  	alert(languageChoosen);
+  	//alert(languageChoosen);
 	if(languageChoosen != ""){
   	var url = "/languageChoosed"+"/"+page+"/"+languageChoosen;
   	console.log(appConfig.location);
@@ -90,7 +107,7 @@ function languageChange(){
         }	
     },
     error: function( xhr, status, errorThrown ) {
-        alert( "Sorry, there was a problem!" );
+        //alert( "Sorry, there was a problem!" );
     },
     complete: function( xhr, status ) {
         //alert( "The request is complete!" );
@@ -99,17 +116,38 @@ function languageChange(){
   }
 }
 
-function fillnewspanel(data){
+function getTwees(){
+	var url = ""
+	$.ajax({
+    url: appConfig.location + url,
+ 	type: "GET",
+    dataType : "json",
+    success: function( data ) {
+    	console.log(data)	
+    },
+    error: function( xhr, status, errorThrown ) {
+        //alert( "Sorry, there was a problem!" );
+    },
+    complete: function( xhr, status ) {
+        //alert( "The request is complete!" );
+    }
+	});
+  }
+}
 
+
+function fillnewspanel(data){
+	//debugger
 	var defaulttemp ='';
 	if(data != null){
-		$.each(data[0], function(i, obj) {
-			$(obj).each(function(key, value){
-				defaulttemp += '<div class="daily-news"id="'+value.newsId+'">';
-				defaulttemp	+= '<div class="newsHeading"><b><span>'+value.newsTitle+'</span></b></div>';
-				defaulttemp += '<div class="newsDescription">'+value.description+'</div>';
-				defaulttemp	+= '</div>';
-			});
+		$.each(data.responseData.entries, function(i, obj) {
+			
+			defaulttemp += '<div class="daily-news"id="'+obj.url+'">';
+			defaulttemp	+= '<div class="newsHeading"><b><span>'+obj.title+'</span></b></div>';
+			defaulttemp += '<div class="newsDescription">'+obj.contentSnippet+'</div>';
+			defaulttemp += '<div class="newsURL"><a href='+obj.link+'>'+obj.link+'</a></div>';
+			defaulttemp	+= '</div>';
+			
 		});
 		$("#newsPanel").empty();
 		$("#newsPanels").empty();

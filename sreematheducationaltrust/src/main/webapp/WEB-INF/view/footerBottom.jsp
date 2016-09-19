@@ -120,4 +120,9 @@
 		</div>
 	</div>
 	</div>
-	
+<script>
+function getTwees(){
+alert("Get All Tweets");
+
+}
+</script>

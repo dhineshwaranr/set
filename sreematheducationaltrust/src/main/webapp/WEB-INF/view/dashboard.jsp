@@ -30,7 +30,7 @@
 			  <!-- Carousel items -->
 			  <div class="carousel-inner">
 			    <div class="active item">
-			        <img src="http://placehold.it/300x200/888&text=Item 1" />
+			        <img src="resources/images/download2.jpg" />
 			    </div>
 			    <div class="item">
 			        <img src="http://placehold.it/300x200/aaa&text=Item 2" />
@@ -55,7 +55,16 @@
 	
 	<div class="row allNewsSection">
 		<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-			<div class="heading"><span>Today News</span></div>
+			<div class="heading"><span>Today News</span>
+			
+				<select class="selectCategoryNews" style="float:right;">
+					<option value="sports">Sports</option>
+					<option value="politics">Politics</option>
+					<option value="national">National</option>
+					<option value="international">International</option>
+				</select>
+			
+				</div>
 			<div id="newsPanel"></div>
 		</div>
 		
@@ -82,11 +91,13 @@ $(document).ready(function() {
 	var dashboard = new Dashboard();
 	dashboard.init();
 	languageChange();
+	getNews();
+	getTwees();
 });
 
 // invoke the carousel
 $('#myCarousel').carousel({
-  interval: 3000
+  interval: 3000000
 });
 
 </script> 

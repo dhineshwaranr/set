@@ -1,5 +1,5 @@
 var DashboardData={
-	getAllNewsURL : "/getAllNews",
+	getAllNewsURL : "/getFeeds",
 	
 	data :"",
 	userPerPage : 5,
@@ -25,7 +25,7 @@ Dashboard.prototype.init = function(){
 }
 
 Dashboard.prototype.doOnPageLoad = function () {
-	common().getData(DashboardData.getAllNewsURL,data,Dashboard().fillnewspanel);
+	//common().getData(DashboardData.getAllNewsURL,data,Dashboard().fillnewspanel);
 };
 
 Dashboard.prototype.newsPost = function () {
@@ -39,7 +39,7 @@ Dashboard.prototype.newsPost = function () {
 
 Dashboard.prototype.callOnAddSuccess = function(obj) {
 	if(obj.statusCode == "1") {
-		 alert("SUC");
+		  
 		 console.log(JSON.stringify(obj));
 		 User().doOnPageLoad();	
 	} else {
@@ -55,12 +55,13 @@ Dashboard.prototype.fillnewspanel = function (data) {
 	console.log("asdfa"+data);
 	var defaulttemp ='';
 	if(data != null){
-		//console.log("GET-ALL-NEWS-->"+JSON.stringify(data));
-		$.each(data, function(i, obj) {
+		console.log("GET-ALL-NEWS-->"+JSON.stringify(data));
+		$.each(data.responseData.entries, function(i, obj) {
 			
-			defaulttemp += '<div class="daily-news"id="'+obj.newsId+'">';
-			defaulttemp	+= '<div class="newsHeading"><b><span>'+obj.newsTitle+'</span></b></div>';
-			defaulttemp += '<div class="newsDescription">'+obj.description+'</div>';
+			defaulttemp += '<div class="daily-news"id="'+obj.url+'">';
+			defaulttemp	+= '<div class="newsHeading"><b><span>'+obj.title+'</span></b></div>';
+			defaulttemp += '<div class="newsDescription">'+obj.contentSnippet+'</div>';
+			defaulttemp += '<div class="newsURL"><a href='+obj.link+'>'+obj.link+'</a></div>';
 			defaulttemp	+= '</div>';
 			
 		});

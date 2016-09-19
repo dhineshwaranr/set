@@ -1,12 +1,23 @@
 package org.sreematheducationaltrust.controller;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.social.connect.ConnectionRepository;
+import org.springframework.social.twitter.api.CursoredList;
+import org.springframework.social.twitter.api.Twitter;
+import org.springframework.social.twitter.api.TwitterProfile;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,24 +36,51 @@ import org.sreematheducationaltrust.domain.MenuBar;
 import org.sreematheducationaltrust.domain.News;
 import org.sreematheducationaltrust.domain.Services;
 import org.sreematheducationaltrust.service.AdminTaskPanelService;
+import org.sreematheducationtrust.dto.TwitterDTO;
+
+import com.sreematheducationaltrust.social.TwitterInbound;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
 	AdminTaskPanelService adminTaskPanelService;
+	@Autowired
+	TwitterInbound twitterInbound;
 	
-	/*@RequestMapping("/dashboard")
-	public ModelAndView dashboard(){
-		ModelAndView model = new ModelAndView();
-		model.setViewName("dashboard");
-		return model;
-	}*/
 	
 	@RequestMapping("/dashboard")
-	public ModelAndView dashboard(){
+	public ModelAndView dashboard() throws Exception{
 		ModelMap model = populateModel();
 		return new ModelAndView("dashboard","model",model);
+	}
+	
+	public TwitterDTO getTweets(){
+		//twitterInbound.runMe();
+		return null;
+	}
+	
+	@RequestMapping(value="/getFeeds/{categoryChoosen}", method=RequestMethod.GET)
+	@ResponseBody
+	public String getFeeds(@PathVariable String categoryChoosen) throws Exception{
+		System.out.println("Category--->"+categoryChoosen);
+		try{
+			URL url = new URL("https://ajax.googleapis.com/ajax/services/feed/find?v=1.0&q="+categoryChoosen);
+			URLConnection connection = url.openConnection();
+			connection.addRequestProperty("Referer", "http://localhost:8080/sreematheducationaltrust");
+		
+			String line;
+			StringBuilder builder = new StringBuilder();
+			BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			while((line = reader.readLine()) != null) {
+			 builder.append(line);
+			}
+			System.out.println(builder.toString());
+			return builder.toString();
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return "null";
 	}
 	
 	@ResponseBody
@@ -97,9 +135,9 @@ public class HomeController {
 			List<MenuBar> menu = adminTaskPanelService.getMenuItems(Integer.parseInt(languageChoosen));
 			langObjects.add(1,menu);
 		}
-		return langObjects;
+		//return langObjects;
+		return null;
 	}
-	
 	
 	@ResponseBody
 	@RequestMapping(value="/getAllNews",method=RequestMethod.GET)
@@ -166,4 +204,6 @@ public class HomeController {
 		model.put("lang",lang);
 		return model;
 	}
+	
+	
 }

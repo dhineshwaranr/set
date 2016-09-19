@@ -79,5 +79,7 @@
 	<!-- News Controller Service & DAO -->
 	<bean id="adminTaskPanelService" class="org.sreematheducationaltrust.service.AdminTaskPanelServiceImpl"></bean>
 	<bean id="adminTaskPanelDAO" class="org.sreematheducationaltrust.dao.AdminTaskPanelDAOImpl"></bean>
+	<bean id="twitterInbound" class="com.sreematheducationaltrust.social.TwitterInbound"></bean>
+	
    
 </beans>

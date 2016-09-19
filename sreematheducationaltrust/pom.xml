@@ -274,8 +274,25 @@
 	<artifactId>dandelion-core</artifactId>
 	<version>0.10.0</version>
 </dependency>
-	 
-	 
+<!-- Social Profile Integration -->	 
+<dependency>
+    <groupId>org.springframework.social</groupId>
+    <artifactId>spring-social-twitter</artifactId>
+    <version>1.1.2.RELEASE</version>
+</dependency>
+<!-- <dependency>
+    <groupId>org.springframework.integration</groupId>
+    <artifactId>spring-integration-core</artifactId>
+    <version>4.3.1.RELEASE</version>      	
+</dependency> -->
+
+<dependency>
+      <groupId>org.springframework.integration</groupId>
+      <artifactId>spring-integration-twitter</artifactId>
+      <version>4.3.1.RELEASE</version>
+      <scope>compile</scope>
+    </dependency>
+<!--  -->	 
 </dependencies>
   <build>
     <finalName>sreematheducationaltrust</finalName>
